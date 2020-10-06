@@ -1,19 +1,14 @@
 # Morphological Transducer for Ancient Greek
 
 PATTERNS
-NOUN[ᾱ, ᾱς, η]
+NOUN
 
 PATTERN NOUN
-NounStem [<n>:] Gender CaseNumber
-
-LEXICON Gender
-<m>: [ο]
-<f>: [η]
-<nt>: [το]
+NounStem[ᾱ ᾱς η] [<n><f>:] CaseNumber[ᾱ ᾱς η]
 
 LEXICON CaseNumber
-<nom><sg>:ᾱ
-<gen><sg>:ᾱς
+<nom><sg>:ᾱ[ᾱ ᾱς η]
+<gen><sg>:ᾱς[ᾱ ᾱς η]
 
 LEXICON NounStem
-θεᾱ:θε [ᾱ, ᾱς, η]
+θεᾱ:θε[ᾱ ᾱς η]
