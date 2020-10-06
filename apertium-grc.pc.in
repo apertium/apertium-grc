@@ -1,0 +1,8 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+srcdir=@datarootdir@/apertium/apertium-grc
+
+Name: apertium-grc
+Description: Finite-state morphological transducer and constraint grammar for Ancient Greek
+Version: @VERSION@
+
