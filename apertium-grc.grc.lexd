@@ -2,13 +2,91 @@
 
 PATTERNS
 NOUN
+VERB
 
 PATTERN NOUN
-NounStem[ᾱ ᾱς η] [<n><f>:] CaseNumber[ᾱ ᾱς η]
+NounStem[ᾱ,ᾱς,η] [<n><f>:] CaseNumber[ᾱ,ᾱς,η]
 
 LEXICON CaseNumber
-<nom><sg>:ᾱ[ᾱ ᾱς η]
-<gen><sg>:ᾱς[ᾱ ᾱς η]
+<nom><sg>:ᾱ[ᾱ,ᾱς,η]
+<gen><sg>:ᾱς[ᾱ,ᾱς,η]
 
 LEXICON NounStem
-θεᾱ:θε[ᾱ ᾱς η]
+θεᾱ:θε[ᾱ,ᾱς,η]
+
+PATTERN VERB
+VerbStem1 [<v><ind><actv><impf><pres>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+VerbStem2 [<v><ind><actv><impf><fut>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
+VerbStemAug1 [<v><ind><actv><impf><past>:] (ThematicVowelInd VerbSecondary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+VerbStem1 [<v><ind>:] ([<midv>:]|[<pass>:]) [<impf><pres>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+VerbStem2 [<v><ind><midv><impf><fut>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
+VerbStemAug1 [<v><ind>:] ([<midv>:]|[<pass>:]) [<impf><past>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+
+VerbStem1 [<v><ind><actv><impf><inf>:ειν]
+VerbStem1 [<v><ind><pass><impf><inf>:εσθαι]
+VerbStem2 [<v><ind><actv><impf><inf>:ειν]
+VerbStem2 [<v><ind><midv><impf><inf>:εσθαι]
+
+PATTERN VerbStem1
+VerbRootRegular
+
+PATTERN VerbStemAug1
+[:{ε}] VerbRootRegular
+
+PATTERN VerbStem2
+VerbRootRegular [:σ]
+
+LEXICON VerbPrimary1
+[1sg]<p1><sg>:{+long}
+[2sg]<p2><sg>:{σ}ισ
+[3sg]<p3><sg>:{σ}ι
+[1pl]<p1><pl>:μεν
+[2pl]<p2><pl>:τε
+[3pl]<p3><pl>:{+long}σι
+
+LEXICON VerbImperative1
+[2sgi]<p2><sg>:
+[3sgi]<p3><sg>:τω
+[2pli]<p2><pl>:τε
+[3pli]<p3><pl>:ντων
+
+LEXICON VerbSecondary1
+[1sg]<p1><sg>:μ
+[2sg]<p2><sg>:σ
+[3sg]<p3><sg>:
+[1pl]<p1><pl>:μεν
+[2pl]<p2><pl>:τε
+[3pl]<p3><pl>:ντ # τ always drops?
+
+LEXICON VerbPrimary2
+[1sg]<p1><sg>:μαι
+[2sg]<p2><sg>:{σ}αι
+[3sg]<p3><sg>:ται
+[1pl]<p1><pl>:μεθα
+[2pl]<p2><pl>:σθε
+[3pl]<p3><pl>:νται
+
+LEXICON VerbSecondary2
+[1sg]<p1><sg>:μην
+[2sg]<p2><sg>:{σ}ο
+[3sg]<p3><sg>:το
+[1pl]<p1><pl>:μεθα
+[2pl]<p2><pl>:σθε
+[3pl]<p3><pl>:ντο
+
+LEXICON ThematicVowelInd
+:ο[1sg]
+:ο[1pl]
+:ο[3pl]
+:ε[2sg]
+:ε[3sg]
+:ε[2pl]
+
+LEXICON ThematicVowelImp
+:ο[3pli]
+:ε[2sgi]
+:ε[2pli]
+:ε[3sgi]
+
+LEXICON VerbRootRegular
+παιδευω:παιδευ
