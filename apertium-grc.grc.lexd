@@ -1,5 +1,14 @@
 # Morphological Transducer for Ancient Greek
 
+# {ε} verb past tense augment
+# {+long} lengthening
+# {σ} disappearing sigma
+# {(ν)} movable nu
+
+##################################################
+# NOUNS
+##################################################
+
 PATTERNS
 NOUN
 VERB
@@ -13,6 +22,10 @@ LEXICON CaseNumber
 
 LEXICON NounStem
 θεᾱ:θε[ᾱ,ᾱς,η]
+
+##################################################
+# Ω VERBS
+##################################################
 
 PATTERN VERB
 VerbStem1 [<v><ind><actv><impf><pres>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
@@ -90,3 +103,33 @@ LEXICON ThematicVowelImp
 
 LEXICON VerbRootRegular
 παιδευω:παιδευ
+
+##################################################
+# ΜΙ VERBS
+##################################################
+
+LEXICON MILengthening
+:{+long}[1sg]
+:{+long}[2sg]
+:{+long}[3sg]
+:[1pl]
+:[2pl]
+:[3pl]
+
+LEXICON MIEndings(3)
+[1sg]<p1><sg>:μι      :ον  :κα
+[2sg]<p2><sg>:σ       :εσ  :κασ
+[3sg]<p3><sg>:σι{(ν)} :ε   :κε{(ν)}
+[1pl]<p1><pl>:μεν     :μεν :μεν
+[2pl]<p2><pl>:τε      :τε  :τε
+[3pl]<p3><pl>:σι{(ν)} :σαν :σαν
+
+PATTERNS
+[:{redup}ι] MIVerbRoot [<v><ind><actv><impf><pres>:] (MILengthening MIEndings(1))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{ε}{redup}ι] MIVerbRoot [<v><ind><actv><impf><past>:] (MILengthening MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{ε}] MIVerbRoot[1aor] [<v><ind><actv><aor><past>:] (MILengthening MIEndings(1): :MIEndings(3))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{ε}] MIVerbRoot[2aor] [<v><ind><actv><aor><past>:{+long}] (MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+
+LEXICON MIVerbRoot
+διδωμι:δο[1aor]
+ιστημι:στα[2aor]
