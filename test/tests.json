@@ -1,0 +1,10 @@
+{
+    "analysis": {
+        "input": "analysis-input.txt",
+        "mode": "grc-disam"
+    },
+    "generation": {
+        "input": "generation-input.txt",
+        "mode": "grc-gener"
+    }
+}

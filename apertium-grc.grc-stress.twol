@@ -2,9 +2,10 @@ Alphabet
  Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω
  α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω
  ς
- %{'%} %{%~%} %{%+long%} ! pass these through to the stress twol file
- %{σ%}:0
- %{ε%}:ε %{ε%}:e
+ %{'%}:0 %{%~%}:0 %{%+long%}:0
+ Α:Ά Ε:Έ Η:Ή Ι:Ί Ο:Ό Υ:Ύ Ω:Ώ
+ α:ά ε:έ η:ή ι:ί ο:ό υ:ύ ω:ώ
+ α:ᾶ η:ῆ ι:ῖ υ:ῦ ω:ῶ
  ;
 
 Sets
@@ -12,14 +13,26 @@ Sets
 Vowel = Α Ε Η Ι Ο Υ Ω
         α ε η ι ο υ ω ;
 
+ShortVowel = Α Ε Ι Ο Υ
+             α ε ι ο υ ;
+
 Consonant = Β Γ Δ Ζ Θ Κ Λ Μ Ν Ξ Π Ρ Σ Τ Φ Χ Ψ
             β γ δ ζ θ κ λ μ ν ξ π ρ σ τ φ χ ψ
                                     ς ;
 
 Rules
 
-"augment is ε only before consonants"
-%{ε%}:ε <=> _ Consonant ;
+"short final stress"
+Vx:Vy <=> _ %{'%}:0 Consonant* .#. ;
+    where Vx in ( Α Ε Ι Ο Υ α ε ι ο υ )
+          Vy in ( Ά Έ Ί Ό Ύ ά έ ί ό ύ )
+          matched ;
+
+"short-short marked"
+Vx:Vy <=> _ %{'%}:0 Consonant+ ShortVowel Consonant* .#. ;
+    where Vx in ( Α Ε Ι Ο Υ α ε ι ο υ )
+          Vy in ( Ά Έ Ί Ό Ύ ά έ ί ό ύ )
+          matched ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

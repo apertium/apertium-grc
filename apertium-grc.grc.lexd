@@ -4,6 +4,8 @@
 # {+long} lengthening
 # {σ} disappearing sigma
 # {(ν)} movable nu
+# {'} stress location (assign stress to vowel preceding last of these)
+# {~} stress location, circumflex if possible
 
 ##################################################
 # NOUNS
@@ -12,16 +14,32 @@
 PATTERNS
 NOUN
 VERB
+Punctuation
 
 PATTERN NOUN
 NounStem[ᾱ,ᾱς,η] [<n><f>:] CaseNumber[ᾱ,ᾱς,η]
+NounStem[ος,ου,η] [<n><f>:] CaseNumber[ος,ου,η]
+
+ProperNouns[indec,sg] CaseNumber[indec,sg]
 
 LEXICON CaseNumber
 <nom><sg>:ᾱ[ᾱ,ᾱς,η]
 <gen><sg>:ᾱς[ᾱ,ᾱς,η]
 
+<nom><sg>:ος[ος,ου,η]
+
+<nom><sg>:[indec,sg]
+<gen><sg>:[indec,sg]
+<dat><sg>:[indec,sg]
+<acc><sg>:[indec,sg]
+<voc><sg>:[indec,sg]
+
 LEXICON NounStem
+βιβλος:βι{'}βλ[ος,ου,η]
 θεᾱ:θε[ᾱ,ᾱς,η]
+
+LEXICON ProperNouns
+Δαβιδ<np><ant><m>:Δαβι{'}δ[indec,sg]
 
 ##################################################
 # Ω VERBS
@@ -31,14 +49,18 @@ PATTERN VERB
 VerbStem1 [<v><ind><actv><impf><pres>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 VerbStem2 [<v><ind><actv><impf><fut>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
 VerbStemAug1 [<v><ind><actv><impf><past>:] (ThematicVowelInd VerbSecondary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-VerbStem1 [<v><ind>:] ([<midv>:]|[<pass>:]) [<impf><pres>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+VerbStem1 [<v><ind>:] MP [<impf><pres>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 VerbStem2 [<v><ind><midv><impf><fut>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
-VerbStemAug1 [<v><ind>:] ([<midv>:]|[<pass>:]) [<impf><past>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+VerbStemAug1 [<v><ind>:] MP [<impf><past>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 
 VerbStem1 [<v><ind><actv><impf><inf>:ειν]
 VerbStem1 [<v><ind><pass><impf><inf>:εσθαι]
 VerbStem2 [<v><ind><actv><impf><inf>:ειν]
 VerbStem2 [<v><ind><midv><impf><inf>:εσθαι]
+
+LEXICON MP
+<midv>:
+<pass>:
 
 PATTERN VerbStem1
 VerbRootRegular
@@ -55,7 +77,7 @@ LEXICON VerbPrimary1
 [3sg]<p3><sg>:{σ}ι
 [1pl]<p1><pl>:μεν
 [2pl]<p2><pl>:τε
-[3pl]<p3><pl>:{+long}σι
+[3pl]<p3><pl>:{+long}σι{(ν)}
 
 LEXICON VerbImperative1
 [2sgi]<p2><sg>:
@@ -116,20 +138,36 @@ LEXICON MILengthening
 :[2pl]
 :[3pl]
 
-LEXICON MIEndings(3)
-[1sg]<p1><sg>:μι      :ον  :κα
-[2sg]<p2><sg>:σ       :εσ  :κασ
-[3sg]<p3><sg>:σι{(ν)} :ε   :κε{(ν)}
-[1pl]<p1><pl>:μεν     :μεν :μεν
-[2pl]<p2><pl>:τε      :τε  :τε
-[3pl]<p3><pl>:σι{(ν)} :σαν :σαν
+LEXICON MIEndings(6)
+# 1 = pres act ind
+# 2 = impf act ind, 2nd aor act ind
+# 3 = 1st aor act ind
+# 4 = pres mid/pass ind
+# 5 = impf mid/pass ind
+[1sg]<p1><sg>:μι      :ον  :κα      :μαι  :μην  :μην
+[2sg]<p2><sg>:σ       :εσ  :κασ     :σαι  :σο   :{σ}ο
+[3sg]<p3><sg>:σι{(ν)} :ε   :κε{(ν)} :ται  :το   :το
+[1pl]<p1><pl>:μεν     :μεν :μεν     :μεθα :μεθα :μεθα
+[2pl]<p2><pl>:τε      :τε  :τε      :σθε  :σθε  :σθε
+[3pl]<p3><pl>:σι{(ν)} :σαν :σαν     :νται :ντο  :ντο
 
 PATTERNS
 [:{redup}ι] MIVerbRoot [<v><ind><actv><impf><pres>:] (MILengthening MIEndings(1))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 [:{ε}{redup}ι] MIVerbRoot [<v><ind><actv><impf><past>:] (MILengthening MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 [:{ε}] MIVerbRoot[1aor] [<v><ind><actv><aor><past>:] (MILengthening MIEndings(1): :MIEndings(3))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 [:{ε}] MIVerbRoot[2aor] [<v><ind><actv><aor><past>:{+long}] (MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{redup}ι] MIVerbRoot [<v><ind>:] MP [<impf><pres>:] VerbPrimary2
+[:{redup}ι] MIVerbRoot [<v><ind>:] MP [<impf><past>:] (MIEndings(1): :MIEndings(4))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{ε}] MIVerbRoot[1aor] [<v><ind><midv><aor><past>:] VerbSecondary2
+[:{redup}ι] MIVerbRoot [<v><sub><actv><impf><pres>:{+long}] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+MIVerbRoot [<v><sub><actv><aor><past>:{+long}] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{redup}ι] MIVerbRoot [<v><sub>:] MP [<impf><pres>:{+long}] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 
 LEXICON MIVerbRoot
 διδωμι:δο[1aor]
 ιστημι:στα[2aor]
+
+LEXICON Punctuation
+,<cm>:,
+.<sent>:.
+;<sent>:;
