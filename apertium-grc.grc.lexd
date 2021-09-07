@@ -14,11 +14,17 @@
 PATTERNS
 NOUN
 VERB
+Determiners
+Conjunctions
+Prepositions
+PersonalPronouns
+Negation
 Punctuation
 
 PATTERN NOUN
 NounStem[ᾱ,ᾱς,η] [<n><f>:] CaseNumber[ᾱ,ᾱς,η]
 NounStem[ος,ου,η] [<n><f>:] CaseNumber[ος,ου,η]
+NounStem[ος,ου,ο] [<n><m>:] CaseNumber[ος,ου,ο]
 
 ProperNouns[indec,sg] CaseNumber[indec,sg]
 
@@ -27,6 +33,8 @@ LEXICON CaseNumber
 <gen><sg>:ᾱς[ᾱ,ᾱς,η]
 
 <nom><sg>:ος[ος,ου,η]
+
+<gen><sg>:ου{~}[ος,ου,ο] # TODO: is this right for stress?
 
 <nom><sg>:[indec,sg]
 <gen><sg>:[indec,sg]
@@ -37,6 +45,7 @@ LEXICON CaseNumber
 LEXICON NounStem
 βιβλος:βι{'}βλ[ος,ου,η]
 θεᾱ:θε[ᾱ,ᾱς,η]
+θεος:θε[ος,ου,ο]
 
 LEXICON ProperNouns
 Δαβιδ<np><ant><m>:Δαβι{'}δ[indec,sg]
@@ -166,6 +175,95 @@ MIVerbRoot [<v><sub><actv><aor><past>:{+long}] (ThematicVowelInd VerbPrimary1)[^
 LEXICON MIVerbRoot
 διδωμι:δο[1aor]
 ιστημι:στα[2aor]
+
+LEXICON Determiners
+τ<det><def><m><sg><nom>:ὁ
+τ<det><def><m><sg><gen>:του{~}
+τ<det><def><m><sg><dat>:τῳ{~}
+τ<det><def><m><sg><acc>:το{'}ν
+τ<det><def><m><pl><nom>:οἱ
+τ<det><def><m><pl><gen>:τω{~}ν
+τ<det><def><m><pl><dat>:τοι{~}ς
+τ<det><def><m><pl><acc>:του{'}ς
+
+τ<det><def><f><sg><nom>:ἡ
+τ<det><def><f><sg><gen>:τη{~}ς
+τ<det><def><f><sg><dat>:τῃ{~}
+τ<det><def><f><sg><acc>:τη{'}ν
+τ<det><def><f><pl><nom>:αἱ
+τ<det><def><f><pl><gen>:τω{~}ν
+τ<det><def><f><pl><dat>:ται{~}ς
+τ<det><def><f><pl><acc>:τα{'}ς # TODO: long
+
+τ<det><def><nt><sg><nom>:το{'}
+τ<det><def><nt><sg><gen>:του{~}
+τ<det><def><nt><sg><dat>:τῳ{~}
+τ<det><def><nt><sg><acc>:το{'}
+τ<det><def><nt><pl><nom>:τα{'} # TODO: long
+τ<det><def><nt><pl><gen>:τω{~}ν
+τ<det><def><nt><pl><dat>:τοι{~}ς
+τ<det><def><nt><pl><acc>:τα{'} # TOOD: long
+
+LEXICON Conjunctions
+αλλα<cnjcoo>:ἀλλα{'}
+δε<cnjcoo>:δε{'}
+γαρ<cnjcoo>:γα{'}ρ
+και<cnjcoo>:καὶ # TODO: handle grave properly
+
+LEXICON Prepositions # page 383
+# TODO: abbreviated forms
+αμφι<pr>:ἀμφι{'}
+ανα<pr>:ἀνα{'}
+αντι<pr>:ἀντι{'}
+απο<pr>:ἀπο{'}
+δια<pr>:δια{'}
+εις<pr>:εἰς
+εκ<pr>:ἐκ
+εν<pr>:ἐν
+επι<pr>:ἐπι{'}
+κατα<pr>:κατα{'}
+μετα<pr>:μετα{'}
+παρα<pr>:παρα{'}
+περι<pr>:περι{'}
+προ<pr>:προ{'}
+προς<pr>:προ{'}ς
+συν<pr>:συ{'}ν
+υπερ<pr>:ὑπε{'}ρ
+υπο<pr>:ὑπο{'}
+
+LEXICON PersonalPronouns
+μο<prn><pers><p1><sg><nom>:ἐγω{'}
+μο<prn><pers><p1><sg><gen>:ἐμου{~}
+μο<prn><pers><p1><sg><gen>:μου
+μο<prn><pers><p1><sg><dat>:ἐμοι{'}
+μο<prn><pers><p1><sg><dat>:μοι
+μο<prn><pers><p1><sg><acc>:ἐμε{'}
+μο<prn><pers><p1><sg><acc>:με
+
+ημε<prn><pers><p1><pl><nom>:ἡμει{~}ς
+ημε<prn><pers><p1><pl><gen>:ἡμω{~}ν
+ημε<prn><pers><p1><pl><dat>:ἡμι{~}ν # TODO: length
+ημε<prn><pers><p1><pl><acc>:ἡμα{~}ς # TODO: length
+
+σο<prn><pers><p2><sg><nom>:συ{'}
+σο<prn><pers><p2><sg><gen>:σου{~}
+σο<prn><pers><p2><sg><gen>:σου
+σο<prn><pers><p2><sg><dat>:σοι{'}
+σο<prn><pers><p2><sg><dat>:σοι
+σο<prn><pers><p2><sg><acc>:σε{'}
+σο<prn><pers><p2><sg><acc>:σε
+
+# TODO: long υ
+υμε<prn><pers><p2><pl><nom>:ὐμει{~}ς
+υμε<prn><pers><p2><pl><gen>:ὐμω{~}ν
+υμε<prn><pers><p2><pl><dat>:ὐμι{~}ν # TODO: length
+υμε<prn><pers><p2><pl><acc>:ὐμα{~}ς # TODO: length
+
+LEXICON Negation
+μη<adv>:μη{'}
+ουκ<adv>:οὐ
+ουκ<adv>:οὐκ
+ουκ<adv>:οὐχ
 
 LEXICON Punctuation
 ,<cm>:,

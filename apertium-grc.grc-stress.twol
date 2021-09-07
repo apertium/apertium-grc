@@ -6,15 +6,21 @@ Alphabet
  Α:Ά Ε:Έ Η:Ή Ι:Ί Ο:Ό Υ:Ύ Ω:Ώ
  α:ά ε:έ η:ή ι:ί ο:ό υ:ύ ω:ώ
  α:ᾶ η:ῆ ι:ῖ υ:ῦ ω:ῶ
+ ῃ:ῄ ῃ:ῇ ῳ:ῴ ῳ:ῷ
  ;
 
 Sets
 
 Vowel = Α Ε Η Ι Ο Υ Ω
-        α ε η ι ο υ ω ;
+        α ε η ι ο υ ω
+        ῃ ῳ ;
 
 ShortVowel = Α Ε Ι Ο Υ
              α ε ι ο υ ;
+
+LongVowel = Η Ω
+            η ω
+            ῃ ῳ ;
 
 Consonant = Β Γ Δ Ζ Θ Κ Λ Μ Ν Ξ Π Ρ Σ Τ Φ Χ Ψ
             β γ δ ζ θ κ λ μ ν ξ π ρ σ τ φ χ ψ
@@ -33,6 +39,12 @@ Vx:Vy <=> _ %{'%}:0 Consonant+ ShortVowel Consonant* .#. ;
     where Vx in ( Α Ε Ι Ο Υ α ε ι ο υ )
           Vy in ( Ά Έ Ί Ό Ύ ά έ ί ό ύ )
           matched ;
+
+"long final circumflex"
+Vx:Vy <=> _ %{%~%}:0 Consonant* .#. ;
+    where Vx in ( η ω ῃ ῳ )
+          Vy in ( ῆ ῶ ῇ ῷ )
+          matched;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

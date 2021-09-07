@@ -1,7 +1,9 @@
 [
-	! Unify apostrophe styles
-	[ ?* [ ' (->) [ %` | ʻ | ’ | ‘ | ʼ ] ] ?* ] .o.
-
-	! Accept input without diacritics
-	[ ?* [ á (->) a ] ?* ]
+    ! grave accent hack TODO
+    [ ?* [ ά (->) ὰ ] ?* ] .o.
+    [ ?* [ έ (->) ὲ ] ?* ] .o.
+    [ ?* [ ή (->) ὴ ] ?* ] .o.
+    [ ?* [ ί (->) ὶ ] ?* ] .o.
+    [ ?* [ ό (->) ὸ ] ?* ] .o.
+    [ ?* [ ύ (->) ὺ ] ?* ]
 ]
