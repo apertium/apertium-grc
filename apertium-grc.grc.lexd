@@ -24,9 +24,11 @@ Punctuation
 PATTERN NOUN
 NounStem[ᾱ,ᾱς,η] [<n><f>:] CaseNumber[ᾱ,ᾱς,η]
 NounStem[ος,ου,η] [<n><f>:] CaseNumber[ος,ου,η]
-NounStem[ος,ου,ο] [<n><m>:] CaseNumber[ος,ου,ο]
+NounStem[ος,ου,ο,'$] [<n><m>:] CaseNumber[ος,ου,ο,'$]
+NounStem[ος,ου,ο,-'$] [<n><m>:] CaseNumber[ος,ου,ο,-'$]
 
 ProperNouns[indec,sg] CaseNumber[indec,sg]
+ProperNouns[ος,ου,ο,'$,sg] CaseNumber[ος,ου,ο,'$,sg]
 
 LEXICON CaseNumber
 <nom><sg>:ᾱ[ᾱ,ᾱς,η]
@@ -34,7 +36,25 @@ LEXICON CaseNumber
 
 <nom><sg>:ος[ος,ου,η]
 
-<gen><sg>:ου{~}[ος,ου,ο] # TODO: is this right for stress?
+<nom><sg>:ο{'}ς[ος,ου,ο,'$,sg]
+<gen><sg>:ου{~}[ος,ου,ο,'$,sg]
+<dat><sg>:ῳ{~}[ος,ου,ο,'$,sg]
+<acc><sg>:ο{'}ν[ος,ου,ο,'$,sg]
+
+<nom><sg>:οι{'}[ος,ου,ο,'$]
+<gen><sg>:ω{~}ν[ος,ου,ο,'$]
+<dat><sg>:οι{~}ς[ος,ου,ο,'$]
+<acc><sg>:ου{'}ς[ος,ου,ο,'$]
+
+<nom><sg>:ος[ος,ου,ο]
+<gen><sg>:ου[ος,ου,ο]
+<dat><sg>:ῳ[ος,ου,ο]
+<acc><sg>:ον[ος,ου,ο]
+
+<nom><sg>:οι[ος,ου,ο]
+<gen><sg>:ων[ος,ου,ο]
+<dat><sg>:οι[ος,ου,ο]
+<acc><sg>:ους[ος,ου,ο]
 
 <nom><sg>:[indec,sg]
 <gen><sg>:[indec,sg]
@@ -43,24 +63,28 @@ LEXICON CaseNumber
 <voc><sg>:[indec,sg]
 
 LEXICON NounStem
+αυτος:αὐτ[ος,ου,ο,'$]
 βιβλος:βι{'}βλ[ος,ου,η]
+κυριος:κυρι{'}[ος,ου,ο]
 θεᾱ:θε[ᾱ,ᾱς,η]
-θεος:θε[ος,ου,ο]
+θεος:θε[ος,ου,ο,'$]
 
 LEXICON ProperNouns
 Δαβιδ<np><ant><m>:Δαβι{'}δ[indec,sg]
+Ιησους<np><ant><m>:Ἰησ[ος,ου,ο,'$,sg] # TODO: check stem, conjugation
+Χριστος<np><ant><m>:Χριστ[ος,ου,ο,'$,sg] # TODO: check tags
 
 ##################################################
 # Ω VERBS
 ##################################################
 
 PATTERN VERB
-VerbStem1 [<v><ind><actv><impf><pres>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-VerbStem2 [<v><ind><actv><impf><fut>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
-VerbStemAug1 [<v><ind><actv><impf><past>:] (ThematicVowelInd VerbSecondary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-VerbStem1 [<v><ind>:] MP [<impf><pres>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-VerbStem2 [<v><ind><midv><impf><fut>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
-VerbStemAug1 [<v><ind>:] MP [<impf><past>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}] VerbStem1 [<v><ind><actv><impf><pres>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}] VerbStem2 [<v><ind><actv><impf><fut>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
+[:{'}] VerbStemAug1 [<v><ind><actv><impf><past>:] (ThematicVowelInd VerbSecondary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}] VerbStem1 [<v><ind>:] MP [<impf><pres>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}] VerbStem2 [<v><ind><midv><impf><fut>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
+[:{'}] VerbStemAug1 [<v><ind>:] MP [<impf><past>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 
 VerbStem1 [<v><ind><actv><impf><inf>:ειν]
 VerbStem1 [<v><ind><pass><impf><inf>:εσθαι]
@@ -133,6 +157,7 @@ LEXICON ThematicVowelImp
 :ε[3sgi]
 
 LEXICON VerbRootRegular
+λεγω:λεγ
 παιδευω:παιδευ
 
 ##################################################
@@ -161,16 +186,16 @@ LEXICON MIEndings(6)
 [3pl]<p3><pl>:σι{(ν)} :σαν :σαν     :νται :ντο  :ντο
 
 PATTERNS
-[:{redup}ι] MIVerbRoot [<v><ind><actv><impf><pres>:] (MILengthening MIEndings(1))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{ε}{redup}ι] MIVerbRoot [<v><ind><actv><impf><past>:] (MILengthening MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{ε}] MIVerbRoot[1aor] [<v><ind><actv><aor><past>:] (MILengthening MIEndings(1): :MIEndings(3))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{ε}] MIVerbRoot[2aor] [<v><ind><actv><aor><past>:{+long}] (MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{redup}ι] MIVerbRoot [<v><ind>:] MP [<impf><pres>:] VerbPrimary2
-[:{redup}ι] MIVerbRoot [<v><ind>:] MP [<impf><past>:] (MIEndings(1): :MIEndings(4))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{ε}] MIVerbRoot[1aor] [<v><ind><midv><aor><past>:] VerbSecondary2
-[:{redup}ι] MIVerbRoot [<v><sub><actv><impf><pres>:{+long}] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-MIVerbRoot [<v><sub><actv><aor><past>:{+long}] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{redup}ι] MIVerbRoot [<v><sub>:] MP [<impf><pres>:{+long}] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}{redup}ι] MIVerbRoot [<v><ind><actv><impf><pres>:] (MILengthening MIEndings(1))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}{ε}{redup}ι] MIVerbRoot [<v><ind><actv><impf><past>:] (MILengthening MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}{ε}] MIVerbRoot[1aor] [<v><ind><actv><aor><past>:] (MILengthening MIEndings(1): :MIEndings(3))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}{ε}] MIVerbRoot[2aor] [<v><ind><actv><aor><past>:{+long}] (MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}{redup}ι] MIVerbRoot [<v><ind>:] MP [<impf><pres>:] VerbPrimary2
+[:{'}{redup}ι] MIVerbRoot [<v><ind>:] MP [<impf><past>:] (MIEndings(1): :MIEndings(4))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}{ε}] MIVerbRoot[1aor] [<v><ind><midv><aor><past>:] VerbSecondary2
+[:{'}{redup}ι] MIVerbRoot [<v><sub><actv><impf><pres>:{+long}] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}] MIVerbRoot [<v><sub><actv><aor><past>:{+long}] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}{redup}ι] MIVerbRoot [<v><sub>:] MP [<impf><pres>:{+long}] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 
 LEXICON MIVerbRoot
 διδωμι:δο[1aor]
@@ -206,9 +231,14 @@ LEXICON Determiners
 
 LEXICON Conjunctions
 αλλα<cnjcoo>:ἀλλα{'}
+αλλα<cnjcoo>:ἀλλ # dir/LR TODO: apostrophe?
 δε<cnjcoo>:δε{'}
 γαρ<cnjcoo>:γα{'}ρ
+ινα<cnjsub>:ἱ{'}να
 και<cnjcoo>:καὶ # TODO: handle grave properly
+οτι<cnjsub>:ὁ{'}τι
+ουν<cnjcoo>:οὐ{~}ν  # TODO: check tag
+τε<cnjcoo>:τε
 
 LEXICON Prepositions # page 383
 # TODO: abbreviated forms
@@ -219,7 +249,9 @@ LEXICON Prepositions # page 383
 δια<pr>:δια{'}
 εις<pr>:εἰς
 εκ<pr>:ἐκ
-εν<pr>:ἐν
+εκ<pr>:ἐχ
+εκ<pr>:ἐξ # dir/LR
+εν<pr>:ἐν # dir/LR
 επι<pr>:ἐπι{'}
 κατα<pr>:κατα{'}
 μετα<pr>:μετα{'}
@@ -242,8 +274,8 @@ LEXICON PersonalPronouns
 
 ημε<prn><pers><p1><pl><nom>:ἡμει{~}ς
 ημε<prn><pers><p1><pl><gen>:ἡμω{~}ν
-ημε<prn><pers><p1><pl><dat>:ἡμι{~}ν # TODO: length
-ημε<prn><pers><p1><pl><acc>:ἡμα{~}ς # TODO: length
+ημε<prn><pers><p1><pl><dat>:ἡμι{+long}{~}ν
+ημε<prn><pers><p1><pl><acc>:ἡμα{+long}{~}ς
 
 σο<prn><pers><p2><sg><nom>:συ{'}
 σο<prn><pers><p2><sg><gen>:σου{~}
@@ -254,10 +286,10 @@ LEXICON PersonalPronouns
 σο<prn><pers><p2><sg><acc>:σε
 
 # TODO: long υ
-υμε<prn><pers><p2><pl><nom>:ὐμει{~}ς
-υμε<prn><pers><p2><pl><gen>:ὐμω{~}ν
-υμε<prn><pers><p2><pl><dat>:ὐμι{~}ν # TODO: length
-υμε<prn><pers><p2><pl><acc>:ὐμα{~}ς # TODO: length
+υμε<prn><pers><p2><pl><nom>:ὑμει{~}ς
+υμε<prn><pers><p2><pl><gen>:ὑμω{~}ν
+υμε<prn><pers><p2><pl><dat>:ὑμι{+long}{~}ν
+υμε<prn><pers><p2><pl><acc>:ὑμα{+long}{~}ς
 
 LEXICON Negation
 μη<adv>:μη{'}
@@ -269,3 +301,4 @@ LEXICON Punctuation
 ,<cm>:,
 .<sent>:.
 ;<sent>:;
+·<sent>:·

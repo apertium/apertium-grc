@@ -52,10 +52,10 @@ TARGETS_COMMON =			\
 	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
 .deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-twol.hfst .deps/$(LANG1)-stress.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd.hfst -2 .deps/$(LANG1)-stress.twol.hfst -o $@
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol.hfst -2 .deps/$(LANG1)-stress.twol.hfst -o $@
 
 .deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-twol.hfst .deps/$(LANG1)-stress.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd.hfst -2 .deps/$(LANG1)-stress.twol.hfst -o $@
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol.hfst -2 .deps/$(LANG1)-stress.twol.hfst -o $@
 
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@

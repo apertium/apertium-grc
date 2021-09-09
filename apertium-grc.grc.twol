@@ -3,6 +3,10 @@ Alphabet
  α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω
  ς
  ῃ ῳ
+ Ἀ Ἐ Ἠ Ἰ Ὀ   Ὠ
+ ἀ ἐ ἠ ἰ ὀ ὐ ὠ
+ Ἁ Ἑ Ἡ Ἱ Ὁ Ὑ Ὡ
+ ἁ ἑ ἡ ἱ ὁ ὑ ὡ
  %{'%} %{%~%} %{%+long%} ! pass these through to the stress twol file
  %{σ%}:0
  %{ε%}:ε %{ε%}:e
@@ -22,6 +26,12 @@ Rules
 
 "augment is ε only before consonants"
 %{ε%}:ε <=> _ Consonant ;
+
+"ο {+long} -> ω part 1"
+ο:ω <=> _ %{%+long%}: ;
+
+"ο {+long} -> ω part 1"
+%{%+long%}:0 <=> ο:ω _ ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
