@@ -41,23 +41,35 @@ Definitions
 
 LongVowel = [ SingleLongVowel | ShortVowel %{%+long%}:0 ] ;
 
-ShortFinal = [ ShortVowel Consonant? .#. | α ι .#. | ο ι .#. ] ;
+ShortFinal = [ ShortVowel Consonant .#. | ShortVowel .#. | α ι .#. | ο ι .#. ] ;
 
 Rules
 
-"short final stress"
+"marked short final acute"
 Vx:Vy <=> _ %{'%}:0 Consonant* .#. ;
     where Vx in ShortUnmarked
           Vy in ShortAcute
           matched ;
 
-"penult acute marked"
+"marked short penult acute"
 Vx:Vy <=> _ %{'%}:0 Consonant* Vowel+ Consonant* .#. ;
     where Vx in ShortUnmarked
           Vy in ShortAcute
           matched ;
 
-"long final circumflex"
+"marked long final acute"
+Vx:Vy <=> _ %{'%}:0 Consonant* .#. ;
+    where Vx in ( η ω ῃ ῳ )
+          Vy in ( ή ώ ῄ ῴ )
+          matched;
+
+"marked lengthened final acute"
+Vx:Vy <=> _ %{%+long%}:0 %{'%}:0 Consonant* .#. ;
+    where Vx in ( α ι υ ἀ ἰ ὐ ἁ ἱ ὑ )
+          Vy in ( ά ί ύ ἄ ἴ ὔ ἅ ἵ ὕ )
+          matched;
+
+"marked long final circumflex"
 Vx:Vy <=> _ %{%~%}:0 Consonant* .#. ;
     where Vx in ( η ω ῃ ῳ )
           Vy in ( ῆ ῶ ῇ ῷ )
@@ -71,6 +83,12 @@ Vx:Vy <=> _ %{%+long%}:0 %{%~%}:0 Consonant* .#. ;
 
 "diphthong final circumflex"
 Vx:Vy <=> Vowel _ %{%~%}:0 Consonant* .#. ;
+    where Vx in ( ι υ ἰ ὐ ἱ ὑ )
+          Vy in ( ῖ ῦ ἶ ὖ ἷ ὗ )
+          matched;
+
+"diphthong penult circumflex"
+Vx:Vy <=> Vowel _ %{%~%}:0 Consonant+ ShortFinal ;
     where Vx in ( ι υ ἰ ὐ ἱ ὑ )
           Vy in ( ῖ ῦ ἶ ὖ ἷ ὗ )
           matched;

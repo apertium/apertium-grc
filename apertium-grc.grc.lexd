@@ -11,14 +11,20 @@
 # NOUNS
 ##################################################
 
+# TODO: organize
+
 PATTERNS
 NOUN
 VERB
+Adjectives
+Copula
 Determiners
+RelativePronoun
 Conjunctions
 Prepositions
 PersonalPronouns
 Negation
+Demonstratives
 Punctuation
 
 PATTERN NOUN
@@ -26,9 +32,13 @@ NounStem[ᾱ,ᾱς,η] [<n><f>:] CaseNumber[ᾱ,ᾱς,η]
 NounStem[ος,ου,η] [<n><f>:] CaseNumber[ος,ου,η]
 NounStem[ος,ου,ο,'$] [<n><m>:] CaseNumber[ος,ου,ο,'$]
 NounStem[ος,ου,ο,-'$] [<n><m>:] CaseNumber[ος,ου,ο,-'$]
+NounStem[η,ης,η,'$] [<n><f>:] CaseNumber[η,ης,η,'$]
+NounStem[ο,ου,το,'$] [<n><nt>:] CaseNumber[ο,ου,το,'$]
 
 ProperNouns[indec,sg] CaseNumber[indec,sg]
 ProperNouns[ος,ου,ο,'$,sg] CaseNumber[ος,ου,ο,'$,sg]
+
+IrregProperNouns
 
 LEXICON CaseNumber
 <nom><sg>:ᾱ[ᾱ,ᾱς,η]
@@ -41,20 +51,44 @@ LEXICON CaseNumber
 <dat><sg>:ῳ{~}[ος,ου,ο,'$,sg]
 <acc><sg>:ο{'}ν[ος,ου,ο,'$,sg]
 
-<nom><sg>:οι{'}[ος,ου,ο,'$]
-<gen><sg>:ω{~}ν[ος,ου,ο,'$]
-<dat><sg>:οι{~}ς[ος,ου,ο,'$]
-<acc><sg>:ου{'}ς[ος,ου,ο,'$]
+<nom><pl>:οι{'}[ος,ου,ο,'$]
+<gen><pl>:ω{~}ν[ος,ου,ο,'$]
+<dat><pl>:οι{~}ς[ος,ου,ο,'$]
+<acc><pl>:ου{'}ς[ος,ου,ο,'$]
 
 <nom><sg>:ος[ος,ου,ο]
 <gen><sg>:ου[ος,ου,ο]
 <dat><sg>:ῳ[ος,ου,ο]
 <acc><sg>:ον[ος,ου,ο]
 
-<nom><sg>:οι[ος,ου,ο]
-<gen><sg>:ων[ος,ου,ο]
-<dat><sg>:οι[ος,ου,ο]
-<acc><sg>:ους[ος,ου,ο]
+<nom><pl>:οι[ος,ου,ο]
+<gen><pl>:ων[ος,ου,ο]
+<dat><pl>:οι[ος,ου,ο]
+<acc><pl>:ους[ος,ου,ο]
+
+<nom><sg>:η{'}[η,ης,η,'$]
+<gen><sg>:η{~}ς[η,ης,η,'$]
+<dat><sg>:ῃ{~}[η,ης,η,'$]
+<acc><sg>:η{'}ν[η,ης,η,'$]
+#<voc><sg>:[η,ης,η,'$]
+
+<nom><pl>:αι{'}[η,ης,η,'$]
+<gen><pl>:ω{~}ν[η,ης,η,'$]
+<dat><pl>:αι{~}ς[η,ης,η,'$]
+<acc><pl>:α{+long}{'}ς[η,ης,η,'$]
+#<voc><pl>:[η,ης,η,'$]
+
+<nom><sg>:ο{'}[ο,ου,το,'$]
+<gen><sg>:ου{~}[ο,ου,το,'$]
+<dat><sg>:ῳ{~}[ο,ου,το,'$]
+<acc><sg>:ο{'}[ο,ου,το,'$]
+#<voc><sg>:[ο,ου,το,'$]
+
+<nom><pl>:α{'}[ο,ου,το,'$]
+<gen><pl>:ω{~}ν[ο,ου,το,'$]
+<dat><pl>:οι{~}ς[ο,ου,το,'$]
+<acc><pl>:α{'}[ο,ου,το,'$]
+#<voc><pl>:[ο,ου,το,'$]
 
 <nom><sg>:[indec,sg]
 <gen><sg>:[indec,sg]
@@ -64,15 +98,39 @@ LEXICON CaseNumber
 
 LEXICON NounStem
 αυτος:αὐτ[ος,ου,ο,'$]
+αυτος:αὐτ[η,ης,η,'$]
+αυτος:αὐτ[ο,ου,το,'$]
 βιβλος:βι{'}βλ[ος,ου,η]
-κυριος:κυρι{'}[ος,ου,ο]
+κυριος:κυρι{'}[ος,ου,ο] # TODO: check accent
 θεᾱ:θε[ᾱ,ᾱς,η]
 θεος:θε[ος,ου,ο,'$]
 
 LEXICON ProperNouns
 Δαβιδ<np><ant><m>:Δαβι{'}δ[indec,sg]
-Ιησους<np><ant><m>:Ἰησ[ος,ου,ο,'$,sg] # TODO: check stem, conjugation
 Χριστος<np><ant><m>:Χριστ[ος,ου,ο,'$,sg] # TODO: check tags
+
+LEXICON IrregProperNouns
+Ιησους<np><ant><m><sg><nom>:Ἰησου{~}ς
+Ιησους<np><ant><m><sg><gen>:Ἰησου{~}
+Ιησους<np><ant><m><sg><dat>:Ἰησου{~}
+Ιησους<np><ant><m><sg><acc>:Ἰησου{~}ν
+Ιησους<np><ant><m><sg><voc>:Ἰησου{~}
+
+PATTERN Adjectives
+[πας<adj><m>:πα{'}ντ] AdjEndings(1): :AdjEndings(2)
+[πας<adj><f>:πα{+long}{'}σ] AdjEndings(1): :AdjEndings(3)
+[πας<adj><nt>:πα{'}ντ] AdjEndings(1): :AdjEndings(4)
+
+LEXICON AdjEndings(4)
+<nom><sg> ς     α  :
+<gen><sg> ο{'}ς ης ο{'}ς
+<dat><sg> ι{'}  ῃ  ι{'}
+<acc><sg> α     αν :
+
+<nom><pl> ες      αι        α
+<gen><pl> ων      ω{~}ν     ων
+<dat><pl> σι{(ν)} αις       σι{(ν)}
+<acc><pl> ας      α{+long}ς α
 
 ##################################################
 # Ω VERBS
@@ -201,6 +259,9 @@ LEXICON MIVerbRoot
 διδωμι:δο[1aor]
 ιστημι:στα[2aor]
 
+LEXICON Copula
+ειμι<vbser><ind><actv><impf><pres><p3><sg>:ἐστιν
+
 LEXICON Determiners
 τ<det><def><m><sg><nom>:ὁ
 τ<det><def><m><sg><gen>:του{~}
@@ -229,16 +290,35 @@ LEXICON Determiners
 τ<det><def><nt><pl><dat>:τοι{~}ς
 τ<det><def><nt><pl><acc>:τα{'} # TOOD: long
 
+LEXICON RelativePronoun
+ο<prn><rel><p3><m><sg><nom>:ὁ{'}ς
+ο<prn><rel><p3><m><sg><acc>:ὁ{'}ν
+
+η<prn><rel><p3><f><sg><nom>:ἡ{'}
+η<prn><rel><p3><f><sg><acc>:ἡ{'}ν
+
+ο<prn><rel><p3><nt><sg><nom>:ὁ{'}
+ο<prn><rel><p3><nt><sg><acc>:ὁ{'}
+
 LEXICON Conjunctions
 αλλα<cnjcoo>:ἀλλα{'}
 αλλα<cnjcoo>:ἀλλ # dir/LR TODO: apostrophe?
+αν<cnjcoo>:ἀ{'}ν # TODO: check tag
 δε<cnjcoo>:δε{'}
+ει<cnjcoo>:εἰ # TODO: check tag
 γαρ<cnjcoo>:γα{'}ρ
+η<cnjcoo>:ἠ{'}
 ινα<cnjsub>:ἱ{'}να
 και<cnjcoo>:καὶ # TODO: handle grave properly
+μεν<cnjcoo>:με{'}ν # TODO: check tag
 οτι<cnjsub>:ὁ{'}τι
 ουν<cnjcoo>:οὐ{~}ν  # TODO: check tag
 τε<cnjcoo>:τε
+ως<cnjsub>:ὡς
+
+ει<cnjcoo>+αν<cnjcoo>:ἐα{+long}{'}ν
+ει<cnjcoo>+αν<cnjcoo>:ἠ{'}ν
+ει<cnjcoo>+αν<cnjcoo>:ἀ{+long}{'}ν
 
 LEXICON Prepositions # page 383
 # TODO: abbreviated forms
@@ -296,6 +376,54 @@ LEXICON Negation
 ουκ<adv>:οὐ
 ουκ<adv>:οὐκ
 ουκ<adv>:οὐχ
+
+PATTERN Demonstratives
+[οδε:] DetPrn [<prx><m>:] ProxDem(1): :ProxDem(2) [:δε]
+[οδε:] DetPrn [<prx><f>:] ProxDem(1): :ProxDem(3) [:δε]
+[οδε:] DetPrn [<prx><nt>:] ProxDem(1): :ProxDem(4) [:δε]
+[ουτος:] DetPrn [<med><m>:] MedDem(1): :MedDem(2)
+[ουτος:] DetPrn [<med><f>:] MedDem(1): :MedDem(3)
+[ουτος:] DetPrn [<med><nt>:] MedDem(1): :MedDem(4)
+[εκεινος:] DetPrn [<dst><m>:ἐκει{'}ν] DistDem(1): :DistDem(2)
+[εκεινος:] DetPrn [<dst><f>:ἐκει{'}ν] DistDem(1): :DistDem(3)
+[εκεινος:] DetPrn [<dst><nt>:ἐκει{'}ν] DistDem(1): :DistDem(4)
+
+LEXICON DetPrn
+<det><dem>:
+<prn><dem>:
+
+LEXICON ProxDem(4)
+<sg><nom> ὁ{'}   ἡ{'}   το{'}
+<sg><gen> του{~} τη{~}  του{~}
+<sg><dat> τῳ{~}  τῃ{~}  τῳ{~}
+<sg><acc> το{'}ν τη{'}ν το{'}
+
+<pl><nom> οἱ{'}   αἱ{'}         τα{'}
+<pl><gen> τω{~}ν  τω{~}ν        τω{~}ν
+<pl><dat> τοι{~}σ ται{~}σ       τοι{~}σ
+<pl><acc> του{'}σ τα{+long}{'}σ τα{'}
+
+LEXICON MedDem(4)
+<sg><nom> οὑ{~}τος  αὑ{'}τη   του{~}το
+<sg><gen> του{'}του ταυ{'}της του{'}του
+<sg><dat> του{'}τῳ  ταυ{'}τῃ  του{'}τῳ
+<sg><acc> του{~}τον ταυ{'}την του{~}το
+
+<pl><nom> οὑ{~}τοι   αὑ{~}ται         ταυ{~}τα
+<pl><gen> του{'}των  του{'}των        του{'}των
+<pl><dat> του{'}τοις ταυ{'}ταις       του{'}τοις
+<pl><acc> του{'}τους ταυ{'}τα{+long}ς ταυ{~}τα
+
+LEXICON DistDem(4)
+<sg><nom> ος η  ο
+<sg><gen> ου ης ου
+<sg><dat> ῳ  ῃ  ῳ
+<sg><acc> ον ην ο
+
+<pl><nom> οι  αι        α
+<pl><gen> ων  ων        ων
+<pl><dat> οις αις       οις
+<pl><acc> ους α{+long}ς α
 
 LEXICON Punctuation
 ,<cm>:,
