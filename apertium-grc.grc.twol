@@ -10,6 +10,7 @@ Alphabet
  %{'%} %{%~%} %{%+long%} ! pass these through to the stress twol file
  %{σ%}:0
  %{ε%}:ε %{ε%}:e
+ %{'%?%}:0 %{'%?%}:%{'%} %{%~%?%}:0 %{%~%?%}:%{%~%} %{'%$%}:0
  ;
 
 Sets
@@ -32,6 +33,12 @@ Rules
 
 "ο {+long} -> ω part 1"
 %{%+long%}:0 <=> ο:ω _ ;
+
+"inserting noun acute stress marker"
+%{'%?%}:%{'%} <=> _ ?* %{'%$%}:0 ;
+
+"inserting noun circumflex stress marker"
+%{%~%?%}:%{%~%} <=> _ ?* %{'%$%}:0 ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

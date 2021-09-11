@@ -39,7 +39,7 @@ ShortAcute    = Ά Έ Ί Ό Ύ ά έ ί ό ύ Ἄ Ἔ Ἴ Ὄ ἄ ἔ ἴ ὄ �
 
 Definitions
 
-LongVowel = [ SingleLongVowel | ShortVowel %{%+long%}:0 ] ;
+LongVowel = [ SingleLongVowel | ShortVowel %{%+long%}:0 | Vowel [ ι | υ ] ] ;
 
 ShortFinal = [ ShortVowel Consonant .#. | ShortVowel .#. | α ι .#. | ο ι .#. ] ;
 
@@ -100,8 +100,7 @@ Vx:Vy <=> %{'%}:0 ?* _ Consonant+ Vowel Consonant+ ShortFinal ;
           matched ;
 
 "penult acute unmarked"
-Vx:Vy <=> %{'%}:0 ?* _ Consonant+ LongVowel Consonant* .#. ;
-          %{'%}:0 Consonant* _ Consonant+ Vowel+ Consonant* .#. ;
+Vx:Vy <=> %{'%}:0 ?* _ Consonant* LongVowel Consonant* .#. ;
     where Vx in ShortUnmarked
           Vy in ShortAcute
           matched ;

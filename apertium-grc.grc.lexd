@@ -6,6 +6,8 @@
 # {(ν)} movable nu
 # {'} stress location (assign stress to vowel preceding last of these)
 # {~} stress location, circumflex if possible
+# {'?} {~?} potential stress locations in noun suffixes
+# {'$} final symbol which enables {'?} and {~?}
 
 ##################################################
 # NOUNS
@@ -28,11 +30,9 @@ Demonstratives
 Punctuation
 
 PATTERN NOUN
-NounStem[ᾱ,ᾱς,η] [<n><f>:] CaseNumber[ᾱ,ᾱς,η]
 NounStem[ος,ου,η] [<n><f>:] CaseNumber[ος,ου,η]
 NounStem[ος,ου,ο,'$] [<n><m>:] CaseNumber[ος,ου,ο,'$]
 NounStem[ος,ου,ο,-'$] [<n><m>:] CaseNumber[ος,ου,ο,-'$]
-NounStem[η,ης,η,'$] [<n><f>:] CaseNumber[η,ης,η,'$]
 NounStem[ο,ου,το,'$] [<n><nt>:] CaseNumber[ο,ου,το,'$]
 
 ProperNouns[indec,sg] CaseNumber[indec,sg]
@@ -40,10 +40,20 @@ ProperNouns[ος,ου,ο,'$,sg] CaseNumber[ος,ου,ο,'$,sg]
 
 IrregProperNouns
 
-LEXICON CaseNumber
-<nom><sg>:ᾱ[ᾱ,ᾱς,η]
-<gen><sg>:ᾱς[ᾱ,ᾱς,η]
+NounStem[ᾱ,ᾱς,η,'$] [<n><f>:] (Dec1Sg(1): :Dec1Sg(2)) | Dec1Pl [:{'$}]
+NounStem[ᾱ,ᾱς,η,-'$] [<n><f>:] (Dec1Sg(1): :Dec1Sg(2)) | Dec1Pl
+NounStem[η,ης,η,'$] [<n><f>:] (Dec1Sg(1): :Dec1Sg(3)) | Dec1Pl [:{'$}]
+NounStem[η,ης,η,-'$] [<n><f>:] (Dec1Sg(1): :Dec1Sg(3)) | Dec1Pl
+NounStem[α,ης,η,'$] [<n><f>:] (Dec1Sg(1): :Dec1Sg(4)) | Dec1Pl [:{'$}]
+NounStem[α,ης,η,-'$] [<n><f>:] (Dec1Sg(1): :Dec1Sg(4)) | Dec1Pl
+NounStem[α,ας,η,'$] [<n><f>:] (Dec1Sg(1): :Dec1Sg(5)) | Dec1Pl [:{'$}]
+NounStem[α,ας,η,-'$] [<n><f>:] (Dec1Sg(1): :Dec1Sg(5)) | Dec1Pl
+NounStem[ης,ου,ο,'$] [<n><m>:] (Dec1Sg(1): :Dec1Sg(6)) | Dec1Pl [:{'$}]
+NounStem[ης,ου,ο,-'$] [<n><m>:] (Dec1Sg(1): :Dec1Sg(6)) | Dec1Pl
+NounStem[ᾱς,ου,ο,'$] [<n><m>:] (Dec1Sg(1): :Dec1Sg(7)) | Dec1Pl [:{'$}]
+NounStem[ᾱς,ου,ο,-'$] [<n><m>:] (Dec1Sg(1): :Dec1Sg(7)) | Dec1Pl
 
+LEXICON CaseNumber
 <nom><sg>:ος[ος,ου,η]
 
 <nom><sg>:ο{'}ς[ος,ου,ο,'$,sg]
@@ -66,18 +76,6 @@ LEXICON CaseNumber
 <dat><pl>:οι[ος,ου,ο]
 <acc><pl>:ους[ος,ου,ο]
 
-<nom><sg>:η{'}[η,ης,η,'$]
-<gen><sg>:η{~}ς[η,ης,η,'$]
-<dat><sg>:ῃ{~}[η,ης,η,'$]
-<acc><sg>:η{'}ν[η,ης,η,'$]
-#<voc><sg>:[η,ης,η,'$]
-
-<nom><pl>:αι{'}[η,ης,η,'$]
-<gen><pl>:ω{~}ν[η,ης,η,'$]
-<dat><pl>:αι{~}ς[η,ης,η,'$]
-<acc><pl>:α{+long}{'}ς[η,ης,η,'$]
-#<voc><pl>:[η,ης,η,'$]
-
 <nom><sg>:ο{'}[ο,ου,το,'$]
 <gen><sg>:ου{~}[ο,ου,το,'$]
 <dat><sg>:ῳ{~}[ο,ου,το,'$]
@@ -96,12 +94,34 @@ LEXICON CaseNumber
 <acc><sg>:[indec,sg]
 <voc><sg>:[indec,sg]
 
+LEXICON Dec1Sg(7)
+# 2 - Fᾱ
+# 3 - Fη
+# 4 - Fα/ης
+# 5 - Fα/ας
+# 6 - Mης
+# 7 - Mᾱς
+
+<nom><sg> α{+long}{'?}  η{'?}  α{'?}  α{'?}         η{'?}ς α{+long}{'?}ς
+<gen><sg> α{+long}{~?}ς η{~?}ς η{~?}ς α{+long}{~?}ς ου{~?} ου{~?}
+<dat><sg> ᾳ{~?}         ῃ{~?}  ῃ{~?}  ᾳ{~?}         ῃ{~?}  ᾳ{~?}
+<acc><sg> α{+long}{'?}ν η{'?}ν α{'?}ν α{'?}ν        η{'?}ν α{+long}{'?}ν
+<voc><sg> α{+long}{'?}  η{'?}  α{'?}  α{'?}         α{'?}  α{+long}{'?}
+
+LEXICON Dec1Pl
+<nom><pl>:αι{'?}
+<gen><pl>:ω{~}ν
+<dat><pl>:αι{~?}ς
+<acc><pl>:α{+long}{'?}ς
+<voc><pl>:αι{'?}
+
+
 LEXICON NounStem
 αυτος:αὐτ[ος,ου,ο,'$]
 αυτος:αὐτ[η,ης,η,'$]
 αυτος:αὐτ[ο,ου,το,'$]
 βιβλος:βι{'}βλ[ος,ου,η]
-κυριος:κυρι{'}[ος,ου,ο] # TODO: check accent
+κυριος:κυ{'}ρι[ος,ου,ο]
 θεᾱ:θε[ᾱ,ᾱς,η]
 θεος:θε[ος,ου,ο,'$]
 
