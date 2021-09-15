@@ -105,6 +105,13 @@ Vx:Vy <=> %{'%}:0 ?* _ Consonant* LongVowel Consonant* .#. ;
           Vy in ShortAcute
           matched ;
 
+"penult is initial diphthong"
+Vx:Vy <=> .#. %{'%}:0 Consonant* Vowel _ Consonant* ShortFinal ;
+    where Vx in ( ι υ ἰ ὐ ἱ ὑ )
+          Vy in ( ῖ ῦ ἶ ὖ ἷ ὗ )
+          matched;
+
+
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
 ! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome

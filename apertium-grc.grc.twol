@@ -9,8 +9,9 @@ Alphabet
  ἁ ἑ ἡ ἱ ὁ ὑ ὡ
  %{'%} %{%~%} %{%+long%} ! pass these through to the stress twol file
  %{σ%}:0
- %{ε%}:ε %{ε%}:e
+ %{ε%}:ε %{ε%}:0
  %{'%?%}:0 %{'%?%}:%{'%} %{%~%?%}:0 %{%~%?%}:%{%~%} %{'%$%}:0
+ %{%(ν%)%}:0 %{%(ν%)%}:ν
  ;
 
 Sets
@@ -28,6 +29,12 @@ Rules
 "augment is ε only before consonants"
 %{ε%}:ε <=> _ Consonant ;
 
+"aug + ε → εἰ part 1"
+%{ε%}:ε <=> _ ε: ;
+
+"aug + ε → εἰ part 2"
+ε:ἰ <=> %{ε%}:ε _ ;
+
 "ο {+long} -> ω part 1"
 ο:ω <=> _ %{%+long%}: ;
 
@@ -39,6 +46,9 @@ Rules
 
 "inserting noun circumflex stress marker"
 %{%~%?%}:%{%~%} <=> _ ?* %{'%$%}:0 ;
+
+"no final μ"
+μ:ν <=> _ .#. ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
