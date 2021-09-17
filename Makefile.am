@@ -28,7 +28,11 @@ TARGETS_COMMON =			\
 .deps/$(LANG1).twol.hfst: $(BASENAME).$(LANG1).twol .deps/.d
 	hfst-twolc $< -o $@
 
-.deps/$(LANG1)-stress.twol.hfst: $(BASENAME).$(LANG1)-stress.twol .deps/.d
+.deps/$(LANG1)-stress.lexd.hfst: $(BASENAME).$(LANG1)-stress.lexd .deps/.d
+	lexd $< .deps/$(LANG1)-stress.lexd.att
+	hfst-txt2fst .deps/$(LANG1)-stress.lexd.att -o $@
+
+.deps/$(LANG1)-syl.twol.hfst: $(BASENAME).$(LANG1)-syl.twol .deps/.d
 	hfst-twolc $< -o $@
 
 .deps/$(LANG1).RL.lexd: $(BASENAME).$(LANG1).lexd .deps/.d
@@ -51,11 +55,17 @@ TARGETS_COMMON =			\
 .deps/$(LANG1).LR.lexd-twol.hfst: .deps/$(LANG1).LR.lexd.hfst .deps/$(LANG1).twol.hfst
 	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
-.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-twol.hfst .deps/$(LANG1)-stress.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol.hfst -2 .deps/$(LANG1)-stress.twol.hfst -o $@
+.deps/$(LANG1).RL.lexd-twol-syl.hfst: .deps/$(LANG1).RL.lexd-twol.hfst .deps/$(LANG1)-syl.twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol.hfst -2 .deps/$(LANG1)-syl.twol.hfst -o $@
 
-.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-twol.hfst .deps/$(LANG1)-stress.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol.hfst -2 .deps/$(LANG1)-stress.twol.hfst -o $@
+.deps/$(LANG1).LR.lexd-twol-syl.hfst: .deps/$(LANG1).LR.lexd-twol.hfst .deps/$(LANG1)-syl.twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol.hfst -2 .deps/$(LANG1)-syl.twol.hfst -o $@
+
+.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-twol-syl.hfst .deps/$(LANG1)-stress.lexd.hfst
+	hfst-compose -1 .deps/$(LANG1).RL.lexd-twol-syl.hfst -2 .deps/$(LANG1)-stress.lexd.hfst -o $@
+
+.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-twol-syl.hfst .deps/$(LANG1)-stress.lexd.hfst
+	hfst-compose -1 .deps/$(LANG1).LR.lexd-twol-syl.hfst -2 .deps/$(LANG1)-stress.lexd.hfst -o $@
 
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@

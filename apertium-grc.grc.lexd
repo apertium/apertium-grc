@@ -657,7 +657,7 @@ LEXICON Conjunctions
 γαρ<cnjcoo>:γα{'}ρ
 η<cnjcoo>:ἠ{'}
 ινα<cnjsub>:ἱ{'}να
-και<cnjcoo>:καὶ # TODO: handle grave properly
+και<cnjcoo>:και{'}
 μεν<cnjcoo>:με{'}ν # TODO: check tag
 οτι<cnjsub>:ὁ{'}τι
 ουν<cnjcoo>:οὐ{~}ν  # TODO: check tag
@@ -786,6 +786,7 @@ LEXICON DistDem(4)
 <pl><dat> οις αις       οις
 <pl><acc> ους α{+long}ς α
 
+# TODO: keep this in sync with grc-stress.lexd
 LEXICON Punctuation
 ,<cm>:,
 .<sent>:.
