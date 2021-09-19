@@ -5,21 +5,21 @@
 "<Ίησοῦ>"
 	"*Ίησοῦ"
 "<Χριστοῦ>"
-	"*Χριστοῦ"
+	"Χριστος" np ant m gen sg
 "<,>"
 	"," cm
 "<υἱοῦ>"
-	"*υἱοῦ"
+	"υιος" n m gen sg
 "<Δαβίδ>"
-	"Δαβιδ" np ant m nom sg
 	"Δαβιδ" np ant m gen sg
-	"Δαβιδ" np ant m dat sg
+	"Δαβιδ" np ant m nom sg
 	"Δαβιδ" np ant m acc sg
+	"Δαβιδ" np ant m dat sg
 	"Δαβιδ" np ant m voc sg
 "<,>"
 	"," cm
 "<υἱοῦ>"
-	"*υἱοῦ"
+	"υιος" n m gen sg
 "<Άβραάμ>"
 	"*Άβραάμ"
 "<.>"

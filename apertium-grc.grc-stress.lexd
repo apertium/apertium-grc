@@ -8,17 +8,17 @@ Acute CC AnyAcuteVowel BD CC
 Acute (Consonant*) ShortVowel(2) BD UnmarkedSyllable (Consonant*)
 Prefix CC AnyVowel Acute (BD) CC AnyAcuteVowel (BD) FinalLongSyllable
 Prefix ShortVowel(2) Acute BD UnmarkedSyllable Consonant*
-Prefix AnyAcuteVowel Acute FinalLongSyllable
+Prefix AnyAcuteVowel Acute BD FinalLongSyllable
 Prefix LongVowel(3) (Acute | Circumflex) BD FinalShortSyllable
 Acute Consonant* LongVowel(3) BD FinalShortSyllable
 Acute Consonant* AnyAcuteVowel BD FinalLongSyllable
 
 # antepenultimate stress
 Prefix AnyAcuteVowel Acute BD UnmarkedSyllable FinalShortSyllable
-Acute IrrelevantSyllable* AnyAcuteVowel BD UnmarkedSyllable FinalShortSyllable
+Acute IrrelevantSyllable* CC AnyAcuteVowel BD UnmarkedSyllable FinalShortSyllable
 
 # no stress
-UnmarkedSyllable+ Consonant*
+UnmarkedSyllable+ Consonant* [']?
 
 # make sure this gets passed through
 Punctuation

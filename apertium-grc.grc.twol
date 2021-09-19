@@ -25,6 +25,9 @@ Consonant = Β Γ Δ Ζ Θ Κ Λ Μ Ν Ξ Π Ρ Σ Τ Φ Χ Ψ
             β γ δ ζ θ κ λ μ ν ξ π ρ σ τ φ χ ψ
                                     ς ;
 
+Dental = Τ Δ Θ
+         τ δ θ ;
+
 !Definitions
 
 ! vowel contractions
@@ -75,6 +78,10 @@ Rules
 
 "no final μ"
 μ:ν <=> _ .#. ;
+
+"no final dental"
+Cx:0 <=> _ .#. ;
+         where Cx in Dental ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
