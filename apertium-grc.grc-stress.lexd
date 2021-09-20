@@ -183,8 +183,14 @@ LEXICON LongVowel(3)
 ωὑ         ωὑ:ωὕ      ωὑ:ωὗ
 # TODO: capital iota subscript?
 ᾳ          ᾳ:ᾴ        ᾳ:ᾷ
+ᾀ          ᾀ:ᾄ        ᾀ:ᾆ
+ᾁ          ᾁ:ᾅ        ᾁ:ᾇ
 ῃ          ῃ:ῄ        ῃ:ῇ
+ᾐ          ᾐ:ᾔ        ᾐ:ᾖ
+ᾑ          ᾑ:ᾕ        ᾑ:ᾗ
 ῳ          ῳ:ῴ        ῳ:ῷ
+ᾠ          ᾠ:ᾤ        ᾠ:ᾦ
+ᾡ          ᾡ:ᾥ        ᾡ:ᾧ
 
 LEXICON Consonant
 Β

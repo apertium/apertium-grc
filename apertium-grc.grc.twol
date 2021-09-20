@@ -9,7 +9,7 @@ Alphabet
  ἁ ἑ ἡ ἱ ὁ ὑ ὡ
  %{'%} %{%~%} %{%+long%} ! pass these through to the stress twol file
  %{σ%}:0
- %{ε%}:ε %{ε%}:0
+ %{ε%}:ἐ %{ε%}:0
  %{'%?%}:0 %{'%?%}:%{'%} %{%~%?%}:0 %{%~%?%}:%{%~%} %{'%$%}:0
  %{%(ν%)%}:0 %{%(ν%)%}:ν
  %{%+%}:0
@@ -53,7 +53,7 @@ Dental = Τ Δ Θ
 Rules
 
 "augment is ε only before consonants"
-%{ε%}:ε <=> _ Consonant ;
+%{ε%}:ἐ <=> _ Consonant ;
 
 !"augment vowels"
 !<[ Augment ]> <==> _ ;
