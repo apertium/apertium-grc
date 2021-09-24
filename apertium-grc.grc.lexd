@@ -58,8 +58,8 @@ NounStem[ος,ου,η,'$] [<n><f>:] (Dec2(1): :Dec2(2)) [:{'$}]
 NounStem[ος,ου,η,-'$] [<n><f>:] (Dec2(1): :Dec2(2))
 NounStem[ος,ου,ο,'$] [<n><m>:] (Dec2(1): :Dec2(2)) [:{'$}]
 NounStem[ος,ου,ο,-'$] [<n><m>:] (Dec2(1): :Dec2(2))
-NounStem[ος,ου,το,'$] [<n><nt>:] (Dec2(1): :Dec2(3)) [:{'$}]
-[:{'}] NounStem[ος,ου,το,-'$] [<n><nt>:] (Dec2(1): :Dec2(3))
+NounStem[ον,ου,το,'$] [<n><nt>:] (Dec2(1): :Dec2(3)) [:{'$}]
+[:{'}] NounStem[ον,ου,το,-'$] [<n><nt>:] (Dec2(1): :Dec2(3))
 
 NounStem[dental,ος,η,'$] [<n><f>:] (Dec3(1): :Dec3(2)) [:{'$}]
 NounStem[dental,ος,η,-'$] [<n><f>:] (Dec3(1): :Dec3(2))
@@ -129,7 +129,7 @@ LEXICON Dec1Pl
 
 LEXICON Dec2(3)
 # 2 - MFος
-# 3 - Nος
+# 3 - Nον
 
 # TODO: ους = ο + ος
 
@@ -156,17 +156,17 @@ LEXICON Dec3(8)
 
 # TODO: merge ς with preceding labial/velar and delete τ
 
-<nom><sg> :       {'?}ς       ς       ς       ος    ις       ευ{'}ς
-<gen><sg> ος      ο{'?}ς      ος      ος      ους   εως      ε{'}ως
-<dat><sg> ι       ι{'?}       ι       ι       ει    ει       ει{~}
-<acc><sg> :       α{'?}       α       ν       ος    ιν       ε{'}α{+long}
-<voc><sg> :       {'?}ς       :       :       ος    ι        ευ{~}
+<nom><sg> :       {'?}ς       ς       ς       ος    ις         ευ{'}ς
+<gen><sg> ος      ο{'?}ς      ος      ος      ους   εω{-long}ς ε{'}ως
+<dat><sg> ι       ι{'?}       ι       ι       ει    ει         ει{~}
+<acc><sg> :       α{'?}       α       ν       ος    ιν         ε{'}α{+long}
+<voc><sg> :       {'?}ς       :       :       ος    ι          ευ{~}
 
-<nom><pl> α       ε{'?}ς      ες      ες      η     εις      η{~}ς
-<gen><pl> ων      ω{~?}ν      ων      ων      ω{~}ν εων      ε{'}ων
-<dat><pl> σι{(ν)} σι{'?}{(ν)} σι{(ν)} σι{(ν)} εσιν  εσι{(ν)} ευ{~}σι{(ν)}
-<acc><pl> α       α{'?}ς      ας      ας      η     εις      ε{'}α{+long}ς
-<voc><pl> α       ε{'?}ς      ες      ες      η     εις      η{~}ς
+<nom><pl> α       ε{'?}ς      ες      ες      η     εις        η{~}ς
+<gen><pl> ων      ω{~?}ν      ων      ων      ω{~}ν εων        ε{'}ων
+<dat><pl> σι{(ν)} σι{'?}{(ν)} σι{(ν)} σι{(ν)} εσιν  εσι{(ν)}   ευ{~}σι{(ν)}
+<acc><pl> α       α{'?}ς      ας      ας      η     εις        ε{'}α{+long}ς
+<voc><pl> α       ε{'?}ς      ες      ες      η     εις        η{~}ς
 
 LEXICON Dec3B(2)
 <nom><sg> η{'?}ρ
@@ -2352,18 +2352,29 @@ LEXICON Adjπας(4)
 ##################################################
 
 PATTERN VERB
-[:{'}] VerbStem1 [<v><ind><actv><impf><pres>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{'}] VerbStem2 [<v><ind><actv><impf><fut>:] (ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
-[:{'}] VerbStemAug1 [<v><ind><actv><impf><past>:] (ThematicVowelInd VerbSecondary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{'}] VerbStem1 [<v><ind>:] MP [<impf><pres>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{'}] VerbStem2 [<v><ind><midv><impf><fut>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]] # CHECK aspect
-[:{'}] VerbStemAug1 [<v><ind>:] MP [<impf><past>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{'}] VerbStemAug3[aor2] [<v><ind><actv><aor><past>:] (ThematicVowelInd VerbSecondary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{'}] VerbStemAug3[aor2] [<v><ind>:] MP [<aor><past>:] (ThematicVowelInd VerbSecondary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+# Present
+[:{'}] VerbStem1 [<v><ind><actv><impf><pres>:] ThemeP1
+[:{'}] VerbStem1 [<v><ind>:] MP [<impf><pres>:] ThemeP2
+
+# Future
+[:{'}] VerbStem2 [<v><ind><actv><impf><fut>:] ThemeP1
+[:{'}] VerbStem2 [<v><ind><midv><impf><fut>:] ThemeP2 # TODO: CHECK aspect
+
+# Imperfect
+[:{'}] VerbStemAug1 [<v><ind><actv><impf><past>:] ThemeS1
+[:{'}] VerbStemAug1 [<v><ind>:] MP [<impf><past>:] ThemeP2
+
+# Aorist
+[:{'}] VerbStemAug3[aor1] [<v><ind><actv><aor><past>:α] VerbPrimary1[^[1sg,2sg,1pl,2pl,3pl]]
+[:{'}] VerbStemAug3[aor1] [<v><ind><actv><aor><past><p3><sg>:ε{(ν)}]
+[:{'}] VerbStemAug3[aor1] [<v><ind>:] MP [<aor><past>:α] VerbSecondary2[^[1sg,3sg,1pl,2pl,3pl]]
+[:{'}] VerbStemAug3[aor1] [<v><ind>:] MP [<aor><past><p3><sg>:αι]
+[:{'}] VerbStemAug3[aor2] [<v><ind><actv><aor><past>:] ThemeS1
+[:{'}] VerbStemAug3[aor2] [<v><ind>:] MP [<aor><past>:] ThemeS2
 
 # TODO: double check
-[:{'}] VerbRootRegularDeponent [<v><ind><actv><impf><pres>:] (ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{'}] [:{ε}] VerbRootRegularDeponent [<v><ind><actv><aor><past>:] (ThematicVowelInd VerbSecondary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{'}] VerbRootRegularDeponent [<v><ind><actv><impf><pres>:] ThemeP2
+[:{'}] [:{ε}] VerbRootRegularDeponent [<v><ind><actv><aor><past>:] ThemeS1
 
 VerbStem1 [<v><ind><actv><impf><inf>:ειν]
 VerbStem1 [<v><ind><pass><impf><inf>:εσθαι]
@@ -2374,6 +2385,18 @@ VerbStem2 [<v><ind><midv><impf><inf>:εσθαι]
 [:{'}] VerbStem1 [<v><ind><actv><impf><pres><part><m>:] PresActPart(1): :PresActPart(2) [:{'$}]
 [:{'}] VerbStem1 [<v><ind><actv><impf><pres><part><f>:] PresActPart(1): :PresActPart(3) [:{'$}]
 [:{'}] VerbStem1 [<v><ind><actv><impf><pres><part><nt>:] PresActPart(1): :PresActPart(4) [:{'$}]
+
+PATTERN ThemeP1
+(ThematicVowelInd VerbPrimary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+
+PATTERN ThemeP2
+(ThematicVowelInd VerbPrimary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+
+PATTERN ThemeS1
+(ThematicVowelInd VerbSecondary1)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+
+PATTERN ThemeS2
+(ThematicVowelInd VerbSecondary2)[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 
 LEXICON MP
 <midv>:
@@ -3560,7 +3583,7 @@ LEXICON VerbRootRegular
 πλυνω:πλυ{'?}ν
 πνεω:πνε{'?}
 πνιγω:πνι{'?}γ
-ποιεω:ποιε{'?}
+ποιεω:ποιε{'?}[aor1]
 ποιμαινω:ποιμαι{'?}ν
 πολεμεω:πολεμε{'?}
 πορθεω:πορθε{'?}
@@ -4206,6 +4229,7 @@ LEXICON VerbRootRegularDeponent
 LEXICON VerbRootIrreg
 γινομαι:γεν[pp3,aor2]
 λεγω:επ[pp3,aor2]
+ποιεω:ποιησ[pp3,aor1]
 
 ##################################################
 # ΜΙ VERBS
@@ -4250,6 +4274,7 @@ LEXICON MIVerbRoot
 
 LEXICON Copula
 ειμι<vbser><ind><actv><impf><pres><p1><sg>:εἰμι
+ειμι<vbser><ind><actv><impf><pres><p2><pl>:ἐστε
 ειμι<vbser><ind><actv><impf><pres><p3><sg>:ἐστιν # TODO: clitics
 ειμι<vbser><ind><actv><impf><pres><p3><pl>:εἰσι{(ν)}
 
@@ -4351,6 +4376,9 @@ LEXICON Conjunctions
 αν<cnjcoo>:ἀ{'}ν # TODO: check tag
 δε<cnjcoo>:δε{'}
 ει<cnjcoo>:εἰ # TODO: check tag
+ειτε<cnjcoo>:ἐι{'}τε
+ειτε<cnjcoo>:ἐι{'}τ' # Dir/LR
+ειτε<cnjcoo>:ἐι{'}θ' # Dir/LR
 εως<cnjsub>:ἑ{'}ως
 γαρ<cnjcoo>:γα{'}ρ
 η<cnjcoo>:ἠ{'}
@@ -4364,6 +4392,7 @@ LEXICON Conjunctions
 ουτε<cnjcoo>:οὐ{'}τε # TODO: accent forced to ~
 τε<cnjcoo>:τε
 ως<cnjsub>:ὡς
+ωστε<cnjsub>:ὡ{'}στε
 
 ει<cnjcoo>+αν<cnjcoo>:ἐα{+long}{'}ν
 ει<cnjcoo>+αν<cnjcoo>:ἠ{'}ν
@@ -4514,6 +4543,8 @@ LEXICON Negation
 ουπω<adv>:οὐ{'}πω
 
 LEXICON Adverbs
+εκει<adv>:ἐκει{~}
+ετι<adv>:ἐ{'}τι
 νυν<adv>:νυ{+long}{~}ν
 ουτω<adv>:οὑ{'}τως # TODO: moveable sigma, which is the lemma?
 ουτω<adv>:οὑ{'}τω
@@ -4521,6 +4552,30 @@ LEXICON Adverbs
 τοτε<adv>:το{'}τε
 
 ιδου<adv><dem>:ἰδου{'} # TODO: tags
+
+ποθεν<adv><itg>:πο{'}θεν
+ποι<adv><itg>:ποι{~}
+ποτε<adv><itg>:πο{'}τε
+ποτε<adv><itg>:ποτ' # Dir/LR
+ποτε<adv><itg>:ποθ' # Dir/LR
+που<adv><itg>:που{~}
+πως<adv><itg>:πω{~}ς
+
+οποθεν<adv><itg>:ὁπο{'}θεν
+οποι<adv><itg>:ὁ{'}ποι
+οποτε<adv><itg>:ὁπο{'}τε
+οποτε<adv><itg>:ὁπο{'}τ' # Dir/LR
+οποτε<adv><itg>:ὁπο{'}θ' # Dir/LR
+οπου<adv><itg>:ὁ{'}που
+οπως<adv><itg>:ὁ{'}πως
+
+ποθεν<adv><ind>:ποθε{'}ν
+ποι<adv><ind>:ποι
+ποτε<adv><ind>:ποτε{'}
+ποτε<adv><ind>:ποτ' # Dir/LR
+ποτε<adv><ind>:ποθ' # Dir/LR
+που<adv><ind>:που
+πως<adv><ind>:πως
 
 PATTERN Demonstratives
 [οδε:] DetPrn [<prx><m>:] ProxDem(1): :ProxDem(2) [:δε]

@@ -7,8 +7,8 @@ Alphabet
  ἀ ἐ ἠ ἰ ὀ ὐ ὠ
  Ἁ Ἑ Ἡ Ἱ Ὁ Ὑ Ὡ
  ἁ ἑ ἡ ἱ ὁ ὑ ὡ
- %{'%} %{%~%} %{%+long%} ! pass these through to the stress twol file
- %{σ%}:0
+ %{'%} %{%~%} %{%+long%} %{%-long%} ! pass these through to the stress twol file
+ %{σ%}:0 %{σ%}:σ
  %{ε%}:ἐ %{ε%}:0
  %{'%?%}:0 %{'%?%}:%{'%} %{%~%?%}:0 %{%~%?%}:%{%~%} %{'%$%}:0
  %{%(ν%)%}:0 %{%(ν%)%}:ν
@@ -82,6 +82,12 @@ Rules
 "no final dental"
 Cx:0 <=> _ .#. ;
          where Cx in Dental ;
+
+"{σ} deletes between vowels"
+%{σ%}:0 <=> Vowel _ Vowel ;
+
+"final σ"
+σ:ς <=> _ .#. ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

@@ -102,6 +102,7 @@ LEXICON ShortVowel(2)
 ὑ ὑ:ὕ
 αῐ:αι αῐ:αί
 οῐ:οι οῐ:οί
+ω{-long}:ω ω{-long}:ώ
 
 LEXICON LongVowel(3)
 α{+long}:α α{+long}:ά α{+long}:ᾶ
