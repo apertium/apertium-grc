@@ -10,6 +10,7 @@ Prefix CC AnyVowel Acute (BD) CC AnyAcuteVowel (BD) FinalLongSyllable
 Prefix ShortVowel(2) Acute BD UnmarkedSyllable Consonant*
 Prefix AnyAcuteVowel Acute BD FinalLongSyllable
 Prefix LongVowel(3) (Acute | Circumflex) BD FinalShortSyllable
+Prefix LongVowel(2) ForceAcute BD FinalShortSyllable
 Acute Consonant* LongVowel(3) BD FinalShortSyllable
 Acute Consonant* AnyAcuteVowel BD FinalLongSyllable
 Acute IrrelevantSyllable* CC AnyAcuteVowel BD FinalLongSyllable
@@ -61,6 +62,9 @@ CC ShortVowel(1) BD CC
 
 LEXICON Acute
 {'}:
+
+LEXICON ForceAcute
+{'!}:
 
 LEXICON Circumflex
 {~}:

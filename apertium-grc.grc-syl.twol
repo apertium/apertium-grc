@@ -11,7 +11,7 @@ Alphabet
 
  ι:ῐ
  
- %{'%} %{%~%} %{%+long%} %{%-long%}
+ %{'%} %{'%!%} %{%~%} %{%+long%} %{%-long%}
  0:%{.%}
  ;
 
@@ -52,7 +52,7 @@ Consonant = Β Γ Δ Ζ Θ Κ Λ Μ Ν Ξ Π Ρ Σ Τ Φ Χ Ψ
 Rules
 
 "syllable boundary"
-0:%{.%} <=> Vowel: ( %{%+long%} | %{%-long%} ) ( %{'%} | %{%~%} ) _ [ Consonant | .#. | NonSecondDiph ] ;
+0:%{.%} <=> Vowel: ( %{%+long%} | %{%-long%} ) ( %{'%} | %{'%!%} | %{%~%} ) _ [ Consonant | .#. | NonSecondDiph ] ;
             InitialVowel _ Vowel ;
 
 "short αι / οι"

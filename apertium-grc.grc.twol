@@ -7,10 +7,14 @@ Alphabet
  ἀ ἐ ἠ ἰ ὀ ὐ ὠ
  Ἁ Ἑ Ἡ Ἱ Ὁ Ὑ Ὡ
  ἁ ἑ ἡ ἱ ὁ ὑ ὡ
- %{'%} %{%~%} %{%+long%} %{%-long%} ! pass these through to the stress twol file
- %{%+longd%}:0 %{%+longd%}:υ
+
+ ! pass these through to the stress twol file
+ %{'%} %{'%!%} %{%~%} %{%+long%} %{%-long%}
+
+ %{%+longd%}:0 %{%+longd%}:υ %{%+longd%}:%{%+long%}
  %{σ%}:0 %{σ%}:σ
  %{ε%}:ἐ %{ε%}:0
+ %{ε%~%}:0
  %{'%?%}:0 %{'%?%}:%{'%} %{%~%?%}:0 %{%~%?%}:%{%~%} %{'%$%}:0
  %{%(ν%)%}:0 %{%(ν%)%}:ν
  %{%+%}:0
@@ -63,6 +67,12 @@ Rules
 "aug + ε → εἰ part 1"
 %{ε%}:ε <=> _ ε: ;
 
+"aug + prep part 1"
+%{ε%}:0 <=> _ ?* %{ε%~%}:0 ;
+
+"aug + prep part 2"
+ο:ε <=> %{ε%}:0 ?* _ %{ε%~%}:0 ;
+
 "aug + ε → εἰ part 2"
 ε:ἰ <=> %{ε%}:ε _ ;
 
@@ -81,6 +91,15 @@ Rules
 "ε {+long} -> η part 2"
 %{%+long%}:0 <=> ε:η _ ;
 
+"ε' -> ει' after {+longd}"
+0:ι <=> ε _ %{'%} %{%+longd%}:0 ;
+
+"ε' -> ει' after {+longd} part 2"
+%{%+longd%}:0 <=> 0:ι %{'%} _ ;
+
+"{+longd} -> {+long}"
+%{%+longd%}:%{%+long%} <=> α _ ;
+
 "inserting noun acute stress marker"
 %{'%?%}:%{'%} <=> _ ?* %{'%$%}:0 ;
 
@@ -94,8 +113,9 @@ Rules
 "no final μ"
 μ:ν <=> _ .#. ;
 
-"no final dental"
+"no final dental or before σ"
 Cx:0 <=> _ .#. ;
+         _ [ :σ | :ς ] ;
          where Cx in Dental ;
 
 "{σ} deletes between vowels"
@@ -112,6 +132,13 @@ Cx:0 <=> _ .#. ;
 
 "final σ"
 σ:ς <=> _ .#. ;
+
+"assimilation"
+Cx:Cy <=> _ Cz ;
+          where Cx in ( π π β β φ φ κ κ γ γ χ χ )
+                Cy in ( β φ π φ π β γ χ κ χ κ γ )
+                Cz in ( δ θ τ θ τ δ δ θ τ θ τ δ )
+          matched ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
