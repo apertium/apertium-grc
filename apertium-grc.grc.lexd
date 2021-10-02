@@ -2,6 +2,7 @@
 
 # {ε} verb past tense augment
 # {+long} lengthening
+# {+longd} lengthening to diphthong
 # {σ} disappearing sigma
 # {(ν)} movable nu
 # {'} stress location (assign stress to vowel preceding last of these)
@@ -2352,35 +2353,65 @@ LEXICON Adjπας(4)
 ##################################################
 
 PATTERN VERB
+[:{'}] FiniteVerbs
+Infinitives
+Participles
+
+PATTERN FiniteVerbs
 # Present
-[:{'}] VerbStem1 [<v><ind><actv><impf><pres>:] ThemeP1
-[:{'}] VerbStem1 [<v><ind>:] MP [<impf><pres>:] ThemeP2
+VerbStem1 [<v><ind><actv><impf><pres>:] ThemeP1
+VerbStem1 [<v><ind>:] MP [<impf><pres>:] ThemeP2
+# TODO: variant 2sg ει
 
 # Future
-[:{'}] VerbStem2 [<v><ind><actv><impf><fut>:] ThemeP1
-[:{'}] VerbStem2 [<v><ind><midv><impf><fut>:] ThemeP2 # TODO: CHECK aspect
+VerbStem2 [<v><ind><actv><impf><fut>:] ThemeP1
+VerbStem2 [<v><ind><midv><impf><fut>:] ThemeP2 # TODO: CHECK aspect
+# TODO: variant 2sg ει
+VerbStem6 [<v><ind><pass><impf><fut>:{+long}σ] ThemeP2
+# TODO: variant 2sg ῃ
 
 # Imperfect
-[:{'}] VerbStemAug1 [<v><ind><actv><impf><past>:] ThemeS1
-[:{'}] VerbStemAug1 [<v><ind>:] MP [<impf><past>:] ThemeP2
+VerbStemAug1 [<v><ind><actv><impf><past>:] ThemeS1
+VerbStemAug1 [<v><ind>:] MP [<impf><past>:] ThemeS2
 
 # Aorist
-[:{'}] VerbStemAug3[aor1] [<v><ind><actv><aor><past>:α] VerbPrimary1[^[1sg,2sg,1pl,2pl,3pl]]
-[:{'}] VerbStemAug3[aor1] [<v><ind><actv><aor><past><p3><sg>:ε{(ν)}]
-[:{'}] VerbStemAug3[aor1] [<v><ind>:] MP [<aor><past>:α] VerbSecondary2[^[1sg,3sg,1pl,2pl,3pl]]
-[:{'}] VerbStemAug3[aor1] [<v><ind>:] MP [<aor><past><p3><sg>:αι]
-[:{'}] VerbStemAug3[aor2] [<v><ind><actv><aor><past>:] ThemeS1
-[:{'}] VerbStemAug3[aor2] [<v><ind>:] MP [<aor><past>:] ThemeS2
+VerbStemAug3[aor1] [<v><ind><actv><aor><past>:α] VerbSecondary1[-1sg,-3sg]
+VerbStemAug3[aor1] [<v><ind><actv><aor><past><p1><sg>:α]
+VerbStemAug3[aor1] [<v><ind><actv><aor><past><p3><sg>:ε{(ν)}]
+VerbStemAug3[aor1] [<v><ind><midv><aor><past>:α] VerbSecondary2[-2sg]
+VerbStemAug3[aor1] [<v><ind><midv><aor><past><p2><sg>:ω]
+
+VerbStemAug3[aor2] [<v><ind><actv><aor><past>:] ThemeS1
+VerbStemAug3[aor2] [<v><ind><midv><aor><past>:] ThemeS2
+
+VerbStemAug6 [<v><ind><pass><aor><past>:{+long}] VerbSecondary1[-3sg,-3pl]
+VerbStemAug6 [<v><ind><pass><aor><past><p3><sg>:{+long}]
+VerbStemAug6 [<v><ind><pass><aor><past><p3><pl>:{+long}σαν]
+
+# Perfect
+VerbStem4 [<v><ind><actv><perf><pres>:α] VerbSecondary1[-1sg,-3sg,-3pl]
+VerbStem4 [<v><ind><actv><perf><pres><p1><sg>:α]
+VerbStem4 [<v><ind><actv><perf><pres><p3><sg>:ε{(ν)}]
+VerbStem4 [<v><ind><actv><perf><pres><p3><pl>:α{+long}σι{(ν)}]
+VerbStem5 [<v><ind>:] MP [<perf><pres>:] VerbPrimary2[-2sg]
+VerbStem5 [<v><ind>:] MP [<perf><pres><p2><sg>:σαι]
+
+# Pluperfect
+VerbStemAug4 [<v><ind><actv><perf><past>:] VerbPluperfectActive
+VerbStemAug5 [<v><ind>:] MP [<perf><past>:] VerbSecondary2[-2sg]
+VerbStemAug5 [<v><ind>:] MP [<perf><past><p2><sg>:σο]
 
 # TODO: double check
-[:{'}] VerbRootRegularDeponent [<v><ind><actv><impf><pres>:] ThemeP2
-[:{'}] [:{ε}] VerbRootRegularDeponent [<v><ind><actv><aor><past>:] ThemeS1
+VerbRootRegularDeponent [<v><ind><actv><impf><pres>:] ThemeP2
+[:{ε}] VerbRootRegularDeponent [<v><ind><actv><aor><past>:] ThemeS1
 
+PATTERN Infinitives
 VerbStem1 [<v><ind><actv><impf><inf>:ειν]
 VerbStem1 [<v><ind><pass><impf><inf>:εσθαι]
 VerbStem2 [<v><ind><actv><impf><inf>:ειν]
 VerbStem2 [<v><ind><midv><impf><inf>:εσθαι]
 
+PATTERN Participles
 # TODO: tags, stress placement
 [:{'}] VerbStem1 [<v><ind><actv><impf><pres><part><m>:] PresActPart(1): :PresActPart(2) [:{'$}]
 [:{'}] VerbStem1 [<v><ind><actv><impf><pres><part><f>:] PresActPart(1): :PresActPart(3) [:{'$}]
@@ -2419,13 +2450,31 @@ VerbRootIrreg[pp3]
 PATTERN VerbStemAug3
 [:{ε}] VerbStem3
 
+PATTERN VerbStem4
+[:{redup}ε] VerbRootRegular [:κ]
+
+PATTERN VerbStemAug4
+[:{ε}] VerbStem4
+
+PATTERN VerbStem5
+[:{redup}ε] VerbRootRegular
+
+PATTERN VerbStemAug5
+[:{ε}] VerbStem5
+
+PATTERN VerbStem6
+VerbRootRegular [:θε]
+
+PATTERN VerbStemAug6
+[:{ε}] VerbStem6
+
 LEXICON VerbPrimary1
 [1sg]<p1><sg>:{+long}
 [2sg]<p2><sg>:{σ}ισ
 [3sg]<p3><sg>:{σ}ι
 [1pl]<p1><pl>:μεν
 [2pl]<p2><pl>:τε
-[3pl]<p3><pl>:{+long}σι{(ν)}
+[3pl]<p3><pl>:{+longd}σι{(ν)}
 
 LEXICON VerbImperative1
 [2sgi]<p2><sg>:
@@ -2456,6 +2505,14 @@ LEXICON VerbSecondary2
 [1pl]<p1><pl>:μεθα
 [2pl]<p2><pl>:σθε
 [3pl]<p3><pl>:ντο
+
+LEXICON VerbPluperfectActive
+[1sg]<p1><sg>:η
+[2sg]<p2><sg>:ης
+[3sg]<p3><sg>:ει{(ν)}
+[1pl]<p1><pl>:εμεν
+[2pl]<p2><pl>:ετε
+[3pl]<p3><pl>:εσαν
 
 LEXICON ThematicVowelInd
 :ο[1sg]
@@ -2493,7 +2550,7 @@ LEXICON PresActPart(4) # TODO: cleanup
 
 LEXICON VerbRootRegular
 λεγω:λεγ
-παιδευω:παιδευ
+παιδευω:παιδευ[aor1]
 
 # From Dodson
 # TODO: some of these might be non-verbs that happen to end in ω

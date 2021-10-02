@@ -8,11 +8,13 @@ Alphabet
  Ἁ Ἑ Ἡ Ἱ Ὁ Ὑ Ὡ
  ἁ ἑ ἡ ἱ ὁ ὑ ὡ
  %{'%} %{%~%} %{%+long%} %{%-long%} ! pass these through to the stress twol file
+ %{%+longd%}:0 %{%+longd%}:υ
  %{σ%}:0 %{σ%}:σ
  %{ε%}:ἐ %{ε%}:0
  %{'%?%}:0 %{'%?%}:%{'%} %{%~%?%}:0 %{%~%?%}:%{%~%} %{'%$%}:0
  %{%(ν%)%}:0 %{%(ν%)%}:ν
  %{%+%}:0
+ %{redup%}
  ;
 
 Sets
@@ -53,7 +55,7 @@ Dental = Τ Δ Θ
 Rules
 
 "augment is ε only before consonants"
-%{ε%}:ἐ <=> _ Consonant ;
+%{ε%}:ἐ <=> _ :Consonant ;
 
 !"augment vowels"
 !<[ Augment ]> <==> _ ;
@@ -67,14 +69,27 @@ Rules
 "ο {+long} -> ω part 1"
 ο:ω <=> _ %{%+long%}: ;
 
-"ο {+long} -> ω part 1"
+"ο {+long} -> ω part 2"
 %{%+long%}:0 <=> ο:ω _ ;
+
+"ο {+longd} -> ου"
+%{%+longd%}:υ <=> ο _ ;
+
+"ε {+long} -> η part 1"
+ε:η <=> _ %{%+long%}: ;
+
+"ε {+long} -> η part 2"
+%{%+long%}:0 <=> ε:η _ ;
 
 "inserting noun acute stress marker"
 %{'%?%}:%{'%} <=> _ ?* %{'%$%}:0 ;
 
 "inserting noun circumflex stress marker"
 %{%~%?%}:%{%~%} <=> _ ?* %{'%$%}:0 ;
+
+"reduplication"
+%{redup%}:Cx <=> _ ε Cx ;
+                 where Cx in Consonant ;
 
 "no final μ"
 μ:ν <=> _ .#. ;
@@ -84,7 +99,16 @@ Cx:0 <=> _ .#. ;
          where Cx in Dental ;
 
 "{σ} deletes between vowels"
-%{σ%}:0 <=> Vowel _ Vowel ;
+%{σ%}:0 <=> Vowel: _ Vowel: ;
+
+"vowel contraction ε + αι 1"
+ε:ῃ <=> _ [ %{σ%}:0 | %{%+%}:0 ] α: ι: ;
+
+"vowel contraction ε + αι 2"
+α:0 <=> ε:ῃ [ %{σ%}:0 | %{%+%}:0 ] _ ι: ;
+
+"vowel contraction ε + αι 3"
+ι:0 <=> ε:ῃ [ %{σ%}:0 | %{%+%}:0 ] α: _ ;
 
 "final σ"
 σ:ς <=> _ .#. ;

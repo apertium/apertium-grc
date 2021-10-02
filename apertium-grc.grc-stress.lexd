@@ -12,6 +12,7 @@ Prefix AnyAcuteVowel Acute BD FinalLongSyllable
 Prefix LongVowel(3) (Acute | Circumflex) BD FinalShortSyllable
 Acute Consonant* LongVowel(3) BD FinalShortSyllable
 Acute Consonant* AnyAcuteVowel BD FinalLongSyllable
+Acute IrrelevantSyllable* CC AnyAcuteVowel BD FinalLongSyllable
 
 # antepenultimate stress
 Prefix AnyAcuteVowel Acute BD UnmarkedSyllable FinalShortSyllable
@@ -53,10 +54,10 @@ PATTERN Prefix
 Acute? IrrelevantSyllable* Consonant*
 
 PATTERN FinalLongSyllable
-(Consonant*) LongVowel(1) BD (Consonant*)
+CC LongVowel(1) BD CC
 
 PATTERN FinalShortSyllable
-(Consonant*) ShortVowel(1) BD (Consonant*)
+CC ShortVowel(1) BD CC
 
 LEXICON Acute
 {'}:
