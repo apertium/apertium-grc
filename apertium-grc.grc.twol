@@ -19,6 +19,7 @@ Alphabet
  %{%(ν%)%}:0 %{%(ν%)%}:ν
  %{%+%}:0
  %{redup%}
+ %{%|%}:0
  ;
 
 Sets
@@ -60,12 +61,18 @@ Rules
 
 "augment is ε only before consonants"
 %{ε%}:ἐ <=> _ :Consonant ;
+            except _ ?* %{ε%~%}:0 ;
 
 !"augment vowels"
 !<[ Augment ]> <==> _ ;
 
 "aug + ε → εἰ part 1"
 %{ε%}:ε <=> _ ε: ;
+            _ ι:ἰ ;
+            except _ ?* %{ε%~%}:0 ;
+
+"breathing mark after augment"
+ι:ἰ <=> %{ε%}:ε _ ;
 
 "aug + prep part 1"
 %{ε%}:0 <=> _ ?* %{ε%~%}:0 ;
@@ -115,7 +122,7 @@ Rules
 
 "no final dental or before σ"
 Cx:0 <=> _ .#. ;
-         _ [ :σ | :ς ] ;
+         _ ( %{'%?%}: ) [ :σ | :ς ] ;
          where Cx in Dental ;
 
 "{σ} deletes between vowels"
