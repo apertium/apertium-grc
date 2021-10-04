@@ -84,10 +84,10 @@ Rules
 ε:ἰ <=> %{ε%}:ε _ ;
 
 "ο {+long} -> ω part 1"
-ο:ω <=> _ %{%+long%}: ;
+ο:ω <=> _ ( %{'%} ) %{%+long%}: ;
 
 "ο {+long} -> ω part 2"
-%{%+long%}:0 <=> ο:ω _ ;
+%{%+long%}:0 <=> ο:ω ( %{'%} ) _ ;
 
 "ο {+longd} -> ου"
 %{%+longd%}:υ <=> ο _ ;
@@ -146,6 +146,19 @@ Cx:Cy <=> _ Cz ;
                 Cy in ( β φ π φ π β γ χ κ χ κ γ )
                 Cz in ( δ θ τ θ τ δ δ θ τ θ τ δ )
           matched ;
+
+"stop before sigma part 1"
+Cx:Cy <=> _ σ:0 ;
+          where Cx in ( π β φ κ γ χ )
+                Cy in ( ψ ψ ψ ξ ξ ξ )
+          matched ;
+
+"stop before sigma part 2"
+σ:0 <=> Cx:Cy _  ;
+          where Cx in ( π β φ κ γ χ )
+                Cy in ( ψ ψ ψ ξ ξ ξ )
+          matched ;
+
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

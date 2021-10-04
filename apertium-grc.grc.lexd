@@ -57,13 +57,14 @@ NounStem[ηρ,ρος,η,-'$] (Dec3B(1): Dec3B(2))
 [:{'}] NormalStressNouns['$] [:{'$}]
 [:{'}] NormalStressNouns[-'$]
 
+[:{'}] NounStem[α,ης,η] (Dec1Sg(1): :Dec1Sg(4)) | Dec1Pl
+[:{'}] NounStem[α,ας,η] (Dec1Sg(1): :Dec1Sg(5)) | Dec1Pl
+#[:{'}] NounStem[ᾱς,ου,ο] (Dec1Sg(1): :Dec1Sg(7)) | Dec1Pl
+
 PATTERN NormalStressNouns
 NounStem[ᾱ,ᾱς,η] (Dec1Sg(1): :Dec1Sg(2)) | Dec1Pl
 NounStem[η,ης,η] (Dec1Sg(1): :Dec1Sg(3)) | Dec1Pl
-#NounStem[α,ης,η] (Dec1Sg(1): :Dec1Sg(4)) | Dec1Pl
-#NounStem[α,ας,η] (Dec1Sg(1): :Dec1Sg(5)) | Dec1Pl
 NounStem[ης,ου,ο] (Dec1Sg(1): :Dec1Sg(6)) | Dec1Pl
-#NounStem[ᾱς,ου,ο] (Dec1Sg(1): :Dec1Sg(7)) | Dec1Pl
 
 NounStem[ος,ου,η] (Dec2(1): :Dec2(2))
 NounStem[ος,ου,ο] (Dec2(1): :Dec2(2))
@@ -2386,7 +2387,7 @@ LEXICON ProperNouns
 Περγη:Πε{'}ργ[η,ης,η]
 Περσις:Περσι{'}δ[ις,δος,η,'$]
 Πετρος:Πε{'}τρ[ος,ου,ο]
-Πιλατος:Πιλα{'}τ[ος,ου,ο]
+Πιλατος:Πιλα{+long}{'}τ[ος,ου,ο]
 Πισιδια:Πισιδι{'}[ᾱ,ᾱς,η]
 Ποντιος:Πο{'}ντι[ος,ου,ο]
 Ποντος:Πο{'}ντ[ος,ου,ο]
@@ -3188,8 +3189,9 @@ LEXICON Adjπολλυς(4)
 
 PATTERN VERB
 [:{'}] FiniteVerbs
-Infinitives
+[:{'}] Infinitives
 [:{'}] Participles
+VerbIrreg
 
 PATTERN FiniteVerbs
 # Present
@@ -3241,10 +3243,21 @@ VerbRootRegularDeponent [<v><ind><actv><impf><pres>:] ThemeP2
 [:{ε}] VerbRootRegularDeponent [<v><ind><actv><aor><past>:] ThemeS1
 
 PATTERN Infinitives
-VerbStem1 [<v><ind><actv><impf><inf>:ειν]
-VerbStem1 [<v><ind><pass><impf><inf>:εσθαι]
-VerbStem2 [<v><ind><actv><impf><inf>:ειν]
-VerbStem2 [<v><ind><midv><impf><inf>:εσθαι]
+VerbStem1 [<v><ind><actv><impf><pres><inf>:ειν{'$}]
+VerbStem1 [<v><ind>:] MP [<impf><pres><inf>:εσθαι{'$}]
+
+VerbStem2 [<v><ind><actv><impf><fut><inf>:ειν{'$}]
+VerbStem2 [<v><ind><midv><impf><fut><inf>:εσθαι{'$}]
+VerbStem6 [<v><ind><pass><impf><fut><inf>:{+long}σεσθαι]
+
+VerbStem3[aor1] [<v><ind><actv><aor><pres><inf>:αι{'$}]
+VerbStem3[aor1] [<v><ind><midv><aor><pres><inf>:ασθαι]
+VerbStem3[aor2] [<v><ind><actv><aor><pres><inf>:ει{~}ν]
+VerbStem3[aor2] [<v><ind><midv><aor><pres><inf>:ε{'}σθαι]
+VerbStem6 [<v><ind><pass><aor><pres><inf>:{+long}{~}ναι]
+
+VerbStem4 [<v><ind><actv><perf><pres><inf>:ε{'}ναι]
+VerbStem5 [<v><ind>:] MP [<perf><pres><inf>:σθαι{'$}]
 
 PATTERN Participles
 # TODO: tags
@@ -3262,7 +3275,8 @@ VerbStem3[aor1] [<v><ind><actv><aor><past><part>:α] PartEndingsActv[-sgnom] [:{
 VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><nom><sg>:α{+long}ς] [:{'$}]
 VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><voc><sg>:α{+long}ς] [:{'$}]
 VerbStem3[aor1] [<v><ind><midv><aor><past><part>:αμεν] AdjDec12η
-# TODO: aor2 actv (stress issue)
+# TODO: this gives ο{'}{+longd}
+VerbStem3[aor2] [<v><ind><midv><aor><past><part>:ο{'}] PartEndingsActv
 VerbStem3[aor2] [<v><ind><midv><aor><past><part>:ομεν] AdjDec12η
 VerbStem6 [<v><ind><pass><aor><past><part>:{'}] PartEndingsActv[-sgnom]
 VerbStem6 [<v><ind><pass><aor><past><part><m><nom><sg>:ι{'}ς]
@@ -3304,6 +3318,7 @@ LEXICON MP
 
 PATTERN VerbStem1
 VerbRootRegular[pp1]
+VerbRootRegularDeponent [:[dep1]]
 
 PATTERN VerbStemAug1
 [:{ε}] VerbStem1
@@ -3477,7 +3492,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 αιχμαλωτιζω:αἰχμαλωτι{'?}ζ
 ακμαζω:ἀκμα{'?}ζ
 ακολουθεω:ἀκολουθε{'?}
-ακουω:ἀκου{'?}
+ακουω:ἀκου{'?}[aor1]
 ακριβοω:ἀκριβο{'?}
 ακυροω:ἀκυρο{'?}
 αλαλαζω:ἀλαλα{'?}ζ
@@ -5176,14 +5191,22 @@ LEXICON VerbRootRegularDeponent
 LEXICON VerbRootIrreg
 αποκρινω:ἀπο{ε~}κριθε[pp6]
 βαλλω:βαλ[pp3,aor2]
+εισερχομαι:εἰση{'}λθ[pp3a,aor2]
+ερχομαι:ἐλθ[pp3,aor2]
 ερχομαι:ἠλθ[pp3a,aor2]
-εξερχομαι:ἐξηλθ[pp3a,aor2]
+εξερχομαι:ἐξη{'}λθ[pp3a,aor2]
 γινομαι:γεν[pp3,aor2]
 κρινω:κριθε[pp6]
 λεγω:επ[pp3,aor2]
 λεγω:επ[pp3,aor1] # Use/Koine
 οραω:ιδ[pp3,aor2]
 ποιεω:ποιησ[pp3,aor1]
+
+LEXICON VerbIrreg
+δει<v><ind><actv><impf><pres><p3><sg>:δει{~}
+δει<v><ind><actv><impf><past><p3><sg>:ἐ{'}δει
+δει<v><ind><actv><impf><fut><p3><sg>:δεη{'}σει
+δει<v><ind><actv><aor><past><p3><sg>:ἐδε{'}ησε{(ν)}
 
 ##################################################
 # ΜΙ VERBS
@@ -5537,14 +5560,17 @@ LEXICON ItgPrn(3)
 
 LEXICON Negation
 μη<adv>:μη{'}
+μηκετι<adv>:μηκε{'}τι
 ουκ<adv>:οὐ
 ουκ<adv>:οὐκ
 ουκ<adv>:οὐχ
+ουκετι<adv>:οὐκε{'}τι
 ουπω<adv>:οὐ{'}πω
 
 LEXICON Adverbs
 αμην<adv>:ἀμη{'}ν # Use/Koine
 εκει<adv>:ἐκει{~}
+ευθυς<adv>:εὐθυ{'}ς
 ετι<adv>:ἐ{'}τι
 μαλιστα<adv>:μα{'}λιστα
 μαλλον<adv>:μα{+long}{~}λλον
@@ -5553,6 +5579,98 @@ LEXICON Adverbs
 ουτω<adv>:οὑ{'}τω
 παλιν<adv>:πα{'}λιν
 τοτε<adv>:το{'}τε
+ωδε<adv>:ὡ{~}δε
+
+# imported
+
+αγνως<adv>:ἁγνω{~}ς
+αδικως<adv>:ἀδι{'}κως
+ακαιρως<adv>:ἀκαι{'}ρως
+ακριβως<adv>:ἀκριβω{~}ς
+ακωλυτως<adv>:ἀκωλυ{'}τως
+αληθως<adv>:ἀληθω{~}ς
+αμεμπτως<adv>:ἀμε{'}μπτως
+αναγκαστως<adv>:ἀναγκαστω{~}ς
+αναντιρρητως<adv>:ἀναντιρρη{'}τως
+ανομως<adv>:ἀνο{'}μως
+απλως<adv>:ἁπλω{~}ς
+αποτομως<adv>:ἀποτο{'}μως
+ασμενως<adv>:ἀσμε{'}νως
+ασφαλως<adv>:ἀσφαλω{~}ς
+ασωτως<adv>:ἀσω{'}τως
+ατακτως<adv>:ἀτα{'}κτως
+αφνω<adv>:ἀ{'}φνω
+αφοβως<adv>:ἀφο{'}βως
+γνησιως<adv>:γνησι{'}ως
+δεινως<adv>:δεινω{~}ς
+δη<adv>:δη{'}
+δικαιως<adv>:δικαι{'}ως
+δις<adv>:δι{'}ς
+δυσκολως<adv>:δυσκο{'}λως
+δωρεαν<adv>:δωρεα{'}ν
+εκουσιως<adv>:ἑκουσι{'}ως
+εκτενεστερον<adv>:ἐκτενε{'}στερον
+εκτενως<adv>:ἐκτενω{~}ς
+εξαιφνης<adv>:ἐξαι{'}φνης
+εξαπινα<adv>:ἐξα{'}πινα
+επιμελως<adv>:ἐπιμελω{~}ς
+ετερως<adv>:ἑτε{'}ρως
+ετοιμως<adv>:ἑτοι{'}μως
+ευκαιρως<adv>:εὐκαι{'}ρως
+ευσεβως<adv>:εὐσεβω{~}ς
+ευσχημονως<adv>:εὐσχημο{'}νως
+ευτονως<adv>:εὐτο{'}νως
+η<adv>:ἠ{~}
+ηδιστα<adv>:ἡ{'}διστα
+κακως<adv>:κακω{~}ς
+καλως<adv>:καλω{~}ς
+κρυφη<adv>:κρυφη{~}{'}
+λαθρα<adv>:λα{'}θρα{'}
+λαμπρως<adv>:λαμπρω{~}ς
+λιαν<adv>:λι{'}αν
+λοιπου<adv>:λοιπου{~}
+μακροθυμως<adv>:μακροθυ{'}μως
+μαλιστα<adv>:μα{'}λιστα
+μεγαλως<adv>:μεγα{'}λως
+μενουνγε<adv>:μενου{~}νγε
+μετριως<adv>:μετρι{'}ως
+μην<adv>:μη{'}ν
+μογις<adv>:μο{'}γις
+μολις<adv>:μο{'}λις
+μονον<adv>:μο{'}νον
+νομιμως<adv>:νομι{'}μως
+νουνεχως<adv>:νουνεχω{~}ς
+ομοιως<adv>:ὁμοι{'}ως
+οντως<adv>:ὀ{'}ντως
+ορθως<adv>:ὀρθω{~}ς
+οσιως<adv>:ὁσι{'}ως
+πανοικι<adv>:πανοικι{'}
+παντως<adv>:πα{'}ντως
+παραπλησιον<adv>:παραπλη{'}σιον
+περισσως<adv>:περισσω{~}ς
+πικρως<adv>:πικρω{~}ς
+πλουσιως<adv>:πλουσι{'}ως
+πολλακις<adv>:πολλα{'}κις
+ποτε<adv>:ποτε{'}
+προθυμως<adv>:προθυ{'}μως
+προσφατως<adv>:προσφα{'}τως
+πρωτον<adv>:πρω{~}τον
+σπουδαιοτερον<adv>:σπουδαιο{'}τερον
+σπουδαιοτερως<adv>:σπουδαιοτε{'}ρως
+σπουδαιως<adv>:σπουδαι{'}ως
+συντομως<adv>:συντο{'}μως
+σφοδρως<adv>:σφοδρω{~}ς
+σωφρονως<adv>:σωφρο{'}νως
+ταχεως<adv>:ταχε{'}ως
+ταχιον<adv>:τα{'}χιον
+ταχυ<adv>:ταχυ{'}
+τηλαυγως<adv>:τηλαυγω{~}ς
+φανερως<adv>:φανερω{~}ς
+φειδομενως<adv>:φειδομε{'}νως
+φιλανθρωπως<adv>:φιλανθρω{'}πως
+φρονιμως<adv>:φρονι{'}μως
+φυσικως<adv>:φυσικω{~}ς
+
 
 ιδου<adv><dem>:ἰδου{'} # TODO: tags
 
