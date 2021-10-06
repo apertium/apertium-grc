@@ -2237,6 +2237,7 @@ LEXICON ProperNouns
 Ιωαννα:Ἰωα{'}νν[ᾱ,ᾱς,η]
 Ιωαναν:Ἰωανα{'}ν[indec,sg,ο]
 Ιωαννης:Ἰωα{'}νν[ης,ου,ο]
+Ιωανης:Ἰωα{'}ν[ης,ου,ο] # TODO: should these be merged?
 Ιωβ:Ἰω{'}β[indec,sg,ο]
 Ιωηλ:Ἰωη{'}λ[indec,sg,ο]
 Ιωναν:Ἰωνα{'}ν[indec,sg,ο]
@@ -3272,8 +3273,8 @@ VerbStem6 [<v><ind><pass><impf><fut><part>:{+long}σομεν] AdjDec12η
 
 # Aorist
 VerbStem3[aor1] [<v><ind><actv><aor><past><part>:α] PartEndingsActv[-sgnom] [:{'$}]
-VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><nom><sg>:α{+long}ς] [:{'$}]
-VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><voc><sg>:α{+long}ς] [:{'$}]
+VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><nom><sg>:{+}α{+long}ς] [:{'$}]
+VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><voc><sg>:{+}α{+long}ς] [:{'$}]
 VerbStem3[aor1] [<v><ind><midv><aor><past><part>:αμεν] AdjDec12η
 # TODO: this gives ο{'}{+longd}
 VerbStem3[aor2] [<v><ind><midv><aor><past><part>:ο{'}] PartEndingsActv
@@ -3324,10 +3325,10 @@ PATTERN VerbStemAug1
 [:{ε}] VerbStem1
 
 PATTERN VerbStem2
-VerbRootRegular[pp2] [:σ]
+VerbRootRegular[pp2] [:{+long}σ]
 
 PATTERN VerbStem3
-VerbRootRegular[pp3,aor1] [:σ]
+VerbRootRegular[pp3,aor1] [:{+long}σ]
 VerbRootRegular[pp3,aor2]
 VerbRootIrreg[pp3]
 
@@ -3336,7 +3337,7 @@ PATTERN VerbStemAug3
 VerbRootIrreg[pp3a]
 
 PATTERN VerbStem4
-[:{redup}ε] VerbRootRegular[pp4] [:κ]
+[:{redup}ε] VerbRootRegular[pp4] [:{+long}κ]
 
 PATTERN VerbStemAug4
 [:{ε}] VerbStem4
@@ -3401,12 +3402,12 @@ LEXICON VerbPluperfectActive
 [3pl]<p3><pl>:εσαν
 
 LEXICON ThematicVowelInd
-:ο[1sg]
-:ο[1pl]
-:ο[3pl]
-:ε[2sg]
-:ε[3sg]
-:ε[2pl]
+:{+}ο[1sg]
+:{+}ο[1pl]
+:{+}ο[3pl]
+:{+}ε[2sg]
+:{+}ε[3sg]
+:{+}ε[2pl]
 
 LEXICON ThematicVowelImp
 :ο[3pli]
@@ -5197,9 +5198,10 @@ LEXICON VerbRootIrreg
 εξερχομαι:ἐξη{'}λθ[pp3a,aor2]
 γινομαι:γεν[pp3,aor2]
 κρινω:κριθε[pp6]
-λεγω:επ[pp3,aor2]
-λεγω:επ[pp3,aor1] # Use/Koine
+λεγω:ειπ[pp3a,aor2]
+λεγω:ειπ[pp3a,aor1] # Use/Koine
 οραω:ιδ[pp3,aor2]
+οραω:ειδ[pp3a,aor2]
 ποιεω:ποιησ[pp3,aor1]
 
 LEXICON VerbIrreg
@@ -5380,6 +5382,10 @@ LEXICON Conjunctions
 ει<cnjcoo>+αν<cnjcoo>:ἠ{'}ν
 ει<cnjcoo>+αν<cnjcoo>:ἀ{+long}{'}ν
 
+# TOOD: tags
+αρα<part>:ἀ{+long}{~}ρα
+αρα<part>:ἀ{+long}{~}ρ' # Dir/LR
+
 PATTERN Relatives
 RelativeStems(1) [<adv><rel>:]
 RelativeStems(2) [<adv><ind>:]
@@ -5544,6 +5550,9 @@ PATTERN Itg/IndefPronouns
 [τις<prn><ind><mf>:] ItgPrn(1): :ItgPrn(2)
 [τις<prn><ind><nt>:] ItgPrn(1): :ItgPrn(3)
 [τις<prn><ind><nt><pl>:ἀ{'}ττα] ( [<nom>:] | [<acc>:] )
+[οστις<prn><itg><m>:] ItgPrnIndir(1): :ItgPrnIndir(2)
+[οστις<prn><itg><f>:] ItgPrnIndir(1): :ItgPrnIndir(3)
+[οστις<prn><itg><nt>:] ItgPrnIndir(1): :ItgPrnIndir(4)
 
 LEXICON ItgPrn(3)
 <sg><nom> τι{'?}ς       τι{'?}
@@ -5558,6 +5567,18 @@ LEXICON ItgPrn(3)
 <pl><dat> τι{'?}σι{(ν)} τι{'?}σι{(ν)}
 <pl><acc> τι{'?}νας     τι{'?}να
 
+# TODO: variant forms, weird accents (Groton 26/174)
+LEXICON ItgPrnIndir(4)
+<sg><nom> ὁ{'}στις        ἡ{'!}τις         ὁ{'}\ τι
+<sg><gen> οὑ{~}τινος      ἡ{~}στινος       οὑ{~}τινος
+<sg><dat> ᾡ{~}τινι        ᾑ{~}τινι         ᾡ{~}τινι
+<sg><acc> ὁ{'}ντινα       ἡ{'}ντινα        ὁ{'}\ τι
+
+<pl><nom> οἱ{'}τινες      αἱ{'}τινες       ἁ{'}τινα
+<pl><gen> ὡ{~}ντινων      ὡ{~}ντινων       ὡ{~}ντινων
+<pl><dat> οἱ{~}στισι{(ν)} αἱ{~}στισιν{(ν)} οἱ{~}στισι{(ν)}
+<pl><acc> οὑ{'}τινας      ἁ{'}στινας       ἁ{'}τινα
+
 LEXICON Negation
 μη<adv>:μη{'}
 μηκετι<adv>:μηκε{'}τι
@@ -5566,6 +5587,7 @@ LEXICON Negation
 ουκ<adv>:οὐχ
 ουκετι<adv>:οὐκε{'}τι
 ουπω<adv>:οὐ{'}πω
+ουχι<adv>:οὐχι{'}
 
 LEXICON Adverbs
 αμην<adv>:ἀμη{'}ν # Use/Koine
