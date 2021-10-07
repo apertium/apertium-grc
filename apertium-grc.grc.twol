@@ -20,6 +20,10 @@ Alphabet
  %{%+%}
  %{redup%}
  %{%|%}:0
+
+ %{g%+%}:0 %{g%-%}:0
+ %{οω%}:ο %{οω%}:ω
+ %{εη%}:ε %{εη%}:η
  ;
 
 Sets
@@ -88,6 +92,7 @@ Rules
 
 "ο {+long} -> ω part 2"
 %{%+long%}:0 <=> ο:ω ( %{'%} ) _ ;
+                 ο υ ( :%{'%} ) _ ;
 
 "ο {+longd} -> ου"
 %{%+longd%}:υ <=> ο _ ;
@@ -100,6 +105,7 @@ Rules
 
 "ε {+long} -> η part 2"
 %{%+long%}:0 <=> [ ε:η | ο:ω ] ( %{'%} | %{'%?%}: ) _ ;
+                 %{%+long%}: _ ;
 
 "ε' -> ει' after {+longd}"
 0:ι <=> ε _ %{'%} %{%+longd%}:0 ;
@@ -115,17 +121,18 @@ Rules
 
 "inserting noun circumflex stress marker"
 %{%~%?%}:%{%~%} <=> _ ?* %{'%$%}:0 ;
+                    except %{'%?%}: ?* _ ;
 
 "reduplication"
-%{redup%}:Cx <=> _ ε Cx ;
+%{redup%}:Cx <=> _ [ ε | ι ] Cx ;
                  where Cx in Consonant ;
 
 "no final μ"
 μ:ν <=> _ .#. ;
 
 "no final dental or before σ"
-Cx:0 <=> _ .#. ;
-         _ ( %{'%?%}: ) [ :σ | :ς ] ;
+Cx:0 <=> _ ( %{g%+%}:0 | %{g%-%}:0 ) .#. ;
+         _ ( %{'%?%}: | %{g%+%}:0 | %{g%-%}:0 )* [ :σ | :ς ] ;
          where Cx in Dental ;
 
 "{σ} deletes between vowels"
@@ -162,6 +169,11 @@ Cx:Cy <=> _ σ:0 ;
                 Cy in ( ψ ψ ψ ξ ξ ξ )
           matched ;
 
+"vowel gradation 1"
+%{οω%}:ω <=> _ ?* %{g%+%}:0 ;
+
+"vowel gradation 2"
+%{εη%}:η <=> _ ?* %{g%+%}:0 ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
