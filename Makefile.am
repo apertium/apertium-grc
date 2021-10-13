@@ -59,10 +59,10 @@ TARGETS_COMMON =			\
 	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
 .deps/$(LANG1).RL.lexd-twol-syl.hfst: .deps/$(LANG1).RL.lexd-twol.hfst .deps/$(LANG1)-syl.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol.hfst -2 .deps/$(LANG1)-syl.twol.hfst | hfst-minimize -o $@
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol.hfst -2 .deps/$(LANG1)-syl.twol.hfst | hfst-realign | hfst-minimize -o $@
 
 .deps/$(LANG1).LR.lexd-twol-syl.hfst: .deps/$(LANG1).LR.lexd-twol.hfst .deps/$(LANG1)-syl.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol.hfst -2 .deps/$(LANG1)-syl.twol.hfst | hfst-minimize -o $@
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol.hfst -2 .deps/$(LANG1)-syl.twol.hfst | hfst-realign | hfst-minimize -o $@
 
 .deps/$(LANG1).RL.lexd-twol-syl-stress.hfst: .deps/$(LANG1).RL.lexd-twol-syl.hfst .deps/$(LANG1)-stress.lexd.hfst
 	hfst-compose -1 .deps/$(LANG1).RL.lexd-twol-syl.hfst -2 .deps/$(LANG1)-stress.lexd.hfst -o $@
