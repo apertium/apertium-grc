@@ -39,6 +39,11 @@ Consonant = Β Γ Δ Ζ Θ Κ Λ Μ Ν Ξ Π Ρ Σ Τ Φ Χ Ψ
 Dental = Τ Δ Θ
          τ δ θ ;
 
+LabVel    = π β φ κ γ χ ;
+LabVelSig = ψ ψ ψ ξ ξ ξ ;
+
+Mod = %{g%-%} %{g%+%} %{'%?%} ;
+
 Rules
 
 "augment is ε only before consonants"
@@ -121,7 +126,7 @@ Vx:0 <=> _ %{ε%}: ;
 
 "no final dental or before σ"
 Cx:0 <=> _ ( %{g%+%}:0 | %{g%-%}:0 ) .#. ;
-         _ ( %{'%?%}: | %{g%+%}:0 | %{g%-%}:0 )* [ :σ | :ς ] ;
+         _ ( %{'%?%}: | %{g%+%}:0 | %{g%-%}:0 )* [ :σ | :ς | σ: | ς: ] ;
          where Cx in Dental ;
 
 "{σ} deletes between vowels"
@@ -138,7 +143,7 @@ Cx:0 <=> _ ( %{g%+%}:0 | %{g%-%}:0 ) .#. ;
 
 "final σ"
 σ:ς <=> _ .#. ;
-        except [ π: | β: | φ: | κ: | υ: | χ: ] _ ;
+        except LabVel: Mod:* ( Dental:0 ) Mod:* _ ;
 
 "assimilation"
 Cx:Cy <=> _ Cz ;
@@ -148,15 +153,21 @@ Cx:Cy <=> _ Cz ;
           matched ;
 
 "stop before sigma part 1"
-Cx:Cy <=> _ σ:0 ;
-          where Cx in ( π β φ κ γ χ )
-                Cy in ( ψ ψ ψ ξ ξ ξ )
+Cx:Cy <=> _ Mod:* ( Dental:0 ) Mod:* [ σ:0 | ς:0 ] ;
+          where Cx in LabVel
+                Cy in LabVelSig
           matched ;
 
-"stop before sigma part 2"
-σ:0 <=> Cx:Cy _  ;
-          where Cx in ( π β φ κ γ χ )
-                Cy in ( ψ ψ ψ ξ ξ ξ )
+"stop before sigma part 2a"
+σ:0 <=> Cx:Cy Mod:* ( Dental:0 ) Mod:* _  ;
+          where Cx in LabVel
+                Cy in LabVelSig
+          matched ;
+
+"stop before sigma part 2b"
+ς:0 <=> Cx:Cy Mod:* ( Dental:0 ) Mod:* _  ;
+          where Cx in LabVel
+                Cy in LabVelSig
           matched ;
 
 "vowel gradation 1"

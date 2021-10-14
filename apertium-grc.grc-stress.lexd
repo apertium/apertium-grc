@@ -19,6 +19,13 @@ Acute IrrelevantSyllable* CC AnyAcuteVowel BD FinalLongSyllable
 Prefix AnyAcuteVowel Acute BD UnmarkedSyllable FinalShortSyllable
 Acute IrrelevantSyllable* CC AnyAcuteVowel BD UnmarkedSyllable FinalShortSyllable
 
+# following clitic
+# TODO: mark these somehow for disam & generation
+Prefix LongVowel(3) (Acute | Circumflex) BD FinalShortSyllableClitic
+Acute CC LongVowel(3) BD FinalShortSyllableClitic
+Prefix AnyAcuteVowel Acute BD UnmarkedSyllable FinalShortSyllableClitic
+Acute IrrelevantSyllable* CC AnyAcuteVowel BD UnmarkedSyllable FinalShortSyllableClitic
+
 # no stress
 UnmarkedSyllable+ Consonant* [']?
 
@@ -59,6 +66,9 @@ CC LongVowel(1) BD CC
 
 PATTERN FinalShortSyllable
 CC ShortVowel(1) BD CC
+
+PATTERN FinalShortSyllableClitic
+CC ShortVowel(2) BD CC
 
 LEXICON Acute
 {'}:
@@ -123,6 +133,7 @@ LEXICON LongVowel(3)
 ἠ          ἠ:ἤ        ἠ:ἦ
 ἰ{+long}:ἰ ἰ{+long}:ἴ ἰ{+long}:ἶ
 ὐ{+long}:ὐ ὐ{+long}:ὔ ὐ{+long}:ὖ
+ὠ          ὠ:ὤ        ὠ:ὦ
 Ἁ{+long}:Ἁ Ἁ{+long}:Ἅ Ἁ{+long}:Ἇ
 Ἡ          Ἡ:Ἥ        Ἡ:Ἧ
 Ἱ{+long}:Ἱ Ἱ{+long}:Ἵ Ἱ{+long}:Ἷ
