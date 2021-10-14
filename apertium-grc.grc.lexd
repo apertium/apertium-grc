@@ -3244,6 +3244,7 @@ LEXICON Adjπολλυς(4)
 
 PATTERN VERB
 [:{'}] FiniteVerbs
+[:{'}] Imperatives
 [:{'}] Infinitives
 [:{'}] Participles
 VerbIrreg
@@ -3303,6 +3304,9 @@ VerbStemAug5 [<v><ind>:] MP [<perf><past><p2><sg>:σο]
 VerbRootRegularDeponent [<v><ind><actv><impf><pres>:] ThemeP2
 [:{ε}] VerbRootRegularDeponent [<v><ind><actv><aor><past>:] ThemeS1
 
+PATTERN Imperatives
+VerbStem1 [<v><ind><actv><impf><pres><imp>:] (ThematicVowelImp VerbImperative1)[^[2sgi,3sgi,2pli,3pli]]
+
 PATTERN Infinitives
 VerbStem1 [<v><ind><actv><impf><pres><inf>:ειν{'$}]
 VerbStem1 [<v><ind>:] MP [<impf><pres><inf>:εσθαι{'$}]
@@ -3323,33 +3327,33 @@ VerbStem5 [<v><ind>:] MP [<perf><pres><inf>:σθαι{'$}]
 PATTERN Participles
 # TODO: tags
 # Present
-VerbStem1 [<v><ind><actv><impf><pres><part>:ο] PartEndingsActv [:{'$}]
-VerbStem1 [<v><ind>:] MP [<impf><pres><part>:ομεν] AdjDec12η
+VerbStem1 [<v><ind><actv><impf><pres><part>:{+}ο] PartEndingsActv [:{'$}]
+VerbStem1 [<v><ind>:] MP [<impf><pres><part>:{+}ομεν] AdjDec12η
 
 # Future
-VerbStem2 [<v><ind><actv><impf><fut><part>:ο] PartEndingsActv [:{'$}]
-VerbStem2 [<v><ind><midv><impf><fut><part>:ομεν] AdjDec12η
+VerbStem2 [<v><ind><actv><impf><fut><part>:{+}ο] PartEndingsActv [:{'$}]
+VerbStem2 [<v><ind><midv><impf><fut><part>:{+}ομεν] AdjDec12η
 VerbStem6 [<v><ind><pass><impf><fut><part>:{+long}σομεν] AdjDec12η
 
 # Aorist
-VerbStem3[aor1] [<v><ind><actv><aor><past><part>:α] PartEndingsActv[-sgnom] [:{'$}]
+VerbStem3[aor1] [<v><ind><actv><aor><past><part>:{+}α] PartEndingsActv[-sgnom] [:{'$}]
 VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><nom><sg>:{+}α{+long}ς{'$}]
 VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><voc><sg>:{+}α{+long}ς{'$}]
-VerbStem3[aor1] [<v><ind><midv><aor><past><part>:αμεν] AdjDec12η
+VerbStem3[aor1] [<v><ind><midv><aor><past><part>:{+}αμεν] AdjDec12η
 # TODO: this gives ο{'}{+longd}
-VerbStem3[aor2] [<v><ind><midv><aor><past><part>:ο{'}] PartEndingsActv
-VerbStem3[aor2] [<v><ind><midv><aor><past><part>:ομεν] AdjDec12η
-VerbStem6 [<v><ind><pass><aor><past><part>:{'}] PartEndingsActv[-sgnom]
+VerbStem3[aor2] [<v><ind><midv><aor><past><part>:{+}ο{'}] PartEndingsActv
+VerbStem3[aor2] [<v><ind><midv><aor><past><part>:{+}ομεν] AdjDec12η
+VerbStem6 [<v><ind><pass><aor><past><part>:{'}{+}] PartEndingsActv[-sgnom]
 VerbStem6 [<v><ind><pass><aor><past><part><m><nom><sg>:ι{'}ς]
 VerbStem6 [<v><ind><pass><aor><past><part><m><voc><sg>:ι{'}ς]
 
 # Perfect
 VerbStem4 [<v><ind><actv><perf><pres><part>:] PartEndingsPerf
 # TODO: what principle part is this?
-[:{redup}ε] VerbStem2 [<v><ind><actv><perf><fut><part>:ο] PartEndingsActv [:{'$}]
+[:{redup}ε] VerbStem2 [<v><ind><actv><perf><fut><part>:{+}ο] PartEndingsActv [:{'$}]
 VerbStem5 [<v><ind>:] MP [<perf><pres><part>:] AdjDec12η
 # TODO: what principle part is this?
-[:{redup}ε] VerbStem2 [<v><ind>:] MP [<perf><fut><part>:ομεν] AdjDec12η
+[:{redup}ε] VerbStem2 [<v><ind>:] MP [<perf><fut><part>:{+}ομεν] AdjDec12η
 
 PATTERN PartEndingsActv
 [<m>:] PartSufActv(1): :PartSufActv(2)
@@ -3492,10 +3496,10 @@ LEXICON ThematicVowelInd
 :{+}ε[2pl]
 
 LEXICON ThematicVowelImp
-:ο[3pli]
-:ε[2sgi]
-:ε[2pli]
-:ε[3sgi]
+:{+}ο[3pli]
+:{+}ε[2sgi]
+:{+}ε[2pli]
+:{+}ε[3sgi]
 
 LEXICON ThematicVowelSubj
 :{+}ω[1sg]
