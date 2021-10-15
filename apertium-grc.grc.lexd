@@ -20,9 +20,9 @@
 
 PATTERNS
 NOUN
-VERB
+Ω-VERB
+ΜΙ-VERB
 Adjectives
-Copula
 Determiners
 RelativePronoun
 Conjunctions
@@ -52,8 +52,8 @@ NounStem[ις,εως,η] (Dec3(1) :Dec3(7))
 NounStem[ευς,εως,ο] (Dec3(1) :Dec3(8))
 NounStem[ευς,εως,ο] [<pl><nom>:ει{~}ς] # Dir/LR
 
-NounStem[ηρ,ρος,ο,'$] (Dec3B(1): Dec3B(2)) [:{'$}]
-NounStem[ηρ,ρος,η,-'$] (Dec3B(1): Dec3B(2))
+#NounStem[ηρ,ρος,ο,'$] (Dec3B(1): Dec3B(2)) [:{'$}]
+#NounStem[ηρ,ρος,η,-'$] (Dec3B(1): Dec3B(2))
 
 [:{'}] NormalStressNouns['$] [:{'$}]
 [:{'}] NormalStressNouns[-'$]
@@ -75,6 +75,8 @@ NounStem[_,ος,-1σ] (Dec3(1) :Dec3(2))
 NounStem[_,ος,1σ] (Dec3B(1) :Dec3B(3))
 NounStem[ς,ος,-1σ] (Dec3(1) :Dec3(3))
 NounStem[ς,ος,1σ] (Dec3B(1) :Dec3B(4))
+
+NounStem[ηρ,ρος] (Dec3B(1): Dec3B(2))
 
 PATTERN NounStem
 NounRoot[ο] [<n><m>:]
@@ -523,7 +525,7 @@ LEXICON NounRoot
 γαλα:γα{'}λακτ[_,ος,το]
 γαληνη:γαλη{'}ν[η,ης,η]
 γαμος:γα{'}μ[ος,ου,ο]
-# γαστήρ, γαστρός, ἡ # TODO
+γαστηρ:γαστ[ηρ,ρος,η]
 γεεννα:γε{'}ενν[α,ης,η]
 γειτων:γει{'}τ{οω}ν[_,ος,ο,η]
 γελως:γε{'}λωτ[ς,ος,ο]
@@ -1213,7 +1215,7 @@ LEXICON NounRoot
 μηλωτη:μηλωτ[η,ης,η,'$]
 μην:μη{'}ν[_,ος,ο]
 μηρος:μηρ[ος,ου,ο,'$]
-μητηρ:μητ[ηρ,ρος,η] # μήτηρ, μητρός, ἡ # TODO
+μητηρ:μητ[ηρ,ρος,η]
 μητρα:μη{'}τρ[ᾱ,ᾱς,η]
 μητραλωας:μητραλω{'}{'}[ᾱς,ᾱς,ο]
 μιασμα:μι{'}ασματ[_,ος,το]
@@ -1635,7 +1637,7 @@ LEXICON NounRoot
 σαργανη:σαργα{'}ν[η,ης,η]
 σαρδιον:σα{'}ρδι[ον,ου,το]
 σαρδονυξ:σαρδο{'}νυχ[ς,ος,ο]
-σαρξ:σα{'}ρκ[ς,ος,η]
+σαρξ:σαρκ[ς,ος,η,1σ]
 σατον:σα{'}τ[ον,ου,το]
 σεβασμα:σε{'}βασματ[_,ος,το]
 σειρα:σειρ[ᾱ,ᾱς,η,'$]
@@ -1855,7 +1857,7 @@ LEXICON NounRoot
 υβρις:ὑ{'}βρ[ις,εως,η]
 υβριστης:ὑβριστ[ης,ου,ο,'$]
 υδρια:ὑδρι{'}[ᾱ,ᾱς,η]
-# ὕδωρ, ὕδατος, τό # TODO
+υδωρ:ὑ{'}δατ[_,ος,το] # ὕδωρ, ὕδατος, τό # TODO
 υετος:ὑετ[ος,ου,ο,'$]
 υιοθεσια:υἱοθεσι{'}[ᾱ,ᾱς,η]
 υιος:υἱ[ος,ου,ο,'$]
@@ -2577,6 +2579,9 @@ LEXICON IrregCommonNouns
 πους<n><m><pl><dat>:πασι{'}{(ν)}
 πους<n><m><pl><acc>:πο{'}δας
 πους<n><m><pl><voc>:πο{'}δες
+υδωρ<n><nt><sg><nom>:ὑ{'}δωρ
+υδωρ<n><nt><sg><acc>:ὑ{'}δωρ
+υδωρ<n><nt><sg><voc>:ὑ{'}δωρ
 φως<n><nt><sg><nom>:φω{~}ς
 
 LEXICON IrregProperNouns
@@ -3242,7 +3247,7 @@ LEXICON Adjπολλυς(4)
 # Ω VERBS
 ##################################################
 
-PATTERN VERB
+PATTERN Ω-VERB
 [:{'}] FiniteVerbs
 [:{'}] Imperatives
 [:{'}] Infinitives
@@ -3270,14 +3275,14 @@ VerbStemAug1 [<v><ind><actv><impf><past>:] ThemeS1
 VerbStemAug1 [<v><ind>:] MP [<impf><past>:] ThemeS2
 
 # Aorist
-VerbStemAug3[aor1] [<v><ind><actv><aor><past>:α] VerbSecondary1[-1sg,-3sg]
-VerbStemAug3[aor1] [<v><ind><actv><aor><past><p1><sg>:α]
-VerbStemAug3[aor1] [<v><ind><actv><aor><past><p3><sg>:ε{(ν)}]
-VerbStemAug3[aor1] [<v><ind><midv><aor><past>:α] VerbSecondary2[-2sg]
-VerbStemAug3[aor1] [<v><ind><midv><aor><past><p2><sg>:ω]
+VerbStemAug3[aor1] [<v><ind><actv><aor1><past>:α] VerbSecondary1[-1sg,-3sg]
+VerbStemAug3[aor1] [<v><ind><actv><aor1><past><p1><sg>:α]
+VerbStemAug3[aor1] [<v><ind><actv><aor1><past><p3><sg>:ε{(ν)}]
+VerbStemAug3[aor1] [<v><ind><midv><aor1><past>:α] VerbSecondary2[-2sg]
+VerbStemAug3[aor1] [<v><ind><midv><aor1><past><p2><sg>:ω]
 
-VerbStemAug3[aor2] [<v><ind><actv><aor><past>:] ThemeS1
-VerbStemAug3[aor2] [<v><ind><midv><aor><past>:] ThemeS2
+VerbStemAug3[aor2] [<v><ind><actv><aor2><past>:] ThemeS1
+VerbStemAug3[aor2] [<v><ind><midv><aor2><past>:] ThemeS2
 
 VerbStemAug6 [<v><ind><pass><aor><past>:{+long}] VerbSecondary1[-3sg,-3pl]
 VerbStemAug6 [<v><ind><pass><aor><past><p3><sg>:{+long}]
@@ -3398,31 +3403,31 @@ PATTERN VerbStemAug1
 (VerbRootPrep(1) [:{ε}] VerbRootPrep(2))[pp1]
 
 PATTERN VerbStem2
-VerbRootRegular[pp2] [:{+long}σ]
-(VerbRootPrep(1) VerbRootPrep(2))[pp2] [:{+long}σ]
+VerbRootRegular[pp2] [:{+longs}σ]
+(VerbRootPrep(1) VerbRootPrep(2))[pp2] [:{+longs}σ]
 
 PATTERN VerbStem3
-VerbRootRegular[pp3,aor1] [:{+long}σ]
+VerbRootRegular[pp3,aor1] [:{+longs}σ]
 VerbRootRegular[pp3,aor2]
 VerbRootIrreg[pp3]
-#(VerbRootPrep(1) VerbRootPrep(2))[aor1,pp3] [:{+long}σ]
+#(VerbRootPrep(1) VerbRootPrep(2))[aor1,pp3] [:{+longs}σ]
 #(VerbRootPrep(1) VerbRootPrep(2))[aor2,pp3]
 (VerbRootPrepIrreg(1) VerbRootPrepIrreg(2))[aor2,pp3]
 
 PATTERN VerbStemAug3
 [:{ε}] VerbStem3
 VerbRootIrreg[pp3a]
-#(VerbRootPrep(1) [:{ε}] VerbRootPrep(2))[aor1,pp3] [:{+long}σ]
+#(VerbRootPrep(1) [:{ε}] VerbRootPrep(2))[aor1,pp3] [:{+longs}σ]
 #(VerbRootPrep(1) [:{ε}] VerbRootPrep(2))[aor2,pp3]
 (VerbRootPrepIrreg(1) [:{ε}] VerbRootPrepIrreg(2))[pp3]
 
 PATTERN VerbStem4
-[:{redup}ε] VerbRootRegular[pp4] [:{+long}κ]
-(VerbRootPrep(1) [:{redup}ε] VerbRootPrep(2))[pp4] [:{+long}κ]
+[:{redup}ε] VerbRootRegular[pp4] [:{+longs}κ]
+(VerbRootPrep(1) [:{redup}ε] VerbRootPrep(2))[pp4] [:{+longs}κ]
 
 PATTERN VerbStemAug4
 [:{ε}] VerbStem4
-(VerbRootPrep(1) [:{ε}{redup}ε] VerbRootPrep(2))[pp4] [:{+long}κ]
+(VerbRootPrep(1) [:{ε}{redup}ε] VerbRootPrep(2))[pp4] [:{+longs}κ]
 
 PATTERN VerbStem5
 [:{redup}ε] VerbRootRegular[pp5]
@@ -3673,7 +3678,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 βαπτω:βα{'?}πτ
 βαρεω:βαρε{'?}
 βασανιζω:βασανι{'?}ζ[aor1]
-βασιλευω:βασιλευ{'?}
+βασιλευω:βασιλευ{'?}[aor1]
 βασκαινω:βασκαι{'?}ν
 βασταζω:βαστα{'?}ζ[aor2]
 βαττολογεω:βαττολογε{'?}
@@ -3685,7 +3690,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 βλαστανω:βλαστα{'?}ν
 βλασφημεω:βλασφημε{'?}[aor1]
 βλεπω:βλε{'?}π[aor1]
-βοαω:βοα{'?}
+βοαω:βοα{'?}[aor1]
 βοηθεω:βοηθε{'?}[aor1]
 βολιζω:βολι{'?}ζ
 βοσκω:βο{'?}σκ
@@ -3703,7 +3708,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 γεμιζω:γεμι{'?}ζ
 γεμω:γε{'?}μ
 γενεαλογεω:γενεαλογε{'?}
-γενναω:γεννα{'?}
+γενναω:γεννα{'?}[aor1]
 γεωργεω:γεωργε{'?}
 γηρασκω:γηρα{'?}σκ
 γινωσκω:γινω{'?}σκ[aor1]
@@ -3728,8 +3733,8 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 δεσμευω:δεσμευ{'?}[aor2]
 δεσμεω:δεσμε{'?}
 δεω:δε{'?}[aor1]
-δηλοω:δηλο{'?}
-δημηγορεω:δημηγορε{'?}
+δηλοω:δηλο{'?}[aor1]
+δημηγορεω:δημηγορε{'?}[aor1]
 διδασκω:διδα{'?}σκ[aor1]
 διεγειρω:διεγει{'?}ρ
 διερμηνευω:διερμηνευ{'?}
@@ -3742,16 +3747,16 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 διυλιζω:διυλι{'?}ζ
 διχαζω:διχα{'?}ζ
 διχοτομεω:διχοτομε{'?}
-διψαω:διψα{'?}
+διψαω:διψα{'?}[aor1]
 διωκω:διω{'?}κ[aor1]
 δογματιζω:δογματι{'?}ζ
-δοκεω:δοκε{'?}
+δοκεω:δοκε{'?}[aor2]
 δοκιμαζω:δοκιμα{'?}ζ
 δολιοω:δολιο{'?}
 δολοω:δολο{'?}
 δοξαζω:δοξα{'?}ζ[aor1]
 δουλαγωγεω:δουλαγωγε{'?}
-δουλευω:δουλευ{'?}
+δουλευω:δουλευ{'?}[aor1]
 δουλοω:δουλο{'?}[aor1]
 δυναμοω:δυναμο{'?}
 δυνατεω:δυνατε{'?}
@@ -3963,7 +3968,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 ευχαριστεω:εὐχαριστε{'?}
 ευψυχεω:εὐψυχε{'?}
 εχω:ἐ{'?}χ
-ζαω:ζα{'?}
+ζαω:ζα{'?}[aor1]
 ζεω:ζε{'?}[aor1]
 ζηλοω:ζηλο{'?}
 ζημιοω:ζημιο{'?}
@@ -3977,7 +3982,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 ησυχαζω:ἡσυχα{'?}ζ
 ηχεω:ἠχε{'?}
 θαλπω:θα{'?}λπ
-θαμβεω:θαμβε{'?}
+θαμβεω:θαμβε{'?}[aor2]
 θανατοω:θανατο{'?}
 θαπτω:θα{'?}πτ
 θαρρεω:θαρρε{'?}
@@ -3998,7 +4003,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 θιγγανω:θιγγα{'?}ν
 θλιβω:θλι{'?}β
 θνησκω:θνη{'?}σκ
-θορυβεω:θορυβε{'?}
+θορυβεω:θορυβε{'?}[aor2]
 θραυω:θραυ{'?}
 θρηνεω:θρηνε{'?}[aor1]
 θριαμβευω:θριαμβευ{'?}
@@ -4029,7 +4034,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 κακοποιεω:κακοποιε{'?}
 κακουχεω:κακουχε{'?}
 κακοω:κακο{'?}[aor1]
-καλεω:καλε{'?}
+καλεω:καλε{'?}[aor2]
 καλοποιεω:καλοποιε{'?}
 καλυπτω:καλυ{'?}πτ
 καμμυω:καμμυ{'?}[aor1]
@@ -4062,7 +4067,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 κινεω:κινε{'?}
 κλαιω:κλαι{'?}[aor1]
 κλαω:κλα{'?}[aor1]
-κλειω:κλει{'?}
+κλειω:κλει{'?}[aor1]
 κλεπτω:κλε{'?}πτ
 κληρονομεω:κληρονομε{'?}
 κληροω:κληρο{'?}
@@ -4106,7 +4111,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 λανθανω:λανθα{'?}ν
 λασκω:λα{'?}σκ
 λατομεω:λατομε{'?}[aor1]
-λατρευω:λατρευ{'?}
+λατρευω:λατρευ{'?}[aor1]
 λεγω:λε{'?}γ[aor1]
 λειπω:λει{'?}π
 λειτουργεω:λειτουργε{'?}
@@ -4116,7 +4121,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 λικμαω:λικμα{'?}
 λογομαχεω:λογομαχε{'?}
 λοιδορεω:λοιδορε{'?}[aor1]
-λουω:λου{'?}
+λουω:λου{'?}[aor1]
 λυπεω:λυπε{'?}[aor1]
 λυσιτελεω:λυσιτελε{'?}
 λυτροω:λυτρο{'?}
@@ -4136,12 +4141,12 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 μεθερμηνευω:μεθερμηνευ{'?}
 μεθυσκω:μεθυ{'?}σκ
 μεθυω:μεθυ{'?}
-μελεταω:μελετα{'?}
+μελεταω:μελετα{'?}[aor1]
 μελλω:με{'?}λλ[aor1]
 μενω:με{'?}ν[aor1]
 μεριζω:μερι{'?}ζ
 μεριμναω:μεριμνα{'?}
-μεσιτευω:μεσιτευ{'?}
+μεσιτευω:μεσιτευ{'?}[aor1]
 μεσοω:μεσο{'?}
 μεστοω:μεστο{'?}
 μετεχω:μετε{'?}χ
@@ -4154,10 +4159,10 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 μηπω:μη{'?}π
 μιαινω:μιαι{'?}ν
 μισεω:μισε{'?}[aor1]
-μισθοω:μισθο{'?}
+μισθοω:μισθο{'?}[aor1]
 μνημονευω:μνημονευ{'?}[aor2]
 μνηστευω:μνηστευ{'?}
-μοιχευω:μοιχευ{'?}
+μοιχευω:μοιχευ{'?}[aor1]
 μολυνω:μολυ{'?}ν[aor1]
 μονοω:μονο{'?}
 μορφοω:μορφο{'?}
@@ -4170,11 +4175,11 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 ναυαγεω:ναυαγε{'?}[aor1]
 νεκροω:νεκρο{'?}
 νευω:νευ{'?}
-νηθω:νη{'?}θ
+νηθω:νη{'?}θ[aor1]
 νηπιαζω:νηπια{'?}ζ
 νηστευω:νηστευ{'?}
 νηφω:νη{'?}φ
-νικαω:νικα{'?}
+νικαω:νικα{'?}[aor1]
 νιπτω:νι{'?}πτ
 νοεω:νοε{'?}
 νομιζω:νομι{'?}ζ[aor1]
@@ -4229,7 +4234,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 παγιδευω:παγιδευ{'?}[aor2]
 παιδευω:παιδευ{'?}
 παιζω:παι{'?}ζ
-παιω:παι{'?}
+παιω:παι{'?}[aor1]
 παλαιοω:παλαιο{'?}
 παρεισαγω:παρεισα{'?}γ
 παρεισδυω:παρεισδυ{'?}
@@ -4263,7 +4268,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 πιπτω:πι{'?}πτ[aor1]
 πιστευω:πιστευ{'?}[aor1]
 πιστοω:πιστο{'?}
-πλαναω:πλανα{'?}
+πλαναω:πλανα{'?}[aor1]
 πλασσω:πλα{'?}σσ
 πλατυνω:πλατυ{'?}ν
 πλεκω:πλε{'?}κ
@@ -4283,8 +4288,8 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 ποιεω:ποιε{'?}[aor1]
 ποιμαινω:ποιμαι{'?}ν
 πολεμεω:πολεμε{'?}[aor1]
-πορθεω:πορθε{'?}
-πορνευω:πορνευ{'?}
+πορθεω:πορθε{'?}[aor2]
+πορνευω:πορνευ{'?}[aor1]
 πορρω:πο{'?}ρρ
 πορρωτερω:πορρωτε{'?}ρ
 ποτιζω:ποτι{'?}ζ[aor1]
@@ -4326,16 +4331,16 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 προτρεχω:προτρε{'?}χ
 προυπαρχω:προυπα{'?}ρχ
 προφερω:προφε{'?}ρ
-προφητευω:προφητευ{'?}[aor2]
+προφητευω:προφητευ{'?}[aor1,aor2]
 προφθανω:προφθα{'?}ν
 προχειροτονεω:προχειροτονε{'?}
 πρωτευω:πρωτευ{'?}
-πταιω:πται{'?}
+πταιω:πται{'?}[aor1]
 πτοεω:πτοε{'?}
 πτυρω:πτυ{'?}ρ
 πτυσσω:πτυ{'?}σσ
 πτυω:πτυ{'?}[aor1]
-πτωχευω:πτωχευ{'?}
+πτωχευω:πτωχευ{'?}[aor1]
 πυκτευω:πυκτευ{'?}
 πυρεσσω:πυρε{'?}σσ
 πυροω:πυρο{'?}
@@ -4351,20 +4356,20 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 ριπτεω:ῥιπτε{'?}
 ριπτω:ῥι{'?}πτ
 σαινω:σαι{'?}ν
-σαλευω:σαλευ{'?}
+σαλευω:σαλευ{'?}[aor1]
 σαλπιζω:σαλπι{'?}ζ
 σαροω:σαρο{'?}
 σειω:σει{'?}
 σημαινω:σημαι{'?}ν[aor1]
 σηπω:ση{'?}π
 σθενοω:σθενο{'?}
-σιγαω:σιγα{'?}
+σιγαω:σιγα{'?}[aor1]
 σινιαζω:σινια{'?}ζ
-σιωπαω:σιωπα{'?}
+σιωπαω:σιωπα{'?}[aor2]
 σκανδαλιζω:σκανδαλι{'?}ζ[aor2]
 σκαπτω:σκα{'?}πτ
 σκηνοω:σκηνο{'?}[aor1]
-σκιρταω:σκιρτα{'?}
+σκιρταω:σκιρτα{'?}[aor1]
 σκληρυνω:σκληρυ{'?}ν[aor2]
 σκοπεω:σκοπε{'?}
 σκορπιζω:σκορπι{'?}ζ
@@ -4375,7 +4380,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 σοφιζω:σοφι{'?}ζ
 σπαρασσω:σπαρα{'?}σσ
 σπαργανοω:σπαργανο{'?}[aor1]
-σπαταλαω:σπαταλα{'?}
+σπαταλαω:σπαταλα{'?}[aor1]
 σπαω:σπα{'?}
 σπειρω:σπει{'?}ρ[aor1]
 σπενδω:σπε{'?}νδ
@@ -4420,7 +4425,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 συζωοποιεω:συζωοποιε{'?}
 συκοφαντεω:συκοφαντε{'?}[aor1]
 συλαγωγεω:συλαγωγε{'?}
-συλαω:συλα{'?}
+συλαω:συλα{'?}[aor1]
 συλλαλεω:συλλαλε{'?}
 συλλαμβανω:συλλαμβα{'?}ν
 συλλεγω:συλλε{'?}γ
@@ -4470,7 +4475,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 τεκνοτροφεω:τεκνοτροφε{'?}[aor1]
 τελειοω:τελειο{'?}[aor1]
 τελεσφορεω:τελεσφορε{'?}
-τελευταω:τελευτα{'?}
+τελευταω:τελευτα{'?}[aor1]
 τελεω:τελε{'?}
 τετραρχεω:τετραρχε{'?}
 τεφροω:τεφρο{'?}
@@ -4478,10 +4483,10 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 τηρεω:τηρε{'?}[aor1]
 τικτω:τι{'?}κτ
 τιλλω:τι{'?}λλ[aor2]
-τιμαω:τιμα{'?}
+τιμαω:τιμα{'?}[aor1]
 τιμωρεω:τιμωρε{'?}
 τινω:τι{'?}ν
-τολμαω:τολμα{'?}
+τολμαω:τολμα{'?}[aor1]
 τραυματιζω:τραυματι{'?}ζ
 τραχηλιζω:τραχηλι{'?}ζ
 τρεμω:τρε{'?}μ
@@ -4489,8 +4494,8 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 τρεχω:τρε{'?}χ[aor2]
 τριζω:τρι{'?}ζ
 τροποφορεω:τροποφορε{'?}[aor1]
-τρυγαω:τρυγα{'?}
-τρυφαω:τρυφα{'?}
+τρυγαω:τρυγα{'?}[aor1]
+τρυφαω:τρυφα{'?}[aor1]
 τρωγω:τρω{'?}γ
 τυγχανω:τυγχα{'?}ν
 τυμπανιζω:τυμπανι{'?}ζ
@@ -4514,7 +4519,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 υστερεω:ὑστερε{'?}
 υψηλοφρονεω:ὑψηλοφρονε{'?}
 υψοω:ὑψο{'?}
-φαγω:φα{'?}γ[aor1]
+φαγω:φα{'?}γ[aor2] # TODO: Thayer has present as εσθιω
 φαινω:φαι{'?}ν
 φανεροω:φανερο{'?}[aor1]
 φανταζω:φαντα{'?}ζ
@@ -4524,12 +4529,12 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 φθανω:φθα{'?}ν
 φθειρω:φθει{'?}ρ[aor1]
 φθονεω:φθονε{'?}
-φιλεω:φιλε{'?}
+φιλεω:φιλε{'?}[aor2]
 φιλοπρωτευω:φιλοπρωτευ{'?}
 φιμοω:φιμο{'?}[aor1]
 φλογιζω:φλογι{'?}ζ
 φλυαρεω:φλυαρε{'?}
-φονευω:φονευ{'?}
+φονευω:φονευ{'?}[aor1]
 φορεω:φορε{'?}
 φορτιζω:φορτι{'?}ζ
 φραγελλοω:φραγελλο{'?}
@@ -4539,7 +4544,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 φρισσω:φρι{'?}σσ
 φρονεω:φρονε{'?}[aor2]
 φροντιζω:φροντι{'?}ζ
-φρουρεω:φρουρε{'?}
+φρουρεω:φρουρε{'?}[aor2]
 φρυασσω:φρυα{'?}σσ
 φυλακιζω:φυλακι{'?}ζ
 φυλασσω:φυλα{'?}σσ
@@ -4558,7 +4563,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 χολαω:χολα{'?}
 χορηγεω:χορηγε{'?}
 χορταζω:χορτα{'?}ζ
-χραω:χρα{'?}
+χραω:χρα{'?}[aor1]
 χρηζω:χρη{'?}ζ
 χρηματιζω:χρηματι{'?}ζ
 χριω:χρι{'?}[aor1]
@@ -4569,7 +4574,7 @@ LEXICON VerbRootRegular[pp1,pp2,pp3,pp4,pp5,pp6]
 χωριζω:χωρι{'?}ζ
 ψαλλω:ψα{'?}λλ
 ψευδομαρτυρεω:ψευδομαρτυρε{'?}
-ψηλαφαω:ψηλαφα{'?}
+ψηλαφαω:ψηλαφα{'?}[aor1]
 ψηφιζω:ψηφι{'?}ζ
 ψυχω:ψυ{'?}χ
 ψωμιζω:ψωμι{'?}ζ
@@ -4919,7 +4924,7 @@ LEXICON VerbRootPrep(2)[pp1,pp2,pp3,pp4,pp5,pp6]
 απο:ἀπο ρφανιζω:ρφανι{'?}ζ
 απο:ἀπο σπαω:σπα{'?}
 απο:ἀπο στεγαζω:στεγα{'?}ζ
-απο:ἀπο στελλω:στε{'?}λλ
+απο:ἀπο στελλω:στε{'?}λλ[aor1]
 απο:ἀπο στερεω:στερε{'?}
 απο:ἀπο στοματιζω:στοματι{'?}ζ
 απο:ἀπο στρεφω:στρε{'?}φ
@@ -5306,7 +5311,6 @@ LEXICON VerbRootIrreg
 λεγω:ειπ[pp3a,aor1] # Use/Koine
 οραω:ιδ[pp3,aor2]
 οραω:ειδ[pp3a,aor2]
-ποιεω:ποιησ[pp3,aor1]
 
 PATTERN VerbIrreg
 δει
@@ -5345,9 +5349,9 @@ LEXICON οιδα-fin(4)
 ##################################################
 
 LEXICON MILengthening
-:{+long}[1sg]
-:{+long}[2sg]
-:{+long}[3sg]
+:{+longs}[1sg]
+:{+longs}[2sg]
+:{+longs}[3sg]
 :[1pl]
 :[2pl]
 :[3pl]
@@ -5365,12 +5369,14 @@ LEXICON MIEndings(6)
 [2pl]<p2><pl>:τε      :τε  :τε      :σθε  :σθε  :σθε
 [3pl]<p3><pl>:σι{(ν)} :σαν :σαν     :νται :ντο  :ντο
 
-PATTERNS
+PATTERN ΜΙ-VERB
 [:{'}] MIFinite
+φημι-clitics [:{'$}]?
+Copula [:{'$}]?
 
 PATTERN MIFinite
 miStem1 [<v><ind><actv><impf><pres>:] (MILengthening MIEndings(1))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
-[:{ε}] miStem1 [<v><ind><actv><impf><past>:] (MILengthening MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
+[:{ε}] miStem1 [<v><ind><actv><impf><past>:] (MILengthening [:{+}] MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 [:{ε}] miStem3[1aor] [<v><ind><actv><aor><past>:] (MILengthening MIEndings(1): :MIEndings(3))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 [:{ε}] miStem3[2aor] [<v><ind><actv><aor><past>:{+long}] (MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 miStem1 [<v><ind>:] MP [<impf><pres>:] VerbPrimary2
@@ -5404,21 +5410,23 @@ LEXICON MIVerbRoot
 διδωμι:δο[1aor,redup]
 δυναμαι:δυνα[1aor]
 ιστημι:στα[2aor,redup]
+φημι:φα
+
+LEXICON φημι-clitics
+φημι<v><ind><actv><impf><pres><p1><sg>:φημι{'?}
+φημι<v><ind><actv><impf><pres><p3><sg>:φησι{'?}{(ν)}
+φημι<v><ind><actv><impf><pres><p1><pl>:φαμε{'?}ν
+φημι<v><ind><actv><impf><pres><p2><pl>:φατε{'?}
+φημι<v><ind><actv><impf><pres><p3><pl>:φα{+long}σι{'?}{(ν)}
 
 LEXICON Copula
-ειμι<vbser><ind><actv><impf><pres><p1><sg>:εἰμι
-ειμι<vbser><ind><actv><impf><pres><p2><pl>:ἐστε
-ειμι<vbser><ind><actv><impf><pres><p3><sg>:ἐστιν # TODO: clitics
-ειμι<vbser><ind><actv><impf><pres><p3><pl>:εἰσι{(ν)}
-
-ειμι<vbser><ind><actv><impf><pres><p1><sg>:εἰμι{'}
+ειμι<vbser><ind><actv><impf><pres><p1><sg>:εἰμι{'?}
 ειμι<vbser><ind><actv><impf><pres><p2><sg>:εἰ{~}
-ειμι<vbser><ind><actv><impf><pres><p2><sg>:εἰ{'} # Dir/LR TODO
-ειμι<vbser><ind><actv><impf><pres><p3><sg>:ἐστι{'}{(ν)}
+ειμι<vbser><ind><actv><impf><pres><p3><sg>:ἐστι{'?}{(ν)}
 ειμι<vbser><ind><actv><impf><pres><p3><sg>:ἐ{'}στι{(ν)} # Dir/LR
-ειμι<vbser><ind><actv><impf><pres><p1><pl>:ἐσμε{'}ν
-ειμι<vbser><ind><actv><impf><pres><p2><pl>:ἐστε{'}
-ειμι<vbser><ind><actv><impf><pres><p3><pl>:εἰσι{'}{(ν)}
+ειμι<vbser><ind><actv><impf><pres><p1><pl>:ἐσμε{'?}ν
+ειμι<vbser><ind><actv><impf><pres><p2><pl>:ἐστε{'?}
+ειμι<vbser><ind><actv><impf><pres><p3><pl>:εἰσι{'?}{(ν)}
 
 ειμι<vbser><ind><actv><impf><fut><p1><sg>:ἐ{'}σομαι
 ειμι<vbser><ind><actv><impf><fut><p2><sg>:ἐ{'}σῃ

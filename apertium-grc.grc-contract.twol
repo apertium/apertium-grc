@@ -15,6 +15,7 @@ Sets
 PreVowel = α ά ᾶ ε έ ο ό ;
 PreVowelα = α ά ᾶ ;
 PreVowelε = ε έ ;
+PreVowelη = η ή ῆ ;
 PreVowelο = ο ό ;
 PreVowelεο = ε έ ο ό ;
 
@@ -85,7 +86,7 @@ Vx:0 <=> PreVowel: %{%+%}:0 _ ;
          where Vx in ( α ω ᾳ ῃ ῳ ) ;
 
 "following ε"
-ε:0 <=> PreVowelα: %{%+%}:0 _ ;
+ε:0 <=> [ PreVowelα: | PreVowelη: ] %{%+%}:0 _ ;
         PreVowelεο: %{%+%}:0 _ ι: ;
 
 "following ο"
@@ -97,6 +98,13 @@ Vx:0 <=> PreVowel: %{%+%}:0 _ ;
          except _ ι: ;
          where Vx in ( ι ῖ )
                Vy in ( ε έ )
+         matched ;
+
+"following ο -> υ"
+ο:Vx <=> Vy: %{%+%}:0 _ ;
+         except _ υ: ;
+         where Vx in ( υ ῦ υ ῦ )
+               Vy in ( ο ό ε έ )
          matched ;
 
 "diphthong ι"

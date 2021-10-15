@@ -12,6 +12,7 @@ Alphabet
  %{'%} %{'%!%} %{%~%} %{%+long%} %{%-long%}
 
  %{%+longd%}:0 %{%+longd%}:υ %{%+longd%}:%{%+long%}
+ %{%+longs%}:0
  %{σ%}:0 %{σ%}:σ
  %{ε%}:ἐ %{ε%}:0
  %{ε%~%}:0
@@ -103,6 +104,12 @@ Vx:0 <=> _ %{ε%}: ;
 
 "{+longd} -> {+long}"
 %{%+longd%}:%{%+long%} <=> α _ ;
+
+"stem vowel lengthening"
+Vx:Vy <=> _ ( %{'%?%}: ) %{%+longs%}:0 ;
+          where Vx in ( α ε ο )
+                Vy in ( η η ω )
+          matched ;
 
 "η + ι part 1"
 η:ῃ <=> _ %{σ%}:0 ι:0 ;
