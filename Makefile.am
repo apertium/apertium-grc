@@ -38,6 +38,9 @@ TARGETS_COMMON =			\
 .deps/$(LANG1)-contract.twol.hfst: $(BASENAME).$(LANG1)-contract.twol .deps/.d
 	hfst-twolc $< -o $@
 
+.deps/$(LANG1)-contract.xfst.hfst: $(BASENAME).$(LANG1)-contract.xfst .deps/.d
+	hfst-regexp2fst -S $< -o $@
+
 .deps/$(LANG1).RL.lexd: $(BASENAME).$(LANG1).lexd .deps/.d
 	cat $< | grep -v 'Dir/LR' > $@
 
@@ -70,11 +73,11 @@ TARGETS_COMMON =			\
 .deps/$(LANG1).LR.lexd-twol-syl-stress.hfst: .deps/$(LANG1).LR.lexd-twol-syl.hfst .deps/$(LANG1)-stress.lexd.hfst
 	hfst-compose -1 .deps/$(LANG1).LR.lexd-twol-syl.hfst -2 .deps/$(LANG1)-stress.lexd.hfst -o $@
 
-.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-twol-syl-stress.hfst .deps/$(LANG1)-contract.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol-syl-stress.hfst -2 .deps/$(LANG1)-contract.twol.hfst -o $@
+.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-twol-syl-stress.hfst .deps/$(LANG1)-contract.xfst.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst -o $@
 
-.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-twol-syl-stress.hfst .deps/$(LANG1)-contract.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol-syl-stress.hfst -2 .deps/$(LANG1)-contract.twol.hfst -o $@
+.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-twol-syl-stress.hfst .deps/$(LANG1)-contract.xfst.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst -o $@
 
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@

@@ -27,7 +27,7 @@ Prefix AnyAcuteVowel Acute BD UnmarkedSyllable FinalShortSyllableClitic
 Acute IrrelevantSyllable* CC AnyAcuteVowel BD UnmarkedSyllable FinalShortSyllableClitic
 
 # no stress
-UnmarkedSyllable+ Consonant* [']?
+UnmarkedSyllable* Consonant* [']?
 
 # make sure this gets passed through
 Punctuation
@@ -118,6 +118,7 @@ LEXICON ShortVowel(2)
 αῐ:αι αῐ:αί
 οῐ:οι οῐ:οί
 ω{-long}:ω ω{-long}:ώ
+ϋ ϋ:ΰ
 
 LEXICON LongVowel(3)
 α{+long}:α α{+long}:ά α{+long}:ᾶ
