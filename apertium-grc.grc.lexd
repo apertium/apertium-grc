@@ -3371,10 +3371,10 @@ VerbStem6 [<v><ind><pass><aor><past><part><m><voc><sg>:ι{'}ς]
 # Perfect
 VerbStem4 [<v><ind><actv><perf><pres><part>:] PartEndingsPerf
 # TODO: what principle part is this?
-[:{redup}ε] VerbStem2 [<v><ind><actv><perf><fut><part>:{+}ο] PartEndingsActv [:{'$}]
+[:{redup}{ε}] VerbStem2 [<v><ind><actv><perf><fut><part>:{+}ο] PartEndingsActv [:{'$}]
 VerbStem5 [<v><ind>:] MP [<perf><pres><part>:] AdjDec12η
 # TODO: what principle part is this?
-[:{redup}ε] VerbStem2 [<v><ind>:] MP [<perf><fut><part>:{+}ομεν] AdjDec12η
+[:{redup}{ε}] VerbStem2 [<v><ind>:] MP [<perf><fut><part>:{+}ομεν] AdjDec12η
 
 PATTERN PartEndingsActv
 [<m>:] PartSufActv(1): :PartSufActv(2)
@@ -3445,21 +3445,21 @@ VerbRootIrreg[pp3a]
 (VerbRootPrepIrreg(1) [:{ε}] VerbRootPrepIrreg(2))[pp3]
 
 PATTERN VerbStem4
-[:{redup}ε] VerbRootRegular[pp4] [:{+longs}κ]
-[:{redup}ε] VerbRootIrreg[pp4]
-(VerbRootPrep(1) [:{redup}ε] VerbRootPrep(2))[pp4] [:{+longs}κ]
+[:{redup}{ε}] VerbRootRegular[pp4] [:{+longs}κ]
+[:{redup}{ε}] VerbRootIrreg[pp4]
+(VerbRootPrep(1) [:{redup}{ε}] VerbRootPrep(2))[pp4] [:{+longs}κ]
 
 PATTERN VerbStemAug4
 [:{ε}] VerbStem4
-(VerbRootPrep(1) [:{ε}{redup}ε] VerbRootPrep(2))[pp4] [:{+longs}κ]
+(VerbRootPrep(1) [:{ε}{redup}{ε}] VerbRootPrep(2))[pp4] [:{+longs}κ]
 
 PATTERN VerbStem5
-[:{redup}ε] VerbRootRegular[pp5]
-(VerbRootPrep(1) [:{redup}ε] VerbRootPrep(2))[pp5]
+[:{redup}{ε}] VerbRootRegular[pp5]
+(VerbRootPrep(1) [:{redup}{ε}] VerbRootPrep(2))[pp5]
 
 PATTERN VerbStemAug5
 [:{ε}] VerbStem5
-(VerbRootPrep(1) [:{ε}{redup}ε] VerbRootPrep(2))[pp5]
+(VerbRootPrep(1) [:{ε}{redup}{ε}] VerbRootPrep(2))[pp5]
 
 PATTERN VerbStem6
 VerbRootRegular[pp6] [:θε]
@@ -5439,10 +5439,10 @@ PATTERN miStem3
 MIVerbRoot
 
 PATTERN miStem4
-[:{redup}ε] MIVerbRoot [:{+long}]
+[:{redup}{ε}] MIVerbRoot [:{+long}]
 
 PATTERN miStem5
-[:{redup}ε] MIVerbRoot
+[:{redup}{ε}] MIVerbRoot
 
 PATTERN miStem6
 MIVerbRoot [:θε]

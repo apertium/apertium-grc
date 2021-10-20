@@ -41,6 +41,9 @@ TARGETS_COMMON =			\
 .deps/$(LANG1)-contract.xfst.hfst: $(BASENAME).$(LANG1)-contract.xfst .deps/.d
 	hfst-regexp2fst -S $< -o $@
 
+.deps/$(LANG1)-ortho.twol.hfst: $(BASENAME).$(LANG1)-ortho.twol .deps/.d
+	hfst-twolc $< -o $@
+
 .deps/$(LANG1).RL.lexd: $(BASENAME).$(LANG1).lexd .deps/.d
 	cat $< | grep -v 'Dir/LR' > $@
 
@@ -61,23 +64,29 @@ TARGETS_COMMON =			\
 .deps/$(LANG1).LR.lexd-twol.hfst: .deps/$(LANG1).LR.lexd.hfst .deps/$(LANG1).twol.hfst
 	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
-.deps/$(LANG1).RL.lexd-twol-syl.hfst: .deps/$(LANG1).RL.lexd-twol.hfst .deps/$(LANG1)-syl.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol.hfst -2 .deps/$(LANG1)-syl.twol.hfst | hfst-realign | hfst-minimize -o $@
+.deps/$(LANG1).RL.lexd-twol-ortho.hfst: .deps/$(LANG1).RL.lexd-twol.hfst .deps/$(LANG1)-ortho.twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol.hfst -2 .deps/$(LANG1)-ortho.twol.hfst -o $@
 
-.deps/$(LANG1).LR.lexd-twol-syl.hfst: .deps/$(LANG1).LR.lexd-twol.hfst .deps/$(LANG1)-syl.twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol.hfst -2 .deps/$(LANG1)-syl.twol.hfst | hfst-realign | hfst-minimize -o $@
+.deps/$(LANG1).LR.lexd-twol-ortho.hfst: .deps/$(LANG1).LR.lexd-twol.hfst .deps/$(LANG1)-ortho.twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol.hfst -2 .deps/$(LANG1)-ortho.twol.hfst -o $@
 
-.deps/$(LANG1).RL.lexd-twol-syl-stress.hfst: .deps/$(LANG1).RL.lexd-twol-syl.hfst .deps/$(LANG1)-stress.lexd.hfst
-	hfst-compose -1 .deps/$(LANG1).RL.lexd-twol-syl.hfst -2 .deps/$(LANG1)-stress.lexd.hfst -o $@
+.deps/$(LANG1).RL.lexd-twol-ortho-syl.hfst: .deps/$(LANG1).RL.lexd-twol-ortho.hfst .deps/$(LANG1)-syl.twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol-ortho.hfst -2 .deps/$(LANG1)-syl.twol.hfst | hfst-realign | hfst-minimize -o $@
 
-.deps/$(LANG1).LR.lexd-twol-syl-stress.hfst: .deps/$(LANG1).LR.lexd-twol-syl.hfst .deps/$(LANG1)-stress.lexd.hfst
-	hfst-compose -1 .deps/$(LANG1).LR.lexd-twol-syl.hfst -2 .deps/$(LANG1)-stress.lexd.hfst -o $@
+.deps/$(LANG1).LR.lexd-twol-ortho-syl.hfst: .deps/$(LANG1).LR.lexd-twol-ortho.hfst .deps/$(LANG1)-syl.twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol-ortho.hfst -2 .deps/$(LANG1)-syl.twol.hfst | hfst-realign | hfst-minimize -o $@
 
-.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-twol-syl-stress.hfst .deps/$(LANG1)-contract.xfst.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst -o $@
+.deps/$(LANG1).RL.lexd-twol-ortho-syl-stress.hfst: .deps/$(LANG1).RL.lexd-twol-ortho-syl.hfst .deps/$(LANG1)-stress.lexd.hfst
+	hfst-compose -1 .deps/$(LANG1).RL.lexd-twol-ortho-syl.hfst -2 .deps/$(LANG1)-stress.lexd.hfst -o $@
 
-.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-twol-syl-stress.hfst .deps/$(LANG1)-contract.xfst.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst -o $@
+.deps/$(LANG1).LR.lexd-twol-ortho-syl-stress.hfst: .deps/$(LANG1).LR.lexd-twol-ortho-syl.hfst .deps/$(LANG1)-stress.lexd.hfst
+	hfst-compose -1 .deps/$(LANG1).LR.lexd-twol-ortho-syl.hfst -2 .deps/$(LANG1)-stress.lexd.hfst -o $@
+
+.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-twol-ortho-syl-stress.hfst .deps/$(LANG1)-contract.xfst.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol-ortho-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst -o $@
+
+.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-twol-ortho-syl-stress.hfst .deps/$(LANG1)-contract.xfst.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol-ortho-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst -o $@
 
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@
