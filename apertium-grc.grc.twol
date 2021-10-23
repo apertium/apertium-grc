@@ -2,7 +2,8 @@ Alphabet
  Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω
  α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω
  ς
- ῃ ῳ
+ ᾳ ῃ ῳ
+ ϊ ϋ
  Ἀ Ἐ Ἠ Ἰ Ὀ   Ὠ
  ἀ ἐ ἠ ἰ ὀ ὐ ὠ
  Ἁ Ἑ Ἡ Ἱ Ὁ Ὑ Ὡ
@@ -15,12 +16,13 @@ Alphabet
  %{%+longd%}:0 %{%+longd%}:υ %{%+longd%}:%{%+long%}
  %{%+longs%}:0
  %{σ%}:0 %{σ%}:σ
- %{ε%}:ἐ %{ε%}:0
+ %{ε%}:ε %{ε%}:0
  %{'%?%}:0 %{'%?%}:%{'%} %{%~%?%}:0 %{%~%?%}:%{%~%} %{'%$%}:0
  %{%(ν%)%}:0 %{%(ν%)%}:ν
  %{%+%}
  %{redup%}:0
  %{%|%}:0
+ %{μ%}:μ
 
  %{g%+%}:0 %{g%-%}:0
  %{οω%}:ο %{οω%}:ω
@@ -31,7 +33,8 @@ Sets
 
 Vowel = Α Ε Η Ι Ο Υ Ω
         α ε η ι ο υ ω
-        ῃ ῳ ;
+        ᾳ ῃ ῳ
+        ϊ ϋ ;
 
 Consonant = Β Γ Δ Ζ Θ Κ Λ Μ Ν Ξ Π Ρ Σ Τ Φ Χ Ψ
             β γ δ ζ θ κ λ μ ν ξ π ρ σ τ φ χ ψ
@@ -50,12 +53,6 @@ Rules
 "augment is ε only before consonants"
 %{ε%}:ε <=> _ :Consonant ;
 
-"aug + prep part 1"
-%{ε%}:0 <=> _ [ ε: | α: | ἀ: ] ;
-
-"aug + ἀ → η"
-ἀ:ἠ <=> %{ε%}:0 _ ;
-
 "α → η"
 α:η <=> _ ( %{'%} | %{'%?%}: ) [ %{%+longs%}: ] ;
         %{ε%}: _ ;
@@ -67,6 +64,12 @@ Rules
 "ο → ω"
 ο:ω <=> _ ( %{'%} | %{'%?%}: ) [ %{%+long%}: | %{%+longs%}: ] ;
         %{ε%}: _ ;
+
+"aug + vowel with breathing"
+Vx:Vy <=> %{ε%}:0 _ ;
+          where Vx in ( ἀ ἁ ἐ ἑ ὀ ὁ )
+                Vy in ( ἠ ἡ ἠ ἡ ὠ ὡ )
+          matched ;
 
 "preposition before augment"
 Vx:0 <=> Consonant _ %{ε%}: ;
@@ -120,8 +123,8 @@ Vx:0 <=> Consonant _ %{ε%}: ;
 μ:ν <=> _ .#. ;
 
 "no final dental or before σ"
-Cx:0 <=> _ ( %{g%+%}:0 | %{g%-%}:0 ) .#. ;
-         _ ( %{'%?%}: | %{g%+%}:0 | %{g%-%}:0 )* [ :σ | :ς | σ: | ς: ] ;
+Cx:0 <=> _ Mod:* .#. ;
+         _ Mod:* [ :σ | :ς | σ: | ς: ] ;
          where Cx in Dental ;
 
 "{σ} deletes between vowels"
@@ -157,6 +160,12 @@ Cx:Cy <=> _ Mod:* ( Dental:0 ) Mod:* [ σ:0 | ς:0 ] ;
 
 "vowel gradation 2"
 %{εη%}:η <=> _ ?* %{g%+%}:0 ;
+
+"Euphonic change in perfect mid/pass participle"
+Cx:Cy <=> _ %{μ%}:μ ;
+          where Cx in ( π β φ τ δ ζ ν κ χ )
+                Cy in ( μ μ μ σ σ σ σ γ γ )
+          matched ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
