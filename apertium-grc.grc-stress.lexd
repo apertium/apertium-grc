@@ -26,6 +26,12 @@ Acute CC LongVowel(3) BD FinalShortSyllableClitic
 Prefix AnyAcuteVowel Acute BD UnmarkedSyllable FinalShortSyllableClitic
 Acute IrrelevantSyllable* CC AnyAcuteVowel BD UnmarkedSyllable FinalShortSyllableClitic
 
+# clitic
+Clt UnmarkedSyllable CC
+Clt UnmarkedSyllable UnmarkedSyllable CC
+Clt UnmarkedSyllable CC ShortVowel(2) BD CC
+Clt UnmarkedSyllable CC LongVowel(3) BD CC
+
 # no stress
 UnmarkedSyllable* Consonant* [']?
 
@@ -81,6 +87,9 @@ LEXICON Circumflex
 
 LEXICON BD
 {.}:
+
+LEXICON Clt
+{clt}:
 
 PATTERN CC
 Consonant*

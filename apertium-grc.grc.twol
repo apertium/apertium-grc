@@ -11,7 +11,7 @@ Alphabet
  Ῥ ῥ
 
  ! pass these through to the stress twol file
- %{'%} %{'%!%} %{%~%} %{%+long%} %{%-long%}
+ %{'%} %{'%!%} %{%~%} %{%+long%} %{%-long%} %{clt%}
 
  %{%+longd%}:0 %{%+longd%}:υ %{%+longd%}:%{%+long%}
  %{%+longs%}:0

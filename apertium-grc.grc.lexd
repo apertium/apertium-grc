@@ -10,6 +10,7 @@
 # {'?} {~?} potential stress locations in noun suffixes
 # {'$} final symbol which enables {'?} and {~?}
 # {|} block normal merges
+# {clt} this is a clitic
 
 ##################################################
 # NOUNS
@@ -48,7 +49,7 @@ IrregProperNouns
 NounStem[ις-δος,'$] (Dec3(1) :Dec3(4))
 NounStem[ις-δος,-'$] (Dec3(1) :Dec3(5))
 NounStem[ος-ους,το] (Dec3(1) :Dec3(6))
-NounStem[ις-εως,η] (Dec3(1) :Dec3(7))
+[:{'}] NounStem[ις-εως,η] (Dec3(1) :Dec3(7))
 NounStem[ευς-εως,ο] (Dec3(1) :Dec3(8))
 NounStem[ευς-εως,ο] [<pl><nom>:ει{~}ς] # Dir/LR
 
@@ -89,29 +90,29 @@ ProperNouns[η] [<np><f>:]
 ProperNouns[το] [<np><nt>:]
 
 LEXICON CaseNumber
-<nom><sg>:ο{'}[ο-ου,το,'$]
-<gen><sg>:ου{~}[ο-ου,το,'$]
-<dat><sg>:ῳ{~}[ο-ου,το,'$]
-<acc><sg>:ο{'}[ο-ου,το,'$]
-#<voc><sg>:[ο-ου,το,'$]
+<sg><nom>:ο{'}[ο-ου,το,'$]
+<sg><gen>:ου{~}[ο-ου,το,'$]
+<sg><dat>:ῳ{~}[ο-ου,το,'$]
+<sg><acc>:ο{'}[ο-ου,το,'$]
+#<sg><voc>:[ο-ου,το,'$]
 
-<nom><pl>:α{'}[ο-ου,το,'$]
-<gen><pl>:ω{~}ν[ο-ου,το,'$]
-<dat><pl>:οι{~}ς[ο-ου,το,'$]
-<acc><pl>:α{'}[ο-ου,το,'$]
-#<voc><pl>:[ο-ου,το,'$]
+<pl><nom>:α{'}[ο-ου,το,'$]
+<pl><gen>:ω{~}ν[ο-ου,το,'$]
+<pl><dat>:οι{~}ς[ο-ου,το,'$]
+<pl><acc>:α{'}[ο-ου,το,'$]
+#<pl><voc>:[ο-ου,το,'$]
 
-<nom><sg>:[indec-sg]
-<gen><sg>:[indec-sg]
-<dat><sg>:[indec-sg]
-<acc><sg>:[indec-sg]
-<voc><sg>:[indec-sg]
+<sg><nom>:[indec-sg]
+<sg><gen>:[indec-sg]
+<sg><dat>:[indec-sg]
+<sg><acc>:[indec-sg]
+<sg><voc>:[indec-sg]
 
-<nom><sg>:α{+long}{~?}ς[ας-α]
-<gen><sg>:α{+long}{~?}[ας-α]
-<dat><sg>:ᾳ{~?}[ας-α]
-<acc><sg>:α{+long}{~?}ν[ας-α]
-<voc><sg>:α{+long}{~?}[ας-α]
+<sg><nom>:α{+long}{~?}ς[ας-α]
+<sg><gen>:α{+long}{~?}[ας-α]
+<sg><dat>:ᾳ{~?}[ας-α]
+<sg><acc>:α{+long}{~?}ν[ας-α]
+<sg><voc>:α{+long}{~?}[ας-α]
 
 LEXICON Dec1Sg(7)
 # 2 - Fᾱ
@@ -121,18 +122,18 @@ LEXICON Dec1Sg(7)
 # 6 - Mης
 # 7 - Mᾱς
 
-<nom><sg> α{+long}{'?}  η{'?}  α{'?}  α{'?}         η{'?}ς α{+long}{'?}ς
-<gen><sg> α{+long}{~?}ς η{~?}ς η{~?}ς α{+long}{~?}ς ου{~?} ου{~?}
-<dat><sg> ᾳ{~?}         ῃ{~?}  ῃ{~?}  ᾳ{~?}         ῃ{~?}  ᾳ{~?}
-<acc><sg> α{+long}{'?}ν η{'?}ν α{'?}ν α{'?}ν        η{'?}ν α{+long}{'?}ν
-<voc><sg> α{+long}{'?}  η{'?}  α{'?}  α{'?}         α{'?}  α{+long}{'?}
+<sg><nom> α{+long}{'?}  η{'?}  α{'?}  α{'?}         η{'?}ς α{+long}{'?}ς
+<sg><gen> α{+long}{~?}ς η{~?}ς η{~?}ς α{+long}{~?}ς ου{~?} ου{~?}
+<sg><dat> ᾳ{~?}         ῃ{~?}  ῃ{~?}  ᾳ{~?}         ῃ{~?}  ᾳ{~?}
+<sg><acc> α{+long}{'?}ν η{'?}ν α{'?}ν α{'?}ν        η{'?}ν α{+long}{'?}ν
+<sg><voc> α{+long}{'?}  η{'?}  α{'?}  α{'?}         α{'?}  α{+long}{'?}
 
 LEXICON Dec1Pl
-<nom><pl>:αι{'?}
-<gen><pl>:ω{~}ν
-<dat><pl>:αι{~?}ς
-<acc><pl>:α{+long}{'?}ς
-<voc><pl>:αι{'?}
+<pl><nom>:αι{'?}
+<pl><gen>:ω{~}ν
+<pl><dat>:αι{~?}ς
+<pl><acc>:α{+long}{'?}ς
+<pl><voc>:αι{'?}
 
 LEXICON Dec2(3)
 # 2 - MFος
@@ -140,17 +141,17 @@ LEXICON Dec2(3)
 
 # TODO: ους = ο + ος
 
-<nom><sg> ο{'?}ς  ο{'?}ν
-<gen><sg> ου{~?}  ου{~?}
-<dat><sg> ῳ{~?}   ῳ{~?}
-<acc><sg> ο{'?}ν  ο{'?}ν
-<voc><sg> ε{'?}   ο{'?}ν
+<sg><nom> ο{'?}ς  ο{'?}ν
+<sg><gen> ου{~?}  ου{~?}
+<sg><dat> ῳ{~?}   ῳ{~?}
+<sg><acc> ο{'?}ν  ο{'?}ν
+<sg><voc> ε{'?}   ο{'?}ν
 
-<nom><pl> οι{'?}  α{'?}
-<gen><pl> ω{~?}ν  ω{~?}ν
-<dat><pl> οι{~?}ς οι{~?}ς
-<acc><pl> ου{'?}ς α{'?}
-<voc><pl> οι{'?}  α{'?}
+<pl><nom> οι{'?}  α{'?}
+<pl><gen> ω{~?}ν  ω{~?}ν
+<pl><dat> οι{~?}ς οι{~?}ς
+<pl><acc> ου{'?}ς α{'?}
+<pl><voc> οι{'?}  α{'?}
 
 LEXICON Dec3(8)
 # 2 - N*τ _/ος
@@ -161,30 +162,30 @@ LEXICON Dec3(8)
 # 7 - ις,ευς,η
 # 8 - ευς,εως,ο
 
-<nom><sg>:{g+} :       {'?}ς       ς       ς       ος    ις         ευ{'}ς
-<gen><sg>:{g-} ος      ο{'?}ς      ος      ος      ους   εω{-long}ς ε{'}ως
-<dat><sg>:{g-} ι       ι{'?}       ι       ι       ει    ει         ει{~}
-<acc><sg>:{g-} :       α{'?}       α       ν       ος    ιν         ε{'}α{+long}
-<voc><sg>:{g-} :       {'?}ς       :       :       ος    ι          ευ{~}
+<sg><nom>:{g+} :       {'?}ς       ς       ς       ος    ις         ευ{'}ς
+<sg><gen>:{g-} ος      ο{'?}ς      ος      ος      ους   εω{-long}ς ε{'}ως
+<sg><dat>:{g-} ι       ι{'?}       ι       ι       ει    ει         ει{~}
+<sg><acc>:{g-} :       α{'?}       α       ν       ος    ιν         ε{'}α{+long}
+<sg><voc>:{g-} :       {'?}ς       :       :       ος    ι          ευ{~}
 
-<nom><pl>:{g-} α       ε{'?}ς      ες      ες      η     εις        η{~}ς
-<gen><pl>:{g-} ων      ω{~?}ν      ων      ων      ω{~}ν εων        ε{'}ων
-<dat><pl>:{g-} σι{(ν)} σι{'?}{(ν)} σι{(ν)} σι{(ν)} εσιν  εσι{(ν)}   ευ{~}σι{(ν)}
-<acc><pl>:{g-} ας      α{'?}ς      ας      ας      η     εις        ε{'}α{+long}ς
-<voc><pl>:{g-} α       ε{'?}ς      ες      ες      η     εις        η{~}ς
+<pl><nom>:{g-} α       ε{'?}ς      ες      ες      η     εις        η{~}ς
+<pl><gen>:{g-} ων      ω{~?}ν      ων      ων      ω{~}ν εων        ε{'}ων
+<pl><dat>:{g-} σι{(ν)} σι{'?}{(ν)} σι{(ν)} σι{(ν)} εσιν  εσι{(ν)}   ευ{~}σι{(ν)}
+<pl><acc>:{g-} ας      α{'?}ς      ας      ας      η     εις        ε{'}α{+long}ς
+<pl><voc>:{g-} α       ε{'?}ς      ες      ες      η     εις        η{~}ς
 
 LEXICON Dec3B(4)
-<nom><sg>:{g+} η{'?}ρ       :          ς
-<gen><sg>:{g-} ρο{'}ς       ο{'}ς      ο{'}ς
-<dat><sg>:{g-} ρι{'}        ι{'}       ι{'}
-<acc><sg>:{g-} ε{'}ρα       :          α
-<voc><sg>:{g-} ερ           :          ς
+<sg><nom>:{g+} η{'?}ρ       :          ς
+<sg><gen>:{g-} ρο{'}ς       ο{'}ς      ο{'}ς
+<sg><dat>:{g-} ρι{'}        ι{'}       ι{'}
+<sg><acc>:{g-} ε{'}ρα       :          α
+<sg><voc>:{g-} ερ           :          ς
 
-<nom><pl>:{g-} ε{'}ρες      α          ες
-<gen><pl>:{g-} ε{'}ρων      ω{~}ν      ω{~}ν
-<dat><pl>:{g-} ρα{'}σι{(ν)} σι{'}{(ν)} σι{'}{(ν)}
-<acc><pl>:{g-} ε{'}ρας      ας         ας
-<voc><pl>:{g-} ε{'}ρες      α          ες
+<pl><nom>:{g-} ε{'}ρες      α          ες
+<pl><gen>:{g-} ε{'}ρων      ω{~}ν      ω{~}ν
+<pl><dat>:{g-} ρα{'}σι{(ν)} σι{'}{(ν)} σι{'}{(ν)}
+<pl><acc>:{g-} ε{'}ρας      ας         ας
+<pl><voc>:{g-} ε{'}ρες      α          ες
 
 LEXICON NounRoot
 αυτος:αὐτ[ος-ου,ο,'$]
@@ -2592,6 +2593,16 @@ LEXICON IrregCommonNouns
 γυνη<n><f><pl><dat>:γυναιξι{'}{(ν)}
 γυνη<n><f><pl><acc>:γυναι{~}κας
 γυνη<n><f><pl><voc>:γυναι{~}κες
+ους<n><nt><sg><nom>:ου{~}ς
+ους<n><nt><sg><gen>:ωτο{'}ς
+ους<n><nt><sg><dat>:ωτι{'}
+ους<n><nt><sg><acc>:ου{~}ς
+ους<n><nt><sg><voc>:ου{~}ς
+ους<n><nt><pl><nom>:ω{'}τα
+ους<n><nt><pl><gen>:ω{'}των
+ους<n><nt><pl><dat>:ωσι{'}{(ν)}
+ους<n><nt><pl><acc>:ω{'}τα
+ους<n><nt><pl><voc>:ω{'}τα
 πους<n><m><sg><nom>:που{'}ς
 πους<n><m><sg><gen>:ποδο{'}ς
 πους<n><m><sg><dat>:ποδι{'}
@@ -2602,6 +2613,12 @@ LEXICON IrregCommonNouns
 πους<n><m><pl><dat>:πασι{'}{(ν)}
 πους<n><m><pl><acc>:πο{'}δας
 πους<n><m><pl><voc>:πο{'}δες
+πυρ<n><nt><sg><nom>:πυ{+long}{~}ρ
+πυρ<n><nt><sg><gen>:πυρο{'}ς
+πυρ<n><nt><sg><dat>:πυρι{'}
+πυρ<n><nt><sg><acc>:πυ{+long}{~}ρ
+πυρ<n><nt><sg><voc>:πυ{+long}{~}ρ
+σαββατον<n><nt><pl><dat>:σα{'}ββατσι{(ν)} # Dir/LR
 υδωρ<n><nt><sg><nom>:ὑ{'}δωρ
 υδωρ<n><nt><sg><acc>:ὑ{'}δωρ
 υδωρ<n><nt><sg><voc>:ὑ{'}δωρ
@@ -2619,27 +2636,30 @@ LEXICON IrregProperNouns
 Μωυσης<np><ant><m><sg><acc>:Μωϋση{~}ν
 
 PATTERN Adjectives
-[:{'}] AdjRoots[ος-η-ον,'$] [<adj>:] AdjDec12η [:{'$}]
-[:{'}] AdjRoots[ος-η-ον,-'$] [<adj>:] AdjDec12η
-[:{'}] AdjRoots[ος-α-ον,'$] [<adj>:] AdjDec12α [:{'$}]
-[:{'}] AdjRoots[ος-α-ον,-'$] [<adj>:] AdjDec12α
-[:{'}] AdjRoots[ος-ος-ον,'$] [<adj>:] AdjDec12ος [:{'$}]
-[:{'}] AdjRoots[ος-ος-ον,-'$] [<adj>:] AdjDec12ος
+[:{'}] AdjStems['$] [:{'$}]
+AdjStems[-'$]
+
 [:{'}] AdjRoots  [<adj><cmp>:τερ] AdjDec12α
 [:{'}] AdjRoots  [<adj><sup>:τατ] AdjDec12η
 
 SpecialAdjectives
 
-LEXICON AdjEndings(4)
-<nom><sg> ς     α  :
-<gen><sg> ο{'}ς ης ο{'}ς
-<dat><sg> ι{'}  ῃ  ι{'}
-<acc><sg> α     αν :
+PATTERN AdjStems
+AdjRoots[ος-η-ον] [<adj>:] AdjDec12η
+AdjRoots[ος-α-ον] [<adj>:] AdjDec12α
+AdjRoots[ος-ος-ον] [<adj>:] AdjDec12ος
+(AdjIrregCompSup(1) [<adj>:] AdjIrregCompSup(2):)[ων-ων-ον] AdjDec3ων
 
-<nom><pl> ες      αι        α
-<gen><pl> ων      ω{~}ν     ων
-<dat><pl> σι{(ν)} αις       σι{(ν)}
-<acc><pl> ας      α{+long}ς α
+LEXICON AdjEndings(4)
+<sg><nom> ς     α  :
+<sg><gen> ο{'}ς ης ο{'}ς
+<sg><dat> ι{'}  ῃ  ι{'}
+<sg><acc> α     αν :
+
+<pl><nom> ες      αι        α
+<pl><gen> ων      ω{~}ν     ων
+<pl><dat> σι{(ν)} αις       σι{(ν)}
+<pl><acc> ας      α{+long}ς α
 
 PATTERN AdjDec12η
 [<m>:] AdjDec12Endings(1): :AdjDec12Endings(2)
@@ -2656,18 +2676,36 @@ PATTERN AdjDec12ος
 [<f>:] AdjDec12Endings(1): :AdjDec12Endings(2)
 [<nt>:] AdjDec12Endings(1): :AdjDec12Endings(5)
 
-LEXICON AdjDec12Endings(5)
-<nom><sg> ο{'?}ς  η{'?}   α{+long}{'?}  ο{'?}ν
-<gen><sg> ου{~?}  η{~?}ς  α{+long}{~?}ς ου{~?}
-<dat><sg> ῳ{~?}   ῃ{~?}   ᾳ{~?}         ῳ{~?}
-<acc><sg> ον{'?}  η{'?}ν  α{+long}{'?}ν ο{'?}ν
-<voc><sg> ε{'?}   η{'}    α{+long}{'?}  ο{'?}ν
+PATTERN AdjDec3ων
+[<m>:] AdjDec3Endings(1): :AdjDec3Endings(2)
+[<f>:] AdjDec3Endings(1): :AdjDec3Endings(2)
+[<nt>:] AdjDec3Endings(1): :AdjDec3Endings(3)
 
-<nom><pl> οι{'?}  αι{'?}  αι{'?}        α{'?}
-<gen><pl> ω{~?}ν  ω{~?}ν  ω{~?}ν        ω{~?}ν
-<dat><pl> οι{~?}ς αι{~?}ς αι{~?}ς       οι{~?}ς
-<acc><pl> ου{'?}ς α{'?}ς  α{+long}{'?}ς α{'?}
-<voc><pl> οι{'?}  αι{'?}  αι{'?}        α{'?}
+LEXICON AdjDec12Endings(5)
+<sg><nom> ο{'?}ς  η{'?}   α{+long}{'?}  ο{'?}ν
+<sg><gen> ου{~?}  η{~?}ς  α{+long}{~?}ς ου{~?}
+<sg><dat> ῳ{~?}   ῃ{~?}   ᾳ{~?}         ῳ{~?}
+<sg><acc> ον{'?}  η{'?}ν  α{+long}{'?}ν ο{'?}ν
+<sg><voc> ε{'?}   η{'}    α{+long}{'?}  ο{'?}ν
+
+<pl><nom> οι{'?}  αι{'?}  αι{'?}        α{'?}
+<pl><gen> ω{~?}ν  ω{~?}ν  ω{~?}ν        ω{~?}ν
+<pl><dat> οι{~?}ς αι{~?}ς αι{~?}ς       οι{~?}ς
+<pl><acc> ου{'?}ς α{'?}ς  α{+long}{'?}ς α{'?}
+<pl><voc> οι{'?}  αι{'?}  αι{'?}        α{'?}
+
+LEXICON AdjDec3Endings(3)
+<sg><nom> {g+}        {g-}
+<sg><gen> {g-}ος      {g-}ος
+<sg><dat> {g-}ι       {g-}ι
+<sg><acc> {g-}α       {g-}
+<sg><voc> {g-}        {g-}
+
+<pl><nom> {g-}ες      {g-}α
+<pl><gen> {g-}ων      {g-}ων
+<pl><dat> {g-}σι{(ν)} {g-}σι{(ν)}
+<pl><acc> {g-}ας      {g-}α
+<pl><voc> {g-}ες      {g-}α
 
 LEXICON AdjRoots
 αγαθος:ἀγαθ[ος-η-ον,'$]
@@ -2723,7 +2761,7 @@ LEXICON AdjRoots
 αμαραντινος:ἀμαρα{'}ντιν[ος-η-ον]
 αμαραντος:ἀμα{'}ραντ[ος-ος-ον]
 αμαρτυρος:ἀμα{'}ρτυρ[ος-ος-ον]
-αμαρτωλος:ἁμαρτωλο{'}[ος-ος-ον]
+αμαρτωλος:ἁμαρτωλ[ος-ος-ον,'$]
 αμαχος:ἀ{'}μαχ[ος-ος-ον]
 αμεμπτος:ἀ{'}μεμπτ[ος-ος-ον]
 αμεριμνος:ἀμε{'}ριμν[ος-ος-ον]
@@ -2769,6 +2807,7 @@ LEXICON AdjRoots
 ανυποκριτος:ἀνυπο{'}κριτ[ος-ος-ον]
 ανυποτακτος:ἀνυπο{'}τακτ[ος-ος-ον]
 ανωτερικος:ἀνωτερικ[ος-η-ον,'$]
+αξιος:α{'}ξι[ος-α-ον]
 αορατος:ἀο{'}ρατ[ος-ος-ον]
 απαιδευτος:ἀπαι{'}δευτ[ος-ος-ον]
 απαλος:ἁπαλ[ος-η-ον,'$]
@@ -3233,6 +3272,9 @@ LEXICON AdjRoots
 ψυχρος:ψυχρ[ος-α-ον,'$]
 ωφελιμος:ὠφε{'}λιμ[ος-ος-ον]
 
+LEXICON AdjIrregCompSup(2)
+μεγας:μει{'}ζ{οω}ν <comp>[ων-ων-ον]
+
 PATTERN SpecialAdjectives
 [μεγας<adj><m><sg><nom>:με{'}γας]
 [μεγας<adj><m><sg><nom>:με{'}γαν]
@@ -3247,32 +3289,32 @@ PATTERN SpecialAdjectives
 [πολλυς<adj><m>:πολ] Adjπολλυς(1): :Adjπολλυς(2)
 [πολλυς<adj><f>:πολ] Adjπολλυς(1): :Adjπολλυς(3)
 [πολλυς<adj><nt>:πολ] Adjπολλυς(1): :Adjπολλυς(4)
-[πολλυς<adj><nt><acc><pl>:πο{'}λλ'] # Dir/LR
+[πολλυς<adj><nt><pl><acc>:πο{'}λλ'] # Dir/LR
 
 LEXICON Adjπας(4)
-<nom><sg> πα{+long}{~}ς       πα{+long}{~}σα         πα{+long}{~}ν
-<gen><sg> παντο{'}ς           πα{+long}{'}σης        παντο{'}ς
-<dat><sg> παντι{'}            πα{+long}{'}σῃ         παντι{'}
-<acc><sg> πα{'}ντα            πα{+long}{~}σαν        πα{+long}{~}ν
-<voc><sg> πα{+long}{~}ς       πα{+long}{~}σα         πα{+long}{~}ν
+<sg><nom> πα{+long}{~}ς       πα{+long}{~}σα         πα{+long}{~}ν
+<sg><gen> παντο{'}ς           πα{+long}{'}σης        παντο{'}ς
+<sg><dat> παντι{'}            πα{+long}{'}σῃ         παντι{'}
+<sg><acc> πα{'}ντα            πα{+long}{~}σαν        πα{+long}{~}ν
+<sg><voc> πα{+long}{~}ς       πα{+long}{~}σα         πα{+long}{~}ν
 
-<nom><pl> πα{'}ντες           πα{+long}{~}σαι        πα{'}ντα
-<gen><pl> πα{'}ντων           πα{+long}σω{~}ν        πα{'}ντων
-<dat><pl> πα{+long}{~}σι{(ν)} πα{+long}{'}σαις       πα{+long}{~}σι{(ν)}
-<acc><pl> πα{'}ντας           πα{+long}{'}σα{+long}ς πα{'}ντα
-<voc><pl> πα{'}ντες           πα{+long}{~}σαι        πα{'}ντα
+<pl><nom> πα{'}ντες           πα{+long}{~}σαι        πα{'}ντα
+<pl><gen> πα{'}ντων           πα{+long}σω{~}ν        πα{'}ντων
+<pl><dat> πα{+long}{~}σι{(ν)} πα{+long}{'}σαις       πα{+long}{~}σι{(ν)}
+<pl><acc> πα{'}ντας           πα{+long}{'}σα{+long}ς πα{'}ντα
+<pl><voc> πα{'}ντες           πα{+long}{~}σαι        πα{'}ντα
 
 LEXICON Adjπολλυς(4)
-<nom><sg> υ{'}ς   λη{'}         υ{'}
-<gen><sg> λου{~}  λη{~}ς        λου{~}
-<dat><sg> λῳ{~}   λῃ{~}         λῳ{~}
-<acc><sg> υ{'}ν   λη{'}ν        υ{'}
+<sg><nom> υ{'}ς   λη{'}         υ{'}
+<sg><gen> λου{~}  λη{~}ς        λου{~}
+<sg><dat> λῳ{~}   λῃ{~}         λῳ{~}
+<sg><acc> υ{'}ν   λη{'}ν        υ{'}
 
-<nom><pl> λοι{'}  λαι{'}        λα{'}
-<gen><pl> λω{~}ν  λω{~}ν        λω{~}ν
-<dat><pl> λοι{~}ς λαι{~}ς       λοι{~}ς
-<acc><pl> λου{~}ς λα{+long}{'}ς λα{'}
-<voc><pl> λοι{'}  λαι{'}        λα{'}
+<pl><nom> λοι{'}  λαι{'}        λα{'}
+<pl><gen> λω{~}ν  λω{~}ν        λω{~}ν
+<pl><dat> λοι{~}ς λαι{~}ς       λοι{~}ς
+<pl><acc> λου{'}ς λα{+long}{'}ς λα{'}
+<pl><voc> λοι{'}  λαι{'}        λα{'}
 
 ##################################################
 # Ω VERBS
@@ -3316,6 +3358,10 @@ VerbStemAug3[aor1] [<v><ind><midv><aor><past><p2><sg>:ω]
 
 VerbStemAug3[aor2] [<v><ind><actv><aor><past>:] ThemeS1
 VerbStemAug3[aor2] [<v><ind><midv><aor><past>:] ThemeS2
+
+VerbStemAug3[aorrt] [<v><ind><actv><aor><past>:] VerbSecondary1[-3sg,-3pl]
+VerbStemAug3[aorrt] [<v><ind><actv><aor><past><p3><sg>:]
+VerbStemAug3[aorrt] [<v><ind><actv><aor><past><p3><pl>:σαν]
 
 VerbStemμιAug3[aor1] [<v><ind><actv><aor><past>:] (MILengthening MIEndings(1): :MIEndings(3))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
 
@@ -3361,6 +3407,7 @@ VerbStem3[aor1] [<v><ind><actv><aor><pres><inf>:{+}αι{'$}]
 VerbStem3[aor1] [<v><ind><midv><aor><pres><inf>:{+}ασθαι]
 VerbStem3[aor2] [<v><ind><actv><aor><pres><inf>:{+}ει{~}ν]
 VerbStem3[aor2] [<v><ind><midv><aor><pres><inf>:{+}ε{'}σθαι]
+VerbStem3[aorrt] [<v><ind><actv><aor><pres><inf>:{~}ναι]
 VerbStem6 [<v><ind><pass><aor><pres><inf>:{+long}{~}ναι]
 
 VerbStem4 [<v><ind><actv><perf><pres><inf>:{+}ε{'}ναι]
@@ -3379,15 +3426,18 @@ VerbStem6 [<v><ind><pass><impf><fut><part>:{+long}σομεν] AdjDec12η
 
 # Aorist
 VerbStem3[aor1] [<v><ind><actv><aor><past><part>:{+}α] PartEndingsActv[-sgnom] [:{'$}]
-VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><nom><sg>:{+}α{+long}ς{'$}]
-VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><voc><sg>:{+}α{+long}ς{'$}]
+VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><sg><nom>:{+}α{+long}ς{'$}]
+VerbStem3[aor1] [<v><ind><actv><aor><past><part><m><sg><voc>:{+}α{+long}ς{'$}]
 VerbStem3[aor1] [<v><ind><midv><aor><past><part>:{+}αμεν] AdjDec12η
 # TODO: this gives ο{'}{+longd}
-VerbStem3[aor2] [<v><ind><midv><aor><past><part>:{+}ο{'}] PartEndingsActv
+VerbStem3[aor2] [<v><ind><actv><aor><past><part>:{+}ο{'}] PartEndingsActv
 VerbStem3[aor2] [<v><ind><midv><aor><past><part>:{+}ομεν] AdjDec12η
+VerbStem3[aorrt] [<v><ind><actv><aor><past><part>:{'}] PartEndingsActv[-sgnom]
+VerbStem3[aorrt] [<v><ind><actv><aor><past><part><m><sg><nom>:{+long}{'}ς]
+VerbStem3[aorrt] [<v><ind><actv><aor><past><part><m><sg><voc>:{+long}{'}ς]
 VerbStem6 [<v><ind><pass><aor><past><part>:{'}{+}] PartEndingsActv[-sgnom]
-VerbStem6 [<v><ind><pass><aor><past><part><m><nom><sg>:ι{'}ς]
-VerbStem6 [<v><ind><pass><aor><past><part><m><voc><sg>:ι{'}ς]
+VerbStem6 [<v><ind><pass><aor><past><part><m><sg><nom>:ι{'}ς]
+VerbStem6 [<v><ind><pass><aor><past><part><m><sg><voc>:ι{'}ς]
 
 # Perfect
 VerbStem4 [<v><ind><actv><perf><pres><part>:] PartEndingsPerf
@@ -3466,6 +3516,7 @@ VerbRootIrreg[pp3]
 VerbRootIrreg[pp3na]
 (VerbRootPrep(1) VerbRootPrep(2))[aor1,pp3] [:{+longs}σ]
 (VerbRootPrep(1) VerbRootPrep(2))[aor2,pp3]
+(VerbRootPrep(1) VerbRootPrep(2))[aorrt,pp3] [:{+longs}]
 (VerbRootPrepIrreg(1) VerbRootPrepIrreg(2))[pp3]
 
 PATTERN VerbStemAug3
@@ -3473,6 +3524,7 @@ PATTERN VerbStemAug3
 VerbRootIrreg[pp3a]
 (VerbRootPrep(1) [:{ε}] VerbRootPrep(2))[aor1,pp3] [:{+longs}σ]
 (VerbRootPrep(1) [:{ε}] VerbRootPrep(2))[aor2,pp3]
+(VerbRootPrep(1) [:{ε}] VerbRootPrep(2))[aorrt,pp3] [:{+longs}]
 (VerbRootPrepIrreg(1) [:{ε}] VerbRootPrepIrreg(2))[pp3]
 
 PATTERN VerbStemμι3
@@ -4952,6 +5004,7 @@ LEXICON VerbRootPrep(2)[pp1,pp2,pp3,pp4,pp5,pp6,aor1,aor2]
 ανα:ἀνα φωνεω:φωνε{'?}
 ανα:ἀνα χωρεω:χωρε{'?}
 ανα:ἀνα ψυχω:ψυ{'?}χ
+αν:ανι ιστημι:στα[μι,aorrt,pp3]
 αντι:ἀντι βαλλω:βα{'?}λλ
 αντι:ἀντι καλεω:καλε{'?}
 αντι:ἀντι λεγω:λε{'?}γ
@@ -5366,6 +5419,8 @@ LEXICON VerbRootPrep(2)[pp1,pp2,pp3,pp4,pp5,pp6,aor1,aor2]
 υπο:ὑπο χωρεω:χωρε{'?}
 
 LEXICON VerbRootPrepIrreg(2)
+ανα:αν βαινω:βησ[pp2,dep2]
+ανα:αν βαινω:βη[pp3,aor1]
 απ αγγελλω:αγγειλ[pp3,aor1]
 απ:ἀπ ερχομαι:ε{'}λθ[pp3,aor2]
 απο:ἀπο θνησκω:θα{'?}ν[pp3,aor2]
@@ -5373,16 +5428,21 @@ LEXICON VerbRootPrepIrreg(2)
 απο:ἀπο στελλω:στειλ[pp3,aor1]
 εισ:εἰσ ερχομαι:ε{'}λθ[pp3,aor2]
 εξ:ἐξ ερχομαι:ε{'}λθ[pp3,aor2]
+κατα βαινω:βη[pp3,aor1]
 προσ:προσ ερχομαι:ε{'}λθ[pp3,aor2]
 προσ:προσ καλεω:καλεσ[pp3,aor1]
 
 LEXICON VerbRootIrreg
 αγω:ἀγαγ[pp3,aor2]
+ανιστημι:αναστα[pp3,aorrt] # TODO: participle only
+ασπαζομαι:ασπασ[pp3,aor1]
 βαλλω:βαλ[pp3,aor2]
 διδομι:δοθε[pp6]
+εγγιζω:εγγικ[pp4]
 εγειρω:εγερθε[pp6]
 ευρισκω:εὑρε[pp2]
 ευρισκω:εὑρ[pp3,pp3a,aor2]
+ευρισκω:εὑρεθε[pp6]
 ερχομαι:ἐλθ[pp3,aor2]
 ερχομαι:ἠλθ[pp3a,aor2]
 εχω:εἰχ[pp1a]
@@ -5390,9 +5450,9 @@ LEXICON VerbRootIrreg
 γιγνομαι:γενε[pp2]
 γιγνομαι:γεν[pp3,aor1]
 γιγνομαι:γον[pp4]
-γιγνωσκω:γνω[pp3,aor1]
-γιγνωσκω:γνωσ[pp3,aor1] # TODO: ???
+γιγνωσκω:γνω[pp3,aorrt]
 γινομαι:γεν[pp3,aor2]
+γινομαι:γενηθε[pp6]
 κρινω:κριθε[pp6]
 λαμβανω:λαβ[pp3,aor2]
 λεγω:ερε[pp2]
@@ -5403,9 +5463,13 @@ LEXICON VerbRootIrreg
 οραω:ιδ[pp3na,aor2]
 οραω:ειδ[pp3a,aor2]
 οραω:ωφθε[pp6]
+πασχω:πεισ[pp2]
+πασχω:παθ[pp3,aor2]
 πιπτω:πεσε[pp2]
 πιπτω:πεσ[pp3,aor2]
 πιπτω:πτωκ[pp4,pp5]
+σωζω:σωσ[pp3,aor1]
+σωζω:σωθε[pp6]
 
 PATTERN VerbIrreg
 δει
@@ -5468,8 +5532,8 @@ LEXICON MIEndings(6)
 PATTERN ΜΙ-VERB
 [:{'}] MIFinite
 [:{'}] MIInfinitive
-φημι-clitics [:{'$}]?
-Copula [:{'$}]?
+[:{clt}] φημι-clitics
+Copula
 
 PATTERN MIFinite
 [:{ε}] miStem3[2aor] [<v><ind><actv><aor><past>:{+long}] (MIEndings(1): :MIEndings(2))[^[1sg,2sg,3sg,1pl,2pl,3pl]]
@@ -5511,11 +5575,11 @@ LEXICON MIVerbRoot
 φημι:φα
 
 LEXICON φημι-clitics
-φημι<v><ind><actv><impf><pres><p1><sg>:φημι{'?}
-φημι<v><ind><actv><impf><pres><p3><sg>:φησι{'?}{(ν)}
-φημι<v><ind><actv><impf><pres><p1><pl>:φαμε{'?}ν
-φημι<v><ind><actv><impf><pres><p2><pl>:φατε{'?}
-φημι<v><ind><actv><impf><pres><p3><pl>:φα{+long}σι{'?}{(ν)}
+φημι<v><ind><actv><impf><pres><p1><sg>:φημι
+φημι<v><ind><actv><impf><pres><p3><sg>:φησι{(ν)}
+φημι<v><ind><actv><impf><pres><p1><pl>:φαμεν
+φημι<v><ind><actv><impf><pres><p2><pl>:φατε
+φημι<v><ind><actv><impf><pres><p3><pl>:φα{+long}σι{(ν)}
 
 PATTERN Copula
 ειμι-finite
@@ -5525,13 +5589,13 @@ PATTERN Copula
 [ειμι<vbser><ind><actv><impf><fut><part>:{'}ἐσο{'}μεν] AdjDec12η
 
 LEXICON ειμι-finite
-ειμι<vbser><ind><actv><impf><pres><p1><sg>:εἰμι{'?}
+ειμι<vbser><ind><actv><impf><pres><p1><sg>:{clt}εἰμι
 ειμι<vbser><ind><actv><impf><pres><p2><sg>:εἰ{~}
-ειμι<vbser><ind><actv><impf><pres><p3><sg>:ἐστι{'?}{(ν)}
+ειμι<vbser><ind><actv><impf><pres><p3><sg>:{clt}ἐστι{(ν)}
 ειμι<vbser><ind><actv><impf><pres><p3><sg>:ἐ{'}στι{(ν)} # Dir/LR
-ειμι<vbser><ind><actv><impf><pres><p1><pl>:ἐσμε{'?}ν
-ειμι<vbser><ind><actv><impf><pres><p2><pl>:ἐστε{'?}
-ειμι<vbser><ind><actv><impf><pres><p3><pl>:εἰσι{'?}{(ν)}
+ειμι<vbser><ind><actv><impf><pres><p1><pl>:{clt}ἐσμεν
+ειμι<vbser><ind><actv><impf><pres><p2><pl>:{clt}ἐστε
+ειμι<vbser><ind><actv><impf><pres><p3><pl>:{clt}εἰσι{(ν)}
 
 ειμι<vbser><ind><actv><impf><fut><p1><sg>:ἐ{'}σομαι
 ειμι<vbser><ind><actv><impf><fut><p2><sg>:ἐ{'}σῃ
@@ -5546,6 +5610,9 @@ LEXICON ειμι-finite
 ειμι<vbser><ind><actv><impf><past><p1><pl>:ἠ{~}μεν
 ειμι<vbser><ind><actv><impf><past><p2><pl>:ἠ{~}τε
 ειμι<vbser><ind><actv><impf><past><p3><pl>:ἠ{~}σαν
+
+ειμι<vbser><ind><midv><impf><past><p1><sg>:ἠ{'}μην
+# TODO: fill in the rest
 
 ειμι<vbser><sub><actv><impf><pres><p1><sg>:ὠ{~}
 ειμι<vbser><sub><actv><impf><pres><p2><sg>:ᾐ{~}ς
@@ -5671,6 +5738,7 @@ LEXICON Conjunctions
 ει<cnjcoo>+αν<cnjcoo>:ἠ{'}ν
 ει<cnjcoo>+αν<cnjcoo>:ἀ{+long}{'}ν
 επι<pr>+ει<cnjcoo>:ἐπει{'}
+και<cnjcoo>+αν<cnjcoo>:κἀ{'}ν
 ως<cnjsub>+ει<cnjcoo>:ὡσει{'}
 
 # TOOD: tags
@@ -5746,6 +5814,7 @@ LEXICON Prepositions # page 383
 εισω<pr>:ἐ{'}σω # Dir/LR
 εναντιον<pr>:ἐναντι{'}ον
 ενεκα<pr>:ἐ{'}νεκα
+ενεκα<pr>:ἐ{'}νεκεν # Dir/LR
 εκτος<pr>:ἐκτο{'}ς
 εντος<pr>:ἐντο{'}ς
 εξω<pr>:ἐ{'}ξω
@@ -5843,8 +5912,8 @@ LEXICON ReflPrnEnd(7)
 PATTERN Itg/IndefPronouns
 [τις<prn><itg><mf>:] ItgPrn(1): :ItgPrn(2) [:{'$}]
 [τις<prn><itg><nt>:] ItgPrn(1): :ItgPrn(3) [:{'$}]
-[τις<prn><ind><mf>:] ItgPrn(1): :ItgPrn(2)
-[τις<prn><ind><nt>:] ItgPrn(1): :ItgPrn(3)
+[τις<prn><ind><mf>:{clt}] ItgPrn(1): :ItgPrn(2)
+[τις<prn><ind><nt>:{clt}] ItgPrn(1): :ItgPrn(3)
 [τις<prn><ind><nt><pl>:ἀ{'}ττα] ( [<nom>:] | [<acc>:] )
 [οστις<prn><itg><m>:] ItgPrnIndir(1): :ItgPrnIndir(2)
 [οστις<prn><itg><f>:] ItgPrnIndir(1): :ItgPrnIndir(3)
@@ -5887,12 +5956,21 @@ LEXICON Negation
 
 LEXICON Adverbs
 αμην<adv>:ἀμη{'}ν # Use/Koine
+αυριον<adv>:αυ{'}ριον
 αρτι<adv>:ἀ{'}ρτι
+ειτα<adv>:ει{'}τα
 εκει<adv>:ἐκει{~}
+εξωθεν<adv>:ε{'}ξωθεν
+επαυριον<adv>:επαυ{'}ριον
+επειτα<adv>:ε{'}πειτα
+εσω<adv>:ε{'}σω
+εσω<adv>:ε{'}σωθεν
 ευθεως<adv>:εὐθε{'}ως
 ευθυς<adv>:εὐθυ{'}ς
 ετι<adv>:ἐ{'}τι
 ηδη<adv>:ἠ{'}δη
+καθαπερ<adv>:καθα{'}περ
+μακροθεν<adv>:μακρο{'}θεν
 μαλιστα<adv>:μα{'}λιστα
 μαλλον<adv>:μα{+long}{~}λλον
 ναι<adv>:ναι{'}
@@ -5902,6 +5980,8 @@ LEXICON Adverbs
 ουτω<adv>:οὑ{'}τω
 παλιν<adv>:πα{'}λιν
 παντοτε<adv>:πα{'}ντοτε
+παραχρημα<adv>:παραχρη{'}μα
+περισσοτερως<adv>:περισσοτε{'}ρως
 σημερον<adv>:ση{'}μερον
 τοτε<adv>:το{'}τε
 χωρις<adv>:χωρι{'}ς
@@ -5934,6 +6014,7 @@ LEXICON Adverbs
 δις<adv>:δι{'}ς
 δυσκολως<adv>:δυσκο{'}λως
 δωρεαν<adv>:δωρεα{'}ν
+εκειθεν<adv>:εκει{'}θεν
 εκουσιως<adv>:ἑκουσι{'}ως
 εκτενεστερον<adv>:ἐκτενε{'}στερον
 εκτενως<adv>:ἐκτενω{~}ς
@@ -6032,6 +6113,7 @@ PATTERN Demonstratives
 [ουτος:] DetPrn [<med><m>:] MedDem(1): :MedDem(2)
 [ουτος:] DetPrn [<med><f>:] MedDem(1): :MedDem(3)
 [ουτος:] DetPrn [<med><nt>:] MedDem(1): :MedDem(4)
+[ουτος:] DetPrn [<med><m><sg>:του{~}τ'] ( [<nom>:] | [<acc>:] ) # Dir/LR
 [εκεινος:] DetPrn [<dst><m>:ἐκει{'}ν] DistDem(1): :DistDem(2)
 [εκεινος:] DetPrn [<dst><f>:ἐκει{'}ν] DistDem(1): :DistDem(3)
 [εκεινος:] DetPrn [<dst><nt>:ἐκει{'}ν] DistDem(1): :DistDem(4)
@@ -6096,6 +6178,8 @@ LEXICON DecCard(6)
 τρεις    <nt>  τρι{'}α     τριω{~}ν       τρισι{'}{(ν)}    τρι{'}α
 τετταρες <mf>  τε{'}τταρες τεττα{'}ρων    τε{'}τταρσι{(ν)} τε{'}τταρας
 τετταρες <nt>  τε{'}τταρα  τεττα{'}ρων    τε{'}τταρσι{(ν)} τε{'}τταρα
+τετταρες <mf>  τε{'}σσαρες τεσσα{'}ρων    τε{'}σσαρσι{(ν)} τε{'}σσαρας # Use/Koine
+τετταρες <nt>  τε{'}σσαρα  τεσσα{'}ρων    τε{'}σσαρσι{(ν)} τε{'}σσαρα # Use/Koine
 
 LEXICON NumNegativeEndings(5)
 <m>  δει{'}ς  δενο{'}ς         δενι{'}  δε{'}να
@@ -6121,6 +6205,10 @@ LEXICON RegularNumber(3)
 δεκα:δε{'}κα     δεκατος:δε{'}κατ     δεκακις:δεκα{'}κις
 ενδεκα:ἑ{'}νδεκα ενδεκατος:ἑνδε{'}κατ ενδεκακις:ἑνδεκα{'}κις
 δωδεκα:δω{'}δεκα δωδεκατος:δωδε{'}κατ δωδεκακις:δωδεκα{'}κις
+τριακοντα:τρια{'}κοντα τριακοστος:τριακοστο{'}ς τριακοντακις:τριακοντα{'}κις
+τεσσαρακοντα:τεσσαρα{'}κοντα τεσσαρακοστο{'}ς τεσσαρακοντακις:τεσσαρακοντα{'}κις
+τεσσαρακοντα:τεσσερα{'}κοντα τεσσερακοστο{'}ς τεσσαρακοντακις:τεσσερακοντα{'}κις # Use/Ionic
+εκατον:ἑκατο{'}ν εκατοστος:ἑκατοστο{'}ς εκατοντακις:ἑκατοντα{'}κις
 
 LEXICON Interjections
 γε<ij>:γε # TODO: tags
