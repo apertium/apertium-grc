@@ -28,8 +28,9 @@ Acute IrrelevantSyllable* CC AnyAcuteVowel BD UnmarkedSyllable FinalShortSyllabl
 
 # clitic
 Clt UnmarkedSyllable CC
+Clt CC AnyAcuteVowel BD CC
 Clt UnmarkedSyllable UnmarkedSyllable CC
-Clt UnmarkedSyllable CC ShortVowel(2) BD CC
+Clt UnmarkedSyllable CC AnyAcuteVowel BD CC
 Clt UnmarkedSyllable CC LongVowel(3) BD CC
 
 # no stress
