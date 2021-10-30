@@ -83,10 +83,10 @@ TARGETS_COMMON =			\
 	hfst-compose -1 .deps/$(LANG1).LR.lexd-twol-ortho-syl.hfst -2 .deps/$(LANG1)-stress.lexd.hfst -o $@
 
 .deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-twol-ortho-syl-stress.hfst .deps/$(LANG1)-contract.xfst.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol-ortho-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst -o $@
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-twol-ortho-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst | hfst-realign | hfst-minimize -o $@
 
 .deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-twol-ortho-syl-stress.hfst .deps/$(LANG1)-contract.xfst.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol-ortho-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst -o $@
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-twol-ortho-syl-stress.hfst -2 .deps/$(LANG1)-contract.xfst.hfst | hfst-realign | hfst-minimize -o $@
 
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@

@@ -23,6 +23,7 @@ Alphabet
  %{redup%}:0
  %{%|%}:0
  %{μ%}:μ
+ %{%-%}:0
 
  %{g%+%}:0 %{g%-%}:0
  %{οω%}:ο %{οω%}:ω
@@ -82,6 +83,9 @@ Vx:0 <=> Consonant _ %{ε%}: ;
 "{ε}ῥ → ερρ 2"
 ῥ:ρ <=> %{ε%}: _ ;
 
+"εκ → εξ before {ε}"
+κ:ξ <=> _ %{ε%}: ;
+
 "ο {+longd} -> ου"
 %{%+longd%}:υ <=> ο _ ;
 
@@ -128,6 +132,12 @@ Cx:0 <=> _ Mod:* .#. ;
          _ Mod:* [ :σ | :ς | σ: | ς: ] ;
          where Cx in Dental ;
 
+"ζ also deletes before σ and κ"
+ζ:0 <=> _ Mod:* [ :σ | :ς | σ: | ς: | κ ] ;
+
+"ζθ → σθ"
+ζ:σ <=> _ Mod:* θ ;
+
 "{σ} deletes between vowels"
 %{σ%}:0 <=> Vowel: _ Vowel: ;
 
@@ -167,6 +177,9 @@ Cx:Cy <=> _ %{μ%}:μ ;
           where Cx in ( π β φ τ δ ζ ν κ χ )
                 Cy in ( μ μ μ σ σ σ σ γ γ )
           matched ;
+
+"{-} cancels {+}"
+%{%+%}:0 <=> %{%-%}:0 ?* _ ;
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol

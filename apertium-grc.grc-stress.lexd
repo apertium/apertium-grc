@@ -1,8 +1,8 @@
 PATTERNS
 # final stress
-Prefix AnyAcuteVowel Acute BD CC
+Prefix FinalAcute Acute BD CC
 Prefix LongVowel(3) Circumflex BD Consonant*
-Acute CC AnyAcuteVowel BD CC
+Acute CC FinalAcute BD CC
 
 # penultimate stress
 Acute (Consonant*) ShortVowel(2) BD UnmarkedSyllable (Consonant*)
@@ -25,12 +25,13 @@ Prefix LongVowel(3) (Acute | Circumflex) BD FinalShortSyllableClitic
 Acute CC LongVowel(3) BD FinalShortSyllableClitic
 Prefix AnyAcuteVowel Acute BD UnmarkedSyllable FinalShortSyllableClitic
 Acute IrrelevantSyllable* CC AnyAcuteVowel BD UnmarkedSyllable FinalShortSyllableClitic
+UnmarkedSyllable* CC AnyAcuteVowel BD CC [']?
 
 # clitic
 Clt UnmarkedSyllable CC
-Clt CC AnyAcuteVowel BD CC
+Clt CC FinalAcute BD CC
 Clt UnmarkedSyllable UnmarkedSyllable CC
-Clt UnmarkedSyllable CC AnyAcuteVowel BD CC
+Clt UnmarkedSyllable CC FinalAcute BD CC
 Clt UnmarkedSyllable CC LongVowel(3) BD CC
 
 # no stress
@@ -49,6 +50,11 @@ LongVowel(2)
 
 PATTERN AnyCircumflexVowel
 LongVowel(3)
+
+PATTERN FinalAcute
+AnyAcuteVowel
+ShortVowel(3)
+LongVowel(4)
 
 PATTERN IrrelevantSyllable
 (Consonant*) AnyVowel (Acute | Circumflex)? BD
@@ -95,131 +101,131 @@ LEXICON Clt
 PATTERN CC
 Consonant*
 
-LEXICON ShortVowel(2)
-Α Α:Ά
-Ε Ε:Έ
-Ι Ι:Ί
-Ο Ο:Ό
-Υ Υ:Ύ
-α α:ά
-ε ε:έ
-ι ι:ί
-ο ο:ό
-υ υ:ύ
-Ἀ Ἀ:Ἄ
-Ἐ Ἐ:Ἔ
-Ἰ Ἰ:Ἴ
-Ὀ Ὀ:Ὄ
-ἀ ἀ:ἄ
-ἐ ἐ:ἔ
-ἰ ἰ:ἴ
-ὀ ὀ:ὄ
-ὐ ὐ:ὔ
-Ἁ Ἁ:Ἅ
-Ἑ Ἑ:Ἕ
-Ἱ Ἱ:Ἵ
-Ὁ Ὁ:Ὅ
-Ὑ Ὑ:Ὕ
-ἁ ἁ:ἅ
-ἑ ἑ:ἕ
-ἱ ἱ:ἵ
-ὁ ὁ:ὅ
-ὑ ὑ:ὕ
-αῐ:αι αῐ:αί
-οῐ:οι οῐ:οί
-ω{-long}:ω ω{-long}:ώ
-ϊ ϊ:ΐ
-ϋ ϋ:ΰ
+LEXICON ShortVowel(3)
+Α Α:Ά Α:Ὰ
+Ε Ε:Έ Ε:Ὲ
+Ι Ι:Ί Ι:Ὶ
+Ο Ο:Ό Ο:Ὸ
+Υ Υ:Ύ Υ:Ὺ
+α α:ά α:ὰ
+ε ε:έ ε:ὲ
+ι ι:ί ι:ὶ
+ο ο:ό ο:ὸ
+υ υ:ύ υ:ὺ
+Ἀ Ἀ:Ἄ Ἀ:Ἂ
+Ἐ Ἐ:Ἔ Ἐ:Ἒ
+Ἰ Ἰ:Ἴ Ἰ:Ἲ
+Ὀ Ὀ:Ὄ Ὀ:Ὂ
+ἀ ἀ:ἄ ἀ:ἂ
+ἐ ἐ:ἔ ἐ:ἒ
+ἰ ἰ:ἴ ἰ:ἲ
+ὀ ὀ:ὄ ὀ:ὂ
+ὐ ὐ:ὔ ὐ:ὒ
+Ἁ Ἁ:Ἅ Ἁ:Ἃ
+Ἑ Ἑ:Ἕ Ἑ:Ἓ
+Ἱ Ἱ:Ἵ Ἱ:Ἳ
+Ὁ Ὁ:Ὅ Ὁ:Ὃ
+Ὑ Ὑ:Ὕ Ὑ:Ὓ
+ἁ ἁ:ἅ ἁ:ἃ
+ἑ ἑ:ἕ ἑ:ἓ
+ἱ ἱ:ἵ ἱ:ἳ
+ὁ ὁ:ὅ ὁ:ὃ
+ὑ ὑ:ὕ ὑ:ὓ
+αῐ:αι αῐ:αί αῐ:αὶ
+οῐ:οι οῐ:οί οῐ:οὶ
+ω{-long}:ω ω{-long}:ώ ω{-long}:ὼ
+ϊ ϊ:ΐ ϊ:ῒ
+ϋ ϋ:ΰ ϋ:ῢ
 
-LEXICON LongVowel(3)
-α{+long}:α α{+long}:ά α{+long}:ᾶ
-η          η:ή        η:ῆ
-ι{+long}:ι ι{+long}:ί ι{+long}:ῖ
-υ{+long}:υ υ{+long}:ύ υ{+long}:ῦ
-ω          ω:ώ        ω:ῶ
-Ἀ{+long}:Ἀ Ἀ{+long}:Ἄ Ἀ{+long}:Ἆ
-Ἠ          Ἠ:Ἤ        Ἠ:Ἦ
-Ἰ{+long}:Ἰ Ἰ{+long}:Ἴ Ἰ{+long}:Ἶ
-Ὠ          Ὠ:Ὤ        Ὠ:Ὦ
-ἀ{+long}:ἀ ἀ{+long}:ἄ ἀ{+long}:ἆ
-ἠ          ἠ:ἤ        ἠ:ἦ
-ἰ{+long}:ἰ ἰ{+long}:ἴ ἰ{+long}:ἶ
-ὐ{+long}:ὐ ὐ{+long}:ὔ ὐ{+long}:ὖ
-ὠ          ὠ:ὤ        ὠ:ὦ
-Ἁ{+long}:Ἁ Ἁ{+long}:Ἅ Ἁ{+long}:Ἇ
-Ἡ          Ἡ:Ἥ        Ἡ:Ἧ
-Ἱ{+long}:Ἱ Ἱ{+long}:Ἵ Ἱ{+long}:Ἷ
-Ὑ{+long}:Ὑ Ὑ{+long}:Ὕ Ὑ{+long}:Ὗ
-Ὠ          Ὡ:Ὥ        Ὡ:Ὧ
-ἁ{+long}:ἁ ἁ{+long}:ἅ ἁ{+long}:ἇ
-ἡ          ἡ:ἥ        ἡ:ἧ
-ἱ{+long}:ἱ ἱ{+long}:ἵ ἱ{+long}:ἷ
-ὑ{+long}:ὑ ὑ{+long}:ὕ ὑ{+long}:ὗ
-ὡ          ὡ:ὥ        ὡ:ὧ
-Αι         Αι:Αί      Αι:Αῖ
-Αἰ         Αἰ:Αἴ      Αἰ:Αἶ
-Αἱ         Αἱ:Αἵ      Αἱ:Αἷ
-αι         αι:αί      αι:αῖ
-αἰ         αἰ:αἴ      αἰ:αἶ
-αἱ         αἱ:αἵ      αἱ:αἷ
-Ει         Ει:Εί      Ει:Εῖ
-Εἰ         Εἰ:Εἴ      Εἰ:Εἶ
-Εἱ         Εἱ:Εἵ      Εἱ:Εἷ
-ει         ει:εί      ει:εῖ
-εἰ         εἰ:εἴ      εἰ:εἶ
-εἱ         εἱ:εἵ      εἱ:εἷ
-Οι         Οι:Οί      Οι:Οῖ
-Οἰ         Οἰ:Οἴ      Οἰ:Οἶ
-Οἱ         Οἱ:Οἵ      Οἱ:Οἷ
-οι         οι:οί      οι:οῖ
-οἰ         οἰ:οἴ      οἰ:οἶ
-οἱ         οἱ:οἵ      οἱ:οἷ
-Υι         Υι:Υί      Υι:Υῖ
-Υἰ         Υἰ:Υἴ      Υἰ:Υἶ
-Υἱ         Υἱ:Υἵ      Υἱ:Υἷ
-υι         υι:υί      υι:υῖ
-υἰ         υἰ:υἴ      υἰ:υἶ
-υἱ         υἱ:υἵ      υἱ:υἷ
-Αυ         Αυ:Αύ      Αυ:Αῦ
-Αὐ         Αὐ:Αὔ      Αὐ:Αὖ
-Αὑ         Αὑ:Αὕ      Αὑ:Αὗ
-αυ         αυ:αύ      αυ:αῦ
-αὐ         αὐ:αὔ      αὐ:αὖ
-αὑ         αὑ:αὕ      αὑ:αὗ
-Ευ         Ευ:Εύ      Ευ:Εῦ
-Εὐ         Εὐ:Εὔ      Εὐ:Εὖ
-Εὑ         Εὑ:Εὕ      Εὑ:Εὗ
-ευ         ευ:εύ      ευ:εῦ
-εὐ         εὐ:εὔ      εὐ:εὖ
-εὑ         εὑ:εὕ      εὑ:εὗ
-Ηυ         Ηυ:Ηύ      Ηυ:Ηῦ
-Ηὐ         Ηὐ:Ηὔ      Ηὐ:Ηὖ
-Ηὑ         Ηὑ:Ηὕ      Ηὑ:Ηὗ
-ηυ         ηυ:ηύ      ηυ:ηῦ
-ηὐ         ηὐ:ηὔ      ηὐ:ηὖ
-ηὑ         ηὑ:ηὕ      ηὑ:ηὗ
-Ου         Ου:Ού      Ου:Οῦ
-Οὐ         Οὐ:Οὔ      Οὐ:Οὖ
-Οὑ         Οὑ:Οὕ      Οὑ:Οὗ
-ου         ου:ού      ου:οῦ
-οὐ         οὐ:οὔ      οὐ:οὖ
-οὑ         οὑ:οὕ      οὑ:οὗ
-Ωυ         Ωυ:Ωύ      Ωυ:Ωῦ
-Ωὐ         Ωὐ:Ωὔ      Ωὐ:Ωὖ
-Ωὑ         Ωὑ:Ωὕ      Ωὑ:Ωὗ
-ωυ         ωυ:ωύ      ωυ:ωῦ
-ωὐ         ωὐ:ωὔ      ωὐ:ωὖ
-ωὑ         ωὑ:ωὕ      ωὑ:ωὗ
+LEXICON LongVowel(4)
+α{+long}:α α{+long}:ά α{+long}:ᾶ α{+long}:ὰ
+η          η:ή        η:ῆ        η:ὴ
+ι{+long}:ι ι{+long}:ί ι{+long}:ῖ ι{+long}:ὶ
+υ{+long}:υ υ{+long}:ύ υ{+long}:ῦ υ{+long}:ὺ
+ω          ω:ώ        ω:ῶ        ω:ὼ
+Ἀ{+long}:Ἀ Ἀ{+long}:Ἄ Ἀ{+long}:Ἆ Ἀ{+long}:Ἂ
+Ἠ          Ἠ:Ἤ        Ἠ:Ἦ        Ἠ:Ἢ
+Ἰ{+long}:Ἰ Ἰ{+long}:Ἴ Ἰ{+long}:Ἶ Ἰ{+long}:Ἲ
+Ὠ          Ὠ:Ὤ        Ὠ:Ὦ        Ὠ:Ὢ
+ἀ{+long}:ἀ ἀ{+long}:ἄ ἀ{+long}:ἆ ἀ{+long}:ἂ
+ἠ          ἠ:ἤ        ἠ:ἦ        ἠ:ἢ
+ἰ{+long}:ἰ ἰ{+long}:ἴ ἰ{+long}:ἶ ἰ{+long}:ἲ
+ὐ{+long}:ὐ ὐ{+long}:ὔ ὐ{+long}:ὖ ὐ{+long}:ὒ
+ὠ          ὠ:ὤ        ὠ:ὦ        ὠ:ὢ
+Ἁ{+long}:Ἁ Ἁ{+long}:Ἅ Ἁ{+long}:Ἇ Ἁ{+long}:Ἃ
+Ἡ          Ἡ:Ἥ        Ἡ:Ἧ        Ἡ:Ἣ
+Ἱ{+long}:Ἱ Ἱ{+long}:Ἵ Ἱ{+long}:Ἷ Ἱ{+long}:Ἳ
+Ὑ{+long}:Ὑ Ὑ{+long}:Ὕ Ὑ{+long}:Ὗ Ὑ{+long}:Ὓ
+Ὠ          Ὡ:Ὥ        Ὡ:Ὧ        Ὡ:Ὣ
+ἁ{+long}:ἁ ἁ{+long}:ἅ ἁ{+long}:ἇ ἁ{+long}:ἃ
+ἡ          ἡ:ἥ        ἡ:ἧ        ἡ:ἣ
+ἱ{+long}:ἱ ἱ{+long}:ἵ ἱ{+long}:ἷ ἱ{+long}:ἳ
+ὑ{+long}:ὑ ὑ{+long}:ὕ ὑ{+long}:ὗ ὑ{+long}:ὓ
+ὡ          ὡ:ὥ        ὡ:ὧ        ὡ:ὣ
+Αι         Αι:Αί      Αι:Αῖ      Αι:Αὶ
+Αἰ         Αἰ:Αἴ      Αἰ:Αἶ      Αἰ:Αἲ
+Αἱ         Αἱ:Αἵ      Αἱ:Αἷ      Αἱ:Αἳ
+αι         αι:αί      αι:αῖ      αι:αὶ
+αἰ         αἰ:αἴ      αἰ:αἶ      αἰ:αἲ
+αἱ         αἱ:αἵ      αἱ:αἷ      αἱ:αἳ
+Ει         Ει:Εί      Ει:Εῖ      Ει:Εὶ
+Εἰ         Εἰ:Εἴ      Εἰ:Εἶ      Εἰ:Εἲ
+Εἱ         Εἱ:Εἵ      Εἱ:Εἷ      Εἱ:Εἳ
+ει         ει:εί      ει:εῖ      ει:εὶ
+εἰ         εἰ:εἴ      εἰ:εἶ      εἰ:εἲ
+εἱ         εἱ:εἵ      εἱ:εἷ      εἱ:εἳ
+Οι         Οι:Οί      Οι:Οῖ      Οι:Οὶ
+Οἰ         Οἰ:Οἴ      Οἰ:Οἶ      Οἰ:Οἲ
+Οἱ         Οἱ:Οἵ      Οἱ:Οἷ      Οἱ:Οἳ
+οι         οι:οί      οι:οῖ      οι:οὶ
+οἰ         οἰ:οἴ      οἰ:οἶ      οἰ:οἲ
+οἱ         οἱ:οἵ      οἱ:οἷ      οἱ:οἳ
+Υι         Υι:Υί      Υι:Υῖ      Υι:Υὶ
+Υἰ         Υἰ:Υἴ      Υἰ:Υἶ      Υἰ:Υἲ
+Υἱ         Υἱ:Υἵ      Υἱ:Υἷ      Υἱ:Υἳ
+υι         υι:υί      υι:υῖ      υι:υὶ
+υἰ         υἰ:υἴ      υἰ:υἶ      υἰ:υἲ
+υἱ         υἱ:υἵ      υἱ:υἷ      υἱ:υἳ
+Αυ         Αυ:Αύ      Αυ:Αῦ      Αυ:Αὺ
+Αὐ         Αὐ:Αὔ      Αὐ:Αὖ      Αὐ:Αὒ
+Αὑ         Αὑ:Αὕ      Αὑ:Αὗ      Αὑ:Αὓ
+αυ         αυ:αύ      αυ:αῦ      αυ:αὺ
+αὐ         αὐ:αὔ      αὐ:αὖ      αὐ:αὒ
+αὑ         αὑ:αὕ      αὑ:αὗ      αὑ:αὓ
+Ευ         Ευ:Εύ      Ευ:Εῦ      Ευ:Εὺ
+Εὐ         Εὐ:Εὔ      Εὐ:Εὖ      Εὐ:Εὒ
+Εὑ         Εὑ:Εὕ      Εὑ:Εὗ      Εὑ:Εὓ
+ευ         ευ:εύ      ευ:εῦ      ευ:εὺ
+εὐ         εὐ:εὔ      εὐ:εὖ      εὐ:εὒ
+εὑ         εὑ:εὕ      εὑ:εὗ      εὑ:εὓ
+Ηυ         Ηυ:Ηύ      Ηυ:Ηῦ      Ηυ:Ηὺ
+Ηὐ         Ηὐ:Ηὔ      Ηὐ:Ηὖ      Ηὐ:Ηὒ
+Ηὑ         Ηὑ:Ηὕ      Ηὑ:Ηὗ      Ηὑ:Ηὓ
+ηυ         ηυ:ηύ      ηυ:ηῦ      ηυ:ηὺ
+ηὐ         ηὐ:ηὔ      ηὐ:ηὖ      ηὐ:ηὒ
+ηὑ         ηὑ:ηὕ      ηὑ:ηὗ      ηὑ:ηὓ
+Ου         Ου:Ού      Ου:Οῦ      Ου:Οὺ
+Οὐ         Οὐ:Οὔ      Οὐ:Οὖ      Οὐ:Οὒ
+Οὑ         Οὑ:Οὕ      Οὑ:Οὗ      Οὑ:Οὓ
+ου         ου:ού      ου:οῦ      ου:οὺ
+οὐ         οὐ:οὔ      οὐ:οὖ      οὐ:οὒ
+οὑ         οὑ:οὕ      οὑ:οὗ      οὑ:οὓ
+Ωυ         Ωυ:Ωύ      Ωυ:Ωῦ      Ωυ:Ωὺ
+Ωὐ         Ωὐ:Ωὔ      Ωὐ:Ωὖ      Ωὐ:Ωὒ
+Ωὑ         Ωὑ:Ωὕ      Ωὑ:Ωὗ      Ωὑ:Ωὓ
+ωυ         ωυ:ωύ      ωυ:ωῦ      ωυ:ωὺ
+ωὐ         ωὐ:ωὔ      ωὐ:ωὖ      ωὐ:ωὒ
+ωὑ         ωὑ:ωὕ      ωὑ:ωὗ      ωὑ:ωὓ
 # TODO: capital iota subscript?
-ᾳ          ᾳ:ᾴ        ᾳ:ᾷ
-ᾀ          ᾀ:ᾄ        ᾀ:ᾆ
-ᾁ          ᾁ:ᾅ        ᾁ:ᾇ
-ῃ          ῃ:ῄ        ῃ:ῇ
-ᾐ          ᾐ:ᾔ        ᾐ:ᾖ
-ᾑ          ᾑ:ᾕ        ᾑ:ᾗ
-ῳ          ῳ:ῴ        ῳ:ῷ
-ᾠ          ᾠ:ᾤ        ᾠ:ᾦ
-ᾡ          ᾡ:ᾥ        ᾡ:ᾧ
+ᾳ          ᾳ:ᾴ        ᾳ:ᾷ        ᾳ:ᾲ
+ᾀ          ᾀ:ᾄ        ᾀ:ᾆ        ᾀ:ᾂ
+ᾁ          ᾁ:ᾅ        ᾁ:ᾇ        ᾁ:ᾃ
+ῃ          ῃ:ῄ        ῃ:ῇ        ῃ:ῂ
+ᾐ          ᾐ:ᾔ        ᾐ:ᾖ        ᾐ:ᾒ
+ᾑ          ᾑ:ᾕ        ᾑ:ᾗ        ᾑ:ᾓ
+ῳ          ῳ:ῴ        ῳ:ῷ        ῳ:ῲ
+ᾠ          ᾠ:ᾤ        ᾠ:ᾦ        ᾠ:ᾢ
+ᾡ          ᾡ:ᾥ        ᾡ:ᾧ        ᾡ:ᾣ
 
 LEXICON Consonant
 Β
