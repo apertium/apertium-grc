@@ -5,3 +5,6 @@
 ^παιδευω<v><ind><actv><impf><pres><p2><pl>$
 ^παιδευω<v><ind><actv><impf><pres><p3><sg>$
 ^παιδευω<v><ind><actv><impf><pres><p3><pl>$
+^παιδευω<v><ind><actv><impf><fut><p1><sg>$
+^παιδευω<v><ind><actv><impf><fut><p2><sg>$
+^παιδευω<v><ind><actv><impf><fut><p3><sg>$
