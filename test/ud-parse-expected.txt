@@ -1,0 +1,17 @@
+[BC3hG9j3ykA3#0] "<μὴ>"
+	"μη" adv @advmod #1->2
+"<πεμπέτω>"
+	"πεμπω" v imp actv impf pres p3 sg @root #2->0
+"<τὰς>"
+	"τ" det def f pl acc @det #3->4
+"<ἐπιστολὰς>"
+	"επιστολη" n f pl acc @obj #4->2
+"<ἐκ>"
+	"εκ" pr @case #5->7
+"<τῆς>"
+	"τ" det def f sg gen @det #6->7
+"<σκηνῆς>"
+	"σκηνη" n f sg gen @obl #7->2
+"<.>"
+	"." sent @punct #8->2
+[/BC3hG9j3ykA3]

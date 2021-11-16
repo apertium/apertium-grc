@@ -1,0 +1,59 @@
+DELIMITERS = "<.>" ;
+
+LIST Det = det ;
+
+LIST Pr = pr ;
+
+LIST Sent = sent ;
+LIST Cm = cm ;
+
+# Universal Dependencies
+# ======================
+
+LIST @root = @root ;     # The root of the sentence, often a finite verb
+LIST @nsubj = @nsubj ;   # The nominal subject of the sentence
+LIST @amod = @amod ;       # 
+LIST @advmod = @advmod ; # An adverbial modifier
+LIST @case = @case ;     # The relation of an adposition to its head
+LIST @acl = @acl ;       # A clause which modifies a nominal
+LIST @nmod = @nmod ;     # Nominal modifier 
+LIST @dobj = @dobj ;     # The direct object of the sentence
+LIST @punct = @punct ;   # Any punctuation
+LIST @cop = @cop ;       # 
+LIST @nmod:poss = @nmod:poss ;
+LIST @obl = @obl ;
+LIST @obj = @obj ;
+LIST @advcl = @advcl ;
+LIST @aux = @aux ;
+LIST @parataxis = @parataxis ;
+LIST @det = @det ;
+LIST @csubj = @csubj ;
+LIST @nummod = @nummod ;
+LIST @dep = @dep ;       # Any remaining dependency
+
+SECTION # mapping
+
+MAP @punct Sent or Cm ;
+MAP @det Det ;
+MAP @case Pr ;
+MAP @obj (n acc) ;
+MAP @root (v imp) ;
+MAP @advmod (adv) ;
+
+SECTION # relations
+
+SETPARENT @root TO (@0 (*)) ;
+
+SETPARENT @det TO (1* (n)) ;
+
+SETPARENT @case TO (1* (n)) ;
+
+SETPARENT @obj TO (-1* (v)) ;
+
+SETPARENT @punct TO (-1* @root) ;
+
+MAP @obl (n) IF (0 (n) LINK c @case) ;
+
+SETPARENT @obl (0 (n) LINK c @case) TO (1-* (v)) ;
+
+SETPARENT @advmod TO (1* (v)) ;

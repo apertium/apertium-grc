@@ -14,6 +14,7 @@ TARGETS_COMMON =			\
 	$(LANG1).autogen.att.gz		\
 	$(LANG1).autopgen.bin		\
 	$(LANG1).rlx.bin            \
+	$(LANG1).ud.bin             \
 	$(LANG1).zhfst
 
 # $(LANG1).prob
@@ -134,6 +135,9 @@ debug: .deps/$(LANG1).LR-debug.hfst .deps/$(LANG1).lexd.hfst
 ###############################################################################
 
 $(LANG1).rlx.bin: $(BASENAME).$(LANG1).rlx
+	cg-comp $< $@
+
+$(LANG1).ud.bin: $(BASENAME).$(LANG1)-ud.rlx
 	cg-comp $< $@
 
 ###############################################################################
