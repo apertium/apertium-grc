@@ -61,11 +61,8 @@ If you are in the source directory after running make, the following
 commands should work:
 
 ```console
-$ echo "TODO: test sentence" | apertium -d . grc-morph
-TODO: test analysis result
-
-$ echo "TODO: test sentence" | apertium -d . grc-tagger
-TODO: test tagger result
+$ echo "Ἐν ἀρχῇ ἦν ὁ λόγος" | apertium -d . grc-morph
+^Ἐν/εν<pr>$ ^ἀρχῇ/αρχη<n><f><sg><dat>$ ^ἦν/ειμι<vbser><ind><actv><impf><past><p1><sg>/ειμι<vbser><ind><actv><impf><past><p3><sg>$ ^ὁ/τ<det><def><m><sg><nom>$ ^λόγος/λογος<n><m><sg><nom>$^./.<sent>$^./.<sent>$
 ```
 
 Files and data
@@ -74,6 +71,10 @@ Files and data
 
 * [`apertium-grc.grc.lexd`](apertium-grc.grc.lexd) - Morphotactic dictionary
 * [`apertium-grc.grc.twol`](apertium-grc.grc.twol) - Morphophonological rules
+* [`apertium-grc.grc-ortho.twol`](apertium-grc.grc-ortho.twol) - Orthographic rules
+* [`apertium-grc.grc-syl.twol`](apertium-grc.grc-syl.twol) - Syllable boundary rules
+* [`apertium-grc.grc-stress.lexd`](apertium-grc.grc-stress.lexd) - Stress placement rules
+* [`apertium-grc.grc-contract.xfst`](apertium-grc.grc-contract.xfst) - Vowel contraction rules
 * [`apertium-grc.grc.rlx`](apertium-grc.grc.rlx) - Constraint Grammar disambiguation rules
 * [`apertium-grc.post-grc.dix`](apertium-grc.post-grc.dix) - Post-generator
 * [`grc.prob`](grc.prob) - Tagger model
