@@ -74,5 +74,13 @@
     </pipeline>
   </mode>
 
+  <mode name="grc-paradigm" install="yes">
+    <pipeline>
+      <program name="lt-paradigm">
+        <file name="grc.autogen.bin"/>
+      </program>
+    </pipeline>
+  </mode>
+
 </modes>
 

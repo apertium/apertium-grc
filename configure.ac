@@ -4,6 +4,7 @@ AC_INIT([Apertium Ancient Greek], [0.1.0], [popcorn.tomato.dude@gmail.com], [ape
 AM_INIT_AUTOMAKE
 AC_PROG_AWK
 
+PKG_CHECK_MODULES(LTTOOLBOX, lttoolbox >= 3.6.9)
 PKG_CHECK_MODULES(APERTIUM, apertium >= 3.8.0)
 PKG_CHECK_MODULES(HFST, hfst >= 3.15.1)
 PKG_CHECK_MODULES(CG3, cg3 >= 1.3.1)
